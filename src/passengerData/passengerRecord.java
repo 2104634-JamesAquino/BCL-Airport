@@ -1,33 +1,38 @@
 package passengerData;
 
 public class passengerRecord {
-	//Attributes
+	
 	String firstName;
 	String lastName;
-	String DoB;
-	String telNumber;
+	private String[] DoB;
 	String email;
+	String telNo;
 	int numBags;
+	int ticketNumber;
+	int bookingID;
 	String departureSeat;
 	String returningSeat;
-	int ticketNumber;
 	int compensation;
 	double foodCosts;
-	double totalCosts;
+	double totalPrice;
 	double bagPrice;
 	double ticketPrice;
 	
-	public passengerRecord(String firstName, String lastName, String DoB, String telNumber, String email, int numBags, String departureSeat, String returningSeat) {
+	public passengerRecord() {
+	}
+	
+	public passengerRecord(String fName, String lName, String[] DoB, String emailAddress, String telNum, int numOfBags, int ticketNo, String departSeat, String returnSeat) {
 		
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.firstName = fName;
+		this.lastName = lName;
 		this.DoB = DoB;
-		this.telNumber = telNumber;
-		this.email = email;
-		this.numBags = numBags;
-		this.departureSeat = departureSeat;
-		this.returningSeat = returningSeat;
-//		this.ticketNumber = randomNumber();
+		this.email = emailAddress;
+		this.telNo = telNum;
+		this.numBags = numOfBags;
+		this.ticketNumber = ticketNo;
+		this.departureSeat = departSeat;
+		this.returningSeat = returnSeat;
+		this.ticketNumber = randomNum();
 		
 	}
 
@@ -35,72 +40,72 @@ public class passengerRecord {
 		return firstName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFirstName(String fName) {
+		this.firstName = fName;
 	}
 
 	public String getLastName() {
 		return lastName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setLastName(String lName) {
+		this.lastName = lName;
 	}
 
-	public String getDoB() {
+	public String[] getDoB() {
 		return DoB;
 	}
 
-	public void setDoB(String doB) {
-		DoB = doB;
-	}
-
-	public String getTelNumber() {
-		return telNumber;
-	}
-
-	public void setTelNumber(String telNumber) {
-		this.telNumber = telNumber;
+	public void setDoB(String[] DoB) {
+		this.DoB = DoB;
 	}
 
 	public String getEmail() {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmail(String emailAddress) {
+		this.email = emailAddress;
+	}
+
+	public String getTelNo() {
+		return telNo;
+	}
+
+	public void setTelNo(String telNum) {
+		this.telNo = telNum;
 	}
 
 	public int getNumBags() {
 		return numBags;
 	}
 
-	public void setNumBags(int numBags) {
-		this.numBags = numBags;
-	}
-
-	public String getDepartureSeat() {
-		return departureSeat;
-	}
-
-	public void setDepartureSeat(String departureSeat) {
-		this.departureSeat = departureSeat;
-	}
-
-	public String getReturningSeat() {
-		return returningSeat;
-	}
-
-	public void setReturningSeat(String returningSeat) {
-		this.returningSeat = returningSeat;
+	public void setNumBags(int numOfBags) {
+		this.numBags = numOfBags;
 	}
 
 	public int getTicketNumber() {
 		return ticketNumber;
 	}
 
-	public void setTicketNumber(int ticketNumber) {
-		this.ticketNumber = ticketNumber;
+	public void setTicketNumber(int ticketNo) {
+		this.ticketNumber = ticketNo;
+	}
+
+	public String getDepartureSeat() {
+		return departureSeat;
+	}
+
+	public void setDepartureSeat(String departSeat) {
+		this.departureSeat = departSeat;
+	}
+
+	public String getReturningSeat() {
+		return returningSeat;
+	}
+
+	public void setReturningSeat(String returnSeat) {
+		this.returningSeat = returnSeat;
 	}
 
 	public int getCompensation() {
@@ -118,13 +123,13 @@ public class passengerRecord {
 	public void setFoodCosts(double foodCosts) {
 		this.foodCosts = foodCosts;
 	}
-	
-	public double getTotalCosts() {
-		return totalCosts;
+
+	public double getTotalPrice() {
+		return totalPrice;
 	}
 
-	public void setTotalCosts(double totalCosts) {
-		this.totalCosts = totalCosts;
+	public void setTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 	public double getBagPrice() {
@@ -142,5 +147,15 @@ public class passengerRecord {
 	public void setTicketPrice(double ticketPrice) {
 		this.ticketPrice = ticketPrice;
 	}
-//Test comment
+	
+	public int randomNum()
+	{
+		int min = 11111111;
+		int max = 99999999;
+		
+		int positiveNum = (int) Math.floor(Math.random()*(max - min + 1) + min);
+		return positiveNum;
+		
+	}
+	
 }

@@ -93,8 +93,8 @@ public class FlightRecord {
 	String arrCity;
 	String flightNum;
 	String Airline;
-	
 	passengerData PassengerData = new passengerData();
+	
 	public FlightRecord(String[] flightRecord){
 		this.dateOfFlight = flightRecord[0];
 		this.depTime = flightRecord[1];
@@ -108,7 +108,6 @@ public class FlightRecord {
 		this.arrCity = flightRecord[9];
 		this.flightNum = flightRecord[10];
 		this.Airline = flightRecord[11];
-		
 	}
 	//test comment
 }

@@ -3,7 +3,34 @@ package flightData;
 import passengerData.passengerData;
 
 public class FlightRecord {
-	String dateOfFlight;
+	String dateOfFlight;}
+	String depTime;
+	String arrTime;
+	String flightDur;
+	String distTravelled;
+	String delay;
+	String depAirport;
+	String depCity;
+	String arrAirport;
+	String arrCity;
+	String flightNum;
+	String Airline;
+	passengerData PassengerData = new passengerData();
+	
+	public FlightRecord(String[] flightRecord){
+		this.dateOfFlight = flightRecord[0];
+		this.depTime = flightRecord[1];
+		this.arrTime = flightRecord[2];
+		this.flightDur = flightRecord[3];
+		this.distTravelled = flightRecord[4];
+		this.delay = flightRecord[5];
+		this.depAirport = flightRecord[6];
+		this.depCity = flightRecord[7];
+		this.arrAirport = flightRecord[8];
+		this.arrCity = flightRecord[9];
+		this.flightNum = flightRecord[10];
+		this.Airline = flightRecord[11];
+	}
 	public String getDateOfFlight() {
 		return dateOfFlight;
 	}
@@ -82,32 +109,4 @@ public class FlightRecord {
 	public void setPassengerData(passengerData passengerData) {
 		PassengerData = passengerData;
 	}
-	String depTime;
-	String arrTime;
-	String flightDur;
-	String distTravelled;
-	String delay;
-	String depAirport;
-	String depCity;
-	String arrAirport;
-	String arrCity;
-	String flightNum;
-	String Airline;
-	passengerData PassengerData = new passengerData();
-	
-	public FlightRecord(String[] flightRecord){
-		this.dateOfFlight = flightRecord[0];
-		this.depTime = flightRecord[1];
-		this.arrTime = flightRecord[2];
-		this.flightDur = flightRecord[3];
-		this.distTravelled = flightRecord[4];
-		this.delay = flightRecord[5];
-		this.depAirport = flightRecord[6];
-		this.depCity = flightRecord[7];
-		this.arrAirport = flightRecord[8];
-		this.arrCity = flightRecord[9];
-		this.flightNum = flightRecord[10];
-		this.Airline = flightRecord[11];
-	}
-	//test comment
 }

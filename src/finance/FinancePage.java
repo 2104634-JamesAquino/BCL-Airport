@@ -21,7 +21,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FinancePage extends JFrame {
 
@@ -56,19 +59,28 @@ public class FinancePage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		ImageIcon image = new ImageIcon("C:\\Users\\James\\OneDrive\\Desktop\\Uni work\\Code\\Group Project\\BCL-Airport\\BCL_Logo.png");
+		JLabel imageLabel = new JLabel("");
+		imageLabel.setBounds(10,9,287,131);
+		imageLabel.setIcon(image);
+		contentPane.add(imageLabel);
 		
 		JLabel lblNewLabel = new JLabel("Brunel Airport - Finance page");
 		lblNewLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
-		lblNewLabel.setBounds(230, 10, 298, 43);
+		lblNewLabel.setBounds(307, 36, 298, 43);
 		contentPane.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton.setBounds(659, 72, 117, 21);
+		btnNewButton.setBounds(635, 129, 117, 21);
 		contentPane.add(btnNewButton);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 110, 766, 396);
+		scrollPane.setBounds(10, 179, 766, 327);
 		contentPane.add(scrollPane);
 		
 		table_1 = new JTable();

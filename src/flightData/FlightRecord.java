@@ -3,7 +3,7 @@ package flightData;
 import passengerData.passengerData;
 
 public class FlightRecord {
-	String dateOfFlight;}
+	String dateOfFlight;
 	String depTime;
 	String arrTime;
 	String flightDur;

@@ -1,7 +1,7 @@
 package passengerData;
 
 public class passengerRecord {
-	
+	//Attributes
 	String firstName;
 	String lastName;
 	String DoB;

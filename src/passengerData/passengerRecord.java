@@ -4,7 +4,7 @@ public class passengerRecord {
 	
 	String firstName;
 	String lastName;
-	private String[] DoB;
+	String DoB;
 	String email;
 	String telNo;
 	int numBags;
@@ -21,7 +21,7 @@ public class passengerRecord {
 	public passengerRecord() {
 	}
 	
-	public passengerRecord(String fName, String lName, String[] DoB, String emailAddress, String telNum, int numOfBags, int ticketNo, String departSeat, String returnSeat) {
+	public passengerRecord(String fName, String lName, String DoB, String emailAddress, String telNum, int numOfBags, int ticketNo, String departSeat, String returnSeat) {
 		
 		this.firstName = fName;
 		this.lastName = lName;
@@ -52,11 +52,11 @@ public class passengerRecord {
 		this.lastName = lName;
 	}
 
-	public String[] getDoB() {
+	public String getDoB() {
 		return DoB;
 	}
 
-	public void setDoB(String[] DoB) {
+	public void setDoB(String DoB) {
 		this.DoB = DoB;
 	}
 

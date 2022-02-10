@@ -1,5 +1,7 @@
 package finance;
 
+import passengerData.passengerRecord;
+
 public class Finance {
 	public int calculateBagPrice(int numBags) {
 		int totalBPrice = 0;
@@ -64,6 +66,7 @@ public class Finance {
 		String[][] booking = {{"James","Aquino","05/08/2003","12345678","5","","","",""},{"Jennie","Phuong","20/04/2003","23456789","1","","","",""}};
 		int amount = booking.length;
 		for(int i =0; i<amount;i++) {
+			passengerRecord passenger = new passengerRecord();
 			String[] passengerDetails = booking[i];
 			String pFName = changeString(passengerDetails[0]);
 			String pLName = changeString(passengerDetails[1]);

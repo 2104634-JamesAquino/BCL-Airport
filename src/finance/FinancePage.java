@@ -59,7 +59,7 @@ public class FinancePage extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		ImageIcon image = new ImageIcon("C:\\Users\\James\\OneDrive\\Desktop\\Uni work\\Code\\Group Project\\BCL-Airport\\BCL_Logo.png");
+		ImageIcon image = new ImageIcon("./BCL_Logo.png");
 		JLabel imageLabel = new JLabel("");
 		imageLabel.setBounds(10,9,287,131);
 		imageLabel.setIcon(image);

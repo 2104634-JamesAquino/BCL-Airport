@@ -66,7 +66,8 @@ public class Finance {
 		return totalPrice;
 	}
 	public void displayPassengerData() {
-		String[][] booking = {{"James","Aquino","05/08/2003","12345678","5","","","",""},{"Jennie","Phuong","20/04/2003","23456789","1","","","",""}};
+		//passengerRecord record = passengerRecord.get__();
+		String [][] booking = {{}};
 		int amount = booking.length;
 		for(int i =0; i<amount;i++) {
 			//passengerRecord passenger = new passengerRecord();

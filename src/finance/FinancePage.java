@@ -52,7 +52,7 @@ public class FinancePage extends JFrame {
 	 * Create the frame.
 	 */
 	public FinancePage() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 553);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -73,12 +73,6 @@ public class FinancePage extends JFrame {
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try {
-					FinanceWarningScreen frame = new FinanceWarningScreen();
-					frame.setVisible(true);
-				} catch (Exception ex) {
-					ex.printStackTrace();
-			}
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -227,8 +221,8 @@ public class FinancePage extends JFrame {
 			try {
 				FinanceWarningScreen frame = new FinanceWarningScreen();
 				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
+			} catch (Exception ex) {
+				ex.printStackTrace();
 		}
 		}
 		return checkedString;
@@ -242,8 +236,8 @@ public class FinancePage extends JFrame {
 			try {
 				FinanceWarningScreen frame = new FinanceWarningScreen();
 				frame.setVisible(true);
-			} catch (Exception e) {
-				e.printStackTrace();
+			} catch (Exception ey) {
+				ey.printStackTrace();
 		}
 		}
 		return checkedNumeric;

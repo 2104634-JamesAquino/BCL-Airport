@@ -73,6 +73,12 @@ public class FinancePage extends JFrame {
 		JButton btnNewButton = new JButton("New button");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					FinanceWarningScreen frame = new FinanceWarningScreen();
+					frame.setVisible(true);
+				} catch (Exception ex) {
+					ex.printStackTrace();
+			}
 			}
 		});
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));

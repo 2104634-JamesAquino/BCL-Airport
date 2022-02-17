@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 
 public class Check_Out {
-	
+	//test comment
 	private JFrame frame;
 
 	/**

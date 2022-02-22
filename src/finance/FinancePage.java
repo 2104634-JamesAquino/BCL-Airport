@@ -106,7 +106,7 @@ public class FinancePage extends JFrame {
 		return totalBPrice;
 	}
 	public int calculateCompensation(int delayMins) {
-		double delayHours = delayMins /60;
+		double delayHours = delayMins /60.0;
 		int comp = 0;
 		if (delayHours > 3.00) {
 			comp = 300;

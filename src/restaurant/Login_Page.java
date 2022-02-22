@@ -15,10 +15,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class Login_Page {
-	public static String[] FNUMBER = {"J334","S232"};
-	public static String[] UNAME = {"James","Lola"};
-	public static String[] PWORD = {"NAME","232"};
-
+	
 	private JFrame frame;
 	private JTextField TicketNumENTER;
 	private JTextField FirstNameENTER;
@@ -98,11 +95,7 @@ public class Login_Page {
 		frame.getContentPane().add(LoginBUTTON);
 		LoginBUTTON.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//String path = "C:\\Users\\Wasif Khan\\OneDrive - Brunel University London\\CS1701 Group Projects\\CS1810\\Passenger_Data.csv",
-						//Ticket_Number = Ticket_NumberTxt.getText(),First_Name,Surname ;
 				
-				
-			//new Passenger_Open_CSV().ReadFile(path,Ticket_Number, First_Name, Surname);
 				String TickNum = TicketNumENTER.getText();
 				String FIRSTNAME = FirstNameENTER.getText();
 				String SURNAME = SurnameENTER.getText();

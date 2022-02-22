@@ -108,11 +108,11 @@ public class FinancePage extends JFrame {
 	public int calculateCompensation(int delayMins) {
 		double delayHours = delayMins /60;
 		int comp = 0;
-		if (delayHours >= 3.00) {
+		if (delayHours > 3.00) {
 			comp = 300;
-		} else if (delayHours <= 3.00 && delayHours >= 2.00) {
+		} else if (delayHours > 2.00 && delayHours <= 3.00) {
 			comp = 200;
-		} else if (delayHours <= 2.00 && delayHours >= 1.00) {
+		} else if (delayHours > 1.00 && delayHours <= 2.00) {
 			comp = 100;
 		} 
 		return comp;

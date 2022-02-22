@@ -113,7 +113,7 @@ public class Inventory_counter {
 		Plus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_OneCounter++;
-				if(Item_OneCounter>99) {
+				if(Item_OneCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_OneCounter = 99;	
 					Show_StockCount.setText(""+Item_OneCounter);
@@ -159,7 +159,7 @@ public class Inventory_counter {
 		Plus_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_TwoCounter++;
-				if(Item_TwoCounter>99) {
+				if(Item_TwoCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_TwoCounter = 99;	
 				}
@@ -204,7 +204,7 @@ public class Inventory_counter {
 		Plus_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_ThreeCounter++;
-				if(Item_ThreeCounter>99) {
+				if(Item_ThreeCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_ThreeCounter = 99;	
 				}
@@ -249,7 +249,7 @@ public class Inventory_counter {
 		Plus_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_FourCounter++;
-				if(Item_FourCounter>99) {
+				if(Item_FourCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_FourCounter = 99;	
 				}
@@ -294,7 +294,7 @@ public class Inventory_counter {
 		Plus_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_FiveCounter++;
-				if(Item_FiveCounter>99) {
+				if(Item_FiveCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_FiveCounter = 99;	
 				}
@@ -339,7 +339,7 @@ public class Inventory_counter {
 		Plus_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_SixCounter++;
-				if(Item_SixCounter>99) {
+				if(Item_SixCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_SixCounter = 99;	
 				}
@@ -384,7 +384,7 @@ public class Inventory_counter {
 		Plus_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_SevenCounter++;
-				if(Item_SevenCounter>99) {
+				if(Item_SevenCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_SevenCounter = 99;	
 				}
@@ -429,7 +429,7 @@ public class Inventory_counter {
 		Plus_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_EightCounter++;
-				if(Item_EightCounter>99) {
+				if(Item_EightCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_EightCounter = 99;	
 				}
@@ -474,7 +474,7 @@ public class Inventory_counter {
 		Plus_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_NineCounter++;
-				if(Item_NineCounter>99) {
+				if(Item_NineCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_NineCounter = 99;	
 				}
@@ -519,7 +519,7 @@ public class Inventory_counter {
 		Plus_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_TenCounter++;
-				if(Item_TenCounter>99) {
+				if(Item_TenCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_TenCounter = 99;	
 				}
@@ -609,7 +609,7 @@ public class Inventory_counter {
 		Plus_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_TwelveCounter++;
-				if(Item_TwelveCounter>99) {
+				if(Item_TwelveCounter>100) {
 					System.out.println("You cannot order this much");
 					Item_TwelveCounter = 99;	
 				}

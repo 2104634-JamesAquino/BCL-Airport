@@ -1,6 +1,7 @@
 package restaurant;
 
 import java.awt.Color;
+import java.util.HashMap;
 import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -8,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 
@@ -233,5 +235,20 @@ public class Check_Out {
 		panel.setBounds(30, 80, 216, 25);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
+		HashMap<String , Integer> Restrant_data = new HashMap<String, Integer>();
+		
+		Restrant_data.put("Toast", 100);
+		Restrant_data.put("Sausages", 100);
+		Restrant_data.put("Pancakes", 100);
+		Restrant_data.put("Rice and Curry", 100);
+		Restrant_data.put("Fish and Chips", 100);
+		Restrant_data.put("Pasta", 100);
+		Restrant_data.put("CheeseCake", 100);
+		Restrant_data.put("Choclate Cake", 100);
+		Restrant_data.put("MilkShake", 100);
+		Restrant_data.put("Orange Juice", 100);
+		Restrant_data.put("Apple Juice", 100);
+		Restrant_data.put("Coffee", 100);
 	}
 }

@@ -18,7 +18,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 
-public class Inventory_counter {
+public class Menu_page {
 	static int Total_MenuItems;
 	static int Total_Price;
 	static int Item_OneCounter ;
@@ -36,17 +36,6 @@ public class Inventory_counter {
 	
 	private JFrame frame;
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
-	private JTextField textField_11;
-	private JTextField textField_12;
 	
 	JLabel Show_StockCount;
 	
@@ -59,7 +48,7 @@ public class Inventory_counter {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Inventory_counter window = new Inventory_counter();
+					Menu_page window = new Menu_page();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -71,7 +60,7 @@ public class Inventory_counter {
 	/**
 	 * Create the application.
 	 */
-	public Inventory_counter() {
+	public Menu_page() {
 		initialize();
 	}
 
@@ -95,7 +84,7 @@ public class Inventory_counter {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_1.setBounds(58, 95, 165, 139);
+		panel_1.setBounds(58, 95, 165, 100);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -105,11 +94,11 @@ public class Inventory_counter {
 		panel_1.add(Item_1);
 		
 		Show_StockCount = new JLabel(""+Item_OneCounter);
-		Show_StockCount.setBounds(52, 91, 55, 13);
+		Show_StockCount.setBounds(71, 62, 24, 13);
 		panel_1.add(Show_StockCount);
 		
 		JButton Plus_1 = new JButton("+");
-		Plus_1.setBounds(105, 87, 50, 21);
+		Plus_1.setBounds(105, 58, 50, 21);
 		panel_1.add(Plus_1);
 		Plus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -124,7 +113,7 @@ public class Inventory_counter {
 		});
 		
 		JButton Minus_1 = new JButton("-");
-		Minus_1.setBounds(10, 87, 39, 21);
+		Minus_1.setBounds(10, 58, 50, 21);
 		panel_1.add(Minus_1);
 		Minus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -141,22 +130,17 @@ public class Inventory_counter {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_2.setBounds(336, 95, 165, 139);
+		panel_2.setBounds(336, 95, 165, 100);
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 			
 		JLabel Item_2 = new JLabel("Sausages (3 Pieces)");
 		Double Sausages = 3.0;
-		Item_2.setBounds(25, 24, 119, 13);
+		Item_2.setBounds(36, 24, 119, 13);
 		panel_2.add(Item_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		textField_2.setBounds(36, 58, 96, 19);
-		panel_2.add(textField_2);
-		
 		JButton Plus_2 = new JButton("+");
-		Plus_2.setBounds(101, 87, 54, 21);
+		Plus_2.setBounds(101, 58, 50, 21);
 		panel_2.add(Plus_2);
 		Plus_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -170,7 +154,7 @@ public class Inventory_counter {
 		});
 		
 		JButton Minus_2 = new JButton("-");
-		Minus_2.setBounds(10, 87, 39, 21);
+		Minus_2.setBounds(10, 58, 50, 21);
 		panel_2.add(Minus_2);
 		Minus_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -186,7 +170,7 @@ public class Inventory_counter {
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_3.setBounds(627, 95, 165, 139);
+		panel_3.setBounds(627, 95, 165, 100);
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -195,13 +179,8 @@ public class Inventory_counter {
 		Item_3.setBounds(20, 24, 121, 13);
 		panel_3.add(Item_3);
 		
-		textField_3 = new JTextField();
-		textField_3.setColumns(10);
-		textField_3.setBounds(35, 57, 96, 19);
-		panel_3.add(textField_3);
-		
 		JButton Plus_3 = new JButton("+");
-		Plus_3.setBounds(116, 94, 39, 21);
+		Plus_3.setBounds(105, 58, 50, 21);
 		panel_3.add(Plus_3);
 		Plus_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -215,7 +194,7 @@ public class Inventory_counter {
 		});
 		
 		JButton Minus_3 = new JButton("-");
-		Minus_3.setBounds(10, 94, 39, 21);
+		Minus_3.setBounds(10, 58, 50, 21);
 		panel_3.add(Minus_3);
 		Minus_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -231,7 +210,7 @@ public class Inventory_counter {
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_4.setBounds(58, 271, 165, 139);
+		panel_4.setBounds(58, 271, 165, 100);
 		frame.getContentPane().add(panel_4);
 		panel_4.setLayout(null);
 		
@@ -240,13 +219,8 @@ public class Inventory_counter {
 		Item_4.setBounds(32, 23, 96, 13);
 		panel_4.add(Item_4);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(60, 55, 40, 19);
-		panel_4.add(textField_4);
-		
 		JButton Plus_4 = new JButton("+");
-		Plus_4.setBounds(102, 84, 53, 21);
+		Plus_4.setBounds(105, 57, 50, 21);
 		panel_4.add(Plus_4);
 		Plus_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -260,7 +234,7 @@ public class Inventory_counter {
 		});
 		
 		JButton Minus_4 = new JButton("-");
-		Minus_4.setBounds(10, 84, 39, 21);
+		Minus_4.setBounds(10, 57, 50, 21);
 		panel_4.add(Minus_4);
 		Minus_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -276,7 +250,7 @@ public class Inventory_counter {
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_5.setBounds(336, 271, 165, 139);
+		panel_5.setBounds(336, 271, 165, 100);
 		frame.getContentPane().add(panel_5);
 		panel_5.setLayout(null);
 		
@@ -285,13 +259,8 @@ public class Inventory_counter {
 		Item_5.setBounds(34, 30, 96, 13);
 		panel_5.add(Item_5);
 		
-		textField_5 = new JTextField();
-		textField_5.setColumns(10);
-		textField_5.setBounds(34, 53, 96, 19);
-		panel_5.add(textField_5);
-		
 		JButton Plus_5 = new JButton("+");
-		Plus_5.setBounds(104, 91, 51, 21);
+		Plus_5.setBounds(101, 57, 50, 21);
 		panel_5.add(Plus_5);
 		Plus_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -305,7 +274,7 @@ public class Inventory_counter {
 		});
 		
 		JButton Minus_5 = new JButton("-");
-		Minus_5.setBounds(10, 91, 39, 21);
+		Minus_5.setBounds(10, 57, 50, 21);
 		panel_5.add(Minus_5);
 		Minus_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -321,7 +290,7 @@ public class Inventory_counter {
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_6.setBounds(627, 271, 165, 139);
+		panel_6.setBounds(627, 271, 165, 100);
 		frame.getContentPane().add(panel_6);
 		panel_6.setLayout(null);
 		
@@ -330,13 +299,8 @@ public class Inventory_counter {
 		Item_6.setBounds(65, 27, 67, 13);
 		panel_6.add(Item_6);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(36, 62, 96, 19);
-		panel_6.add(textField_6);
-		
 		JButton Plus_6 = new JButton("+");
-		Plus_6.setBounds(116, 91, 39, 21);
+		Plus_6.setBounds(105, 57, 50, 21);
 		panel_6.add(Plus_6);
 		Plus_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -350,7 +314,7 @@ public class Inventory_counter {
 		});
 		
 		JButton Minus_6 = new JButton("-");
-		Minus_6.setBounds(10, 91, 39, 21);
+		Minus_6.setBounds(10, 57, 50, 21);
 		panel_6.add(Minus_6);
 		Minus_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -366,7 +330,7 @@ public class Inventory_counter {
 		
 		JPanel panel_7 = new JPanel();
 		panel_7.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_7.setBounds(58, 439, 165, 139);
+		panel_7.setBounds(58, 439, 165, 100);
 		frame.getContentPane().add(panel_7);
 		panel_7.setLayout(null);
 		
@@ -374,11 +338,6 @@ public class Inventory_counter {
 		Double CheeseCake = 4.50;
 		Item_7.setBounds(10, 29, 155, 13);
 		panel_7.add(Item_7);
-		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(37, 68, 96, 19);
-		panel_7.add(textField_7);
 		
 		JButton Plus_7 = new JButton("+");
 		Plus_7.setBounds(101, 95, 54, 21);
@@ -411,7 +370,7 @@ public class Inventory_counter {
 		
 		JPanel panel_8 = new JPanel();
 		panel_8.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_8.setBounds(336, 439, 165, 139);
+		panel_8.setBounds(336, 439, 165, 100);
 		frame.getContentPane().add(panel_8);
 		panel_8.setLayout(null);
 		
@@ -419,11 +378,6 @@ public class Inventory_counter {
 		Double Choclate_Cake = 5.50;
 		Item_8.setBounds(10, 21, 145, 13);
 		panel_8.add(Item_8);
-		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(35, 68, 96, 19);
-		panel_8.add(textField_8);
 		
 		JButton Plus_8 = new JButton("+");
 		Plus_8.setBounds(116, 97, 39, 21);
@@ -456,7 +410,7 @@ public class Inventory_counter {
 			
 		JPanel panel_9 = new JPanel();
 		panel_9.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_9.setBounds(627, 439, 165, 139);
+		panel_9.setBounds(627, 439, 165, 100);
 		frame.getContentPane().add(panel_9);
 		panel_9.setLayout(null);
 		
@@ -464,11 +418,6 @@ public class Inventory_counter {
 		Double MilkShake = 6.70;
 		Item_9.setBounds(10, 25, 120, 13);
 		panel_9.add(Item_9);
-		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(34, 64, 96, 19);
-		panel_9.add(textField_9);
 		
 		JButton Plus_9 = new JButton("+");
 		Plus_9.setBounds(116, 93, 39, 21);
@@ -501,7 +450,7 @@ public class Inventory_counter {
 		
 		JPanel panel_10 = new JPanel();
 		panel_10.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_10.setBounds(58, 603, 165, 139);
+		panel_10.setBounds(58, 603, 165, 100);
 		frame.getContentPane().add(panel_10);
 		panel_10.setLayout(null);
 		
@@ -509,11 +458,6 @@ public class Inventory_counter {
 		Double Orange_Juice = 2.0;
 		Item_10.setBounds(37, 27, 107, 13);
 		panel_10.add(Item_10);
-		
-		textField_10 = new JTextField();
-		textField_10.setColumns(10);
-		textField_10.setBounds(37, 65, 96, 19);
-		panel_10.add(textField_10);
 		
 		JButton Plus_10 = new JButton("+");
 		Plus_10.setBounds(116, 94, 39, 21);
@@ -546,7 +490,7 @@ public class Inventory_counter {
 		
 		JPanel panel_11 = new JPanel();
 		panel_11.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_11.setBounds(336, 603, 165, 139);
+		panel_11.setBounds(336, 603, 165, 100);
 		frame.getContentPane().add(panel_11);
 		panel_11.setLayout(null);
 		
@@ -554,11 +498,6 @@ public class Inventory_counter {
 		Double Apple_Juice = 2.0;
 		Item_11.setBounds(31, 20, 96, 13);
 		panel_11.add(Item_11);
-		
-		textField_11 = new JTextField();
-		textField_11.setColumns(10);
-		textField_11.setBounds(31, 69, 96, 19);
-		panel_11.add(textField_11);
 		
 		JButton Plus_11 = new JButton("+");
 		Plus_11.setBounds(116, 95, 39, 21);
@@ -591,7 +530,7 @@ public class Inventory_counter {
 		
 		JPanel panel_12 = new JPanel();
 		panel_12.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_12.setBounds(627, 603, 165, 139);
+		panel_12.setBounds(627, 603, 165, 100);
 		frame.getContentPane().add(panel_12);
 		panel_12.setLayout(null);
 		
@@ -599,11 +538,6 @@ public class Inventory_counter {
 		Double Coffee = 4.0;
 		Item_12.setBounds(34, 25, 75, 13);
 		panel_12.add(Item_12);
-		
-		textField_12 = new JTextField();
-		textField_12.setColumns(10);
-		textField_12.setBounds(34, 63, 96, 19);
-		panel_12.add(textField_12);
 		
 		JButton Plus_12 = new JButton("+");
 		Plus_12.setBounds(116, 92, 39, 21);

@@ -49,7 +49,7 @@ public class Check_Out {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		JLabel lblNumberOfItems = new JLabel("Number of Items: " + Inventory_counter.Total_MenuItems);
+		JLabel lblNumberOfItems = new JLabel("Number of Items: " + Menu_page.Total_MenuItems);
 		lblNumberOfItems.setBounds(30, 133, 236, 30);
 		lblNumberOfItems.setFont(new Font("Tahoma", Font.BOLD, 20));
 		frame.getContentPane().add(lblNumberOfItems);
@@ -164,51 +164,51 @@ public class Check_Out {
 		separator_12.setBounds(10, 197, 164, 13);
 		panel_2.add(separator_12);
 		
-		JLabel ShowItem_1 = new JLabel("X"+Inventory_counter.Item_OneCounter);
+		JLabel ShowItem_1 = new JLabel("X"+Menu_page.Item_OneCounter);
 		ShowItem_1.setBounds(145, 10, 39, 13);
 		panel_2.add(ShowItem_1);
 		
-		JLabel ShowItem_2 = new JLabel("X"+Inventory_counter.Item_TwoCounter);
+		JLabel ShowItem_2 = new JLabel("X"+Menu_page.Item_TwoCounter);
 		ShowItem_2.setBounds(145, 27, 39, 13);
 		panel_2.add(ShowItem_2);
 		
-		JLabel ShowItem_3 = new JLabel("X"+Inventory_counter.Item_ThreeCounter);
+		JLabel ShowItem_3 = new JLabel("X"+Menu_page.Item_ThreeCounter);
 		ShowItem_3.setBounds(145, 44, 39, 13);
 		panel_2.add(ShowItem_3);
 		
-		JLabel ShowItem_4 = new JLabel("X"+Inventory_counter.Item_FourCounter);
+		JLabel ShowItem_4 = new JLabel("X"+Menu_page.Item_FourCounter);
 		ShowItem_4.setBounds(145, 61, 39, 13);
 		panel_2.add(ShowItem_4);
 		
-		JLabel ShowItem_5 = new JLabel("X"+Inventory_counter.Item_FiveCounter);
+		JLabel ShowItem_5 = new JLabel("X"+Menu_page.Item_FiveCounter);
 		ShowItem_5.setBounds(145, 78, 39, 13);
 		panel_2.add(ShowItem_5);
 		
-		JLabel ShowItem_6 = new JLabel("X"+Inventory_counter.Item_SixCounter);
+		JLabel ShowItem_6 = new JLabel("X"+Menu_page.Item_SixCounter);
 		ShowItem_6.setBounds(145, 95, 39, 13);
 		panel_2.add(ShowItem_6);
 		
-		JLabel ShowItem_7 = new JLabel("X"+Inventory_counter.Item_SevenCounter);
+		JLabel ShowItem_7 = new JLabel("X"+Menu_page.Item_SevenCounter);
 		ShowItem_7.setBounds(145, 112, 39, 13);
 		panel_2.add(ShowItem_7);
 		
-		JLabel ShowItem_8 = new JLabel("X"+Inventory_counter.Item_EightCounter);
+		JLabel ShowItem_8 = new JLabel("X"+Menu_page.Item_EightCounter);
 		ShowItem_8.setBounds(145, 129, 39, 13);
 		panel_2.add(ShowItem_8);
 		
-		JLabel ShowItem_9 = new JLabel("X"+Inventory_counter.Item_NineCounter);
+		JLabel ShowItem_9 = new JLabel("X"+Menu_page.Item_NineCounter);
 		ShowItem_9.setBounds(145, 146, 39, 13);
 		panel_2.add(ShowItem_9);
 		
-		JLabel ShowItem_10 = new JLabel("X"+Inventory_counter.Item_TenCounter);
+		JLabel ShowItem_10 = new JLabel("X"+Menu_page.Item_TenCounter);
 		ShowItem_10.setBounds(145, 163, 39, 13);
 		panel_2.add(ShowItem_10);
 		
-		JLabel ShowItem_11 = new JLabel("X"+Inventory_counter.Item_ElevenCounter);
+		JLabel ShowItem_11 = new JLabel("X"+Menu_page.Item_ElevenCounter);
 		ShowItem_11.setBounds(145, 180, 39, 13);
 		panel_2.add(ShowItem_11);
 		
-		JLabel ShowItem_12 = new JLabel("X"+Inventory_counter.Item_TwelveCounter);
+		JLabel ShowItem_12 = new JLabel("X"+Menu_page.Item_TwelveCounter);
 		ShowItem_12.setBounds(145, 197, 39, 13);
 		panel_2.add(ShowItem_12);
 		

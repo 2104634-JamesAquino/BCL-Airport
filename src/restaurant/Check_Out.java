@@ -226,7 +226,7 @@ public class Check_Out {
 		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 20));
 		frame.getContentPane().add(btnNewButton);
 		
-		JLabel Total = new JLabel("Total Price: £"+Inventory_counter.Total_Price);
+		JLabel Total = new JLabel("Total Price: £"+Menu_page.Total_Price);
 		Total.setBounds(30, 80, 190, 25);
 		frame.getContentPane().add(Total);
 		Total.setFont(new Font("Tahoma", Font.BOLD, 20));
@@ -236,19 +236,6 @@ public class Check_Out {
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
 		
-		HashMap<String , Integer> Restrant_data = new HashMap<String, Integer>();
 		
-		Restrant_data.put("Toast", 100);
-		Restrant_data.put("Sausages", 100);
-		Restrant_data.put("Pancakes", 100);
-		Restrant_data.put("Rice and Curry", 100);
-		Restrant_data.put("Fish and Chips", 100);
-		Restrant_data.put("Pasta", 100);
-		Restrant_data.put("CheeseCake", 100);
-		Restrant_data.put("Choclate Cake", 100);
-		Restrant_data.put("MilkShake", 100);
-		Restrant_data.put("Orange Juice", 100);
-		Restrant_data.put("Apple Juice", 100);
-		Restrant_data.put("Coffee", 100);
 	}
 }

@@ -14,11 +14,24 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 
 public class Menu_page {
+	
+	static int Stock_Updater(int C, String D, HashMap E, int F) {
+		C = (int) E.get(D);
+		C = C - F;
+		E.put(D,C);
+		System.out.println(E.get(D));
+		E.put(D,C);
+		return C;
+
+		
+	}
+	
 	static int Total_MenuItems;
 	static int Total_Price;
 	static int Item_OneCounter = 0;
@@ -54,6 +67,8 @@ public class Menu_page {
 		System.out.println("Item One: "+b);
 		return b;	
 	}
+	
+	
 	private JFrame frame;
 	JLabel Show_StockCount_1;
 	JLabel Show_StockCount_2;
@@ -441,36 +456,27 @@ public class Menu_page {
 		Item_10.setBounds(48, 26, 107, 13);
 		panel_10.add(Item_10);
 		
+		JLabel Show_StockCount_10 = new JLabel(""+Item_TenCounter);
+		Show_StockCount_10.setBounds(69, 65, 24, 13);
+		panel_10.add(Show_StockCount_10);
+		
 		JButton Plus_10 = new JButton("+");
 		Plus_10.setBounds(103, 65, 52, 21);
 		panel_10.add(Plus_10);
 		Plus_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TenCounter++;
-				if(Item_TenCounter>100) {
-					System.out.println("You cannot order this much");
-					Item_TenCounter = 99;	
-				}
-				System.out.println("Item Ten: "+Item_TenCounter);		
+				Item_TenCounter = Plus_button(Item_TenCounter);
+				Show_StockCount_10.setText(String.valueOf(Item_TenCounter));		
 				}
 		});
 		
 		JButton Minus_10 = new JButton("-");
 		Minus_10.setBounds(10, 65, 49, 21);
 		panel_10.add(Minus_10);
-		
-		JLabel Show_StockCount_10 = new JLabel("null");
-		Show_StockCount_10.setBounds(69, 65, 24, 13);
-		panel_10.add(Show_StockCount_10);
 		Minus_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TenCounter--;
-				if(Item_TenCounter<0) {
-					System.out.println("Error, order cannot go Bellow 0");
-					Item_TenCounter=0;
-					
-				}
-				System.out.println("Item Ten: "+Item_TenCounter);
+				Item_TenCounter = Minus_button(Item_TenCounter);
+				Show_StockCount_10.setText(String.valueOf(Item_TenCounter));
 			}
 		});
 		
@@ -484,37 +490,29 @@ public class Menu_page {
 		Double Apple_Juice = 2.0;
 		panel_11.setLayout(null);
 		panel_11.add(Item_11);
+
+		
+		JLabel Show_StockCount_11 = new JLabel(""+Item_ElevenCounter);
+		Show_StockCount_11.setBounds(66, 65, 24, 13);
+		panel_11.add(Show_StockCount_11);
 		
 		JButton Plus_11 = new JButton("+");
 		Plus_11.setBounds(100, 65, 55, 21);
 		panel_11.add(Plus_11);
 		Plus_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_ElevenCounter++;
-				if(Item_ElevenCounter>99) {
-					System.out.println("You cannot order this much");
-					Item_ElevenCounter = 99;	
-				}
-				System.out.println("Item Eleven: "+Item_ElevenCounter);		
-				}
+				Item_ElevenCounter = Plus_button(Item_ElevenCounter);
+				Show_StockCount_11.setText(String.valueOf(Item_ElevenCounter));
+			}
 		});
 		
 		JButton Minus_11 = new JButton("-");
 		Minus_11.setBounds(10, 65, 46, 21);
 		panel_11.add(Minus_11);
-		
-		JLabel Show_StockCount_11 = new JLabel("null");
-		Show_StockCount_11.setBounds(66, 65, 24, 13);
-		panel_11.add(Show_StockCount_11);
 		Minus_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_ElevenCounter--;
-				if(Item_ElevenCounter<0) {
-					System.out.println("Error, order cannot go Bellow 0");
-					Item_ElevenCounter=0;
-					
-				}
-				System.out.println("Item Eleven: "+ Item_ElevenCounter);
+				Item_ElevenCounter = Minus_button(Item_ElevenCounter);
+				Show_StockCount_11.setText(String.valueOf(Item_ElevenCounter));
 			}
 		});
 		
@@ -529,38 +527,45 @@ public class Menu_page {
 		panel_12.setLayout(null);
 		panel_12.add(Item_12);
 		
+		JLabel Show_StockCount_12 = new JLabel(""+Item_TwelveCounter);
+		Show_StockCount_12.setBounds(70, 64, 24, 13);
+		panel_12.add(Show_StockCount_12);
+		
 		JButton Plus_12 = new JButton("+");
 		Plus_12.setBounds(104, 64, 51, 21);
 		panel_12.add(Plus_12);
 		Plus_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TwelveCounter++;
-				if(Item_TwelveCounter>100) {
-					System.out.println("You cannot order this much");
-					Item_TwelveCounter = 99;	
-				}
-				System.out.println("Item Twelve: "+Item_TwelveCounter);		
+				Item_TwelveCounter = Plus_button(Item_TwelveCounter);
+				Show_StockCount_12.setText(String.valueOf(Item_TwelveCounter));	
 				}
 		});
 
 		JButton Minus_12 = new JButton("-");
 		Minus_12.setBounds(10, 64, 50, 21);
 		panel_12.add(Minus_12);
-		
-		JLabel Show_StockCount_12 = new JLabel("null");
-		Show_StockCount_12.setBounds(70, 64, 24, 13);
-		panel_12.add(Show_StockCount_12);
 		Minus_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TwelveCounter--;
-				if(Item_TwelveCounter<0) {
-					System.out.println("Error, order cannot go Bellow 0");
-					Item_TwelveCounter=0;
-					
-				}
-				System.out.println("Item Twelve: "+ Item_TwelveCounter);
+				Item_TwelveCounter = Minus_button(Item_TwelveCounter);
+				Show_StockCount_12.setText(String.valueOf(Item_TwelveCounter));
 			}
 		});
+		
+		HashMap<String , Integer> Restrant_data = new HashMap<String, Integer>();
+		
+		Restrant_data.put("Toast", 100);
+		Restrant_data.put("Sausages", 100);
+		Restrant_data.put("Pancakes", 100);
+		Restrant_data.put("Rice and Curry", 100);
+		Restrant_data.put("Fish and Chips", 100);
+		Restrant_data.put("Pasta", 100);
+		Restrant_data.put("CheeseCake", 100);
+		Restrant_data.put("Choclate Cake", 100);
+		Restrant_data.put("MilkShake", 100);
+		Restrant_data.put("Orange Juice", 100);
+		Restrant_data.put("Apple Juice", 100);
+		Restrant_data.put("Coffee", 100);
+		
 		
 		JButton Check_out = new JButton("Check Out");
 		Check_out.addActionListener(new ActionListener() {
@@ -573,11 +578,29 @@ public class Menu_page {
 						+(Item_NineCounter*MilkShake)+(Item_TenCounter*Orange_Juice)+(Item_ElevenCounter*Apple_Juice)+(Item_TwelveCounter*Coffee));
 				System.out.println("£"+Total_Price);
 				
+				int Temp = 0;
+				Stock_Updater(Temp, "Toast", Restrant_data, Item_OneCounter ); //1
+				Stock_Updater(Temp, "Sausages", Restrant_data, Item_TwoCounter ); //2
+				Stock_Updater(Temp, "Pancakes", Restrant_data, Item_ThreeCounter ); //3
+				Stock_Updater(Temp, "Rice and Curry", Restrant_data, Item_FourCounter ); //4
+				Stock_Updater(Temp, "Fish and Chips", Restrant_data, Item_FiveCounter ); //5
+				Stock_Updater(Temp, "Pasta", Restrant_data, Item_SixCounter ); //6
+				Stock_Updater(Temp, "CheeseCake", Restrant_data, Item_SevenCounter ); //7
+				Stock_Updater(Temp, "Choclate Cake", Restrant_data, Item_EightCounter ); //8
+				Stock_Updater(Temp, "MilkShake", Restrant_data, Item_NineCounter ); //9
+				Stock_Updater(Temp, "MilkShake", Restrant_data, Item_TenCounter ); //10
+				Stock_Updater(Temp, "Apple Juice", Restrant_data, Item_ElevenCounter ); //11
+				Stock_Updater(Temp, "Coffee", Restrant_data, Item_TwelveCounter ); //12
+				
+				System.out.println(Restrant_data);
+
+
 				Check_Out info = new Check_Out();
 				Check_Out.main(null);
 			}
 		});
 		Check_out.setBounds(685, 632, 111, 21);
 		frame.getContentPane().add(Check_out);
+		
 	}
 }

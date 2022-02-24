@@ -1,12 +1,22 @@
 package restaurant;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
 public class Tester {
+	static int  counter = 0;
+	static int counter2 = 0;
+	
+	public static int Addition(int a) {
+		a++;
+		System.out.println("Button pressed" + a);
+		return a;
+	}
 	
 
 	private JFrame frame;
@@ -35,7 +45,7 @@ public class Tester {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialise the contents of the frame.
 	 * @return 
 	 */
 
@@ -48,10 +58,19 @@ public class Tester {
 		JButton btnOne = new JButton("One");
 		btnOne.setBounds(20, 101, 85, 21);
 		frame.getContentPane().add(btnOne);
-		
+		btnOne.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			counter = Addition(counter);			
+		}
+	});
 		JButton btnTwo = new JButton("Two");
 		btnTwo.setBounds(135, 101, 85, 21);
 		frame.getContentPane().add(btnTwo);
+		btnTwo.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			counter2 = Addition(counter2);			
+		}
+	});
 		
 		JButton btnThree = new JButton("Three");
 		btnThree.setBounds(255, 101, 85, 21);

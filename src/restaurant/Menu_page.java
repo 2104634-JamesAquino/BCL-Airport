@@ -34,10 +34,24 @@ public class Menu_page {
 	static int Item_ElevenCounter;
 	static int Item_TwelveCounter;
 	
-	private JFrame frame;
-	private JTextField textField_1;
+	public static int Plus_button(int a) {
+		a++;
+		if(a>100) {
+			System.out.println("You cannot order this much");
+			a = 99;	
+		}
+		System.out.println("Item One: "+a);
+		return a;
+	}
 	
-	JLabel Show_StockCount;
+	
+	public static int Minus_button(int b) {
+		b--;
+	return b;	
+	}
+	private JFrame frame;
+	
+	JLabel Show_StockCount_1;
 	
 
 	/**
@@ -93,22 +107,18 @@ public class Menu_page {
 		Item_1.setBounds(42, 22, 91, 13);
 		panel_1.add(Item_1);
 		
-		Show_StockCount = new JLabel(""+Item_OneCounter);
-		Show_StockCount.setBounds(71, 62, 24, 13);
-		panel_1.add(Show_StockCount);
+		Show_StockCount_1 = new JLabel(""+Item_OneCounter);
+		Show_StockCount_1.setBounds(71, 62, 24, 13);
+		panel_1.add(Show_StockCount_1);
 		
 		JButton Plus_1 = new JButton("+");
 		Plus_1.setBounds(105, 58, 50, 21);
 		panel_1.add(Plus_1);
 		Plus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_OneCounter++;
-				Show_StockCount.setText(String.valueOf(Item_OneCounter));
-				if(Item_OneCounter>100) {
-					System.out.println("You cannot order this much");
-					Item_OneCounter = 99;	
-				}
-				System.out.println("Item One: "+Item_OneCounter);
+				Item_OneCounter = Plus_button(Item_OneCounter);
+				
+				Show_StockCount_1.setText(String.valueOf(Item_OneCounter));
 			}
 		});
 		
@@ -117,13 +127,12 @@ public class Menu_page {
 		panel_1.add(Minus_1);
 		Minus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_OneCounter--;
+				Item_OneCounter= Minus_button(Item_OneCounter);
 				if(Item_OneCounter<0) {
 					System.out.println("Error, order cannot go Bellow 0");
-					Item_OneCounter=0;
-					Show_StockCount.setText(String.valueOf(Item_OneCounter));	
-					
+					Item_OneCounter=0;	
 				}
+				Show_StockCount_1.setText(String.valueOf(Item_OneCounter));
 				System.out.println("Item One: "+Item_OneCounter);
 			}
 		});
@@ -156,6 +165,10 @@ public class Menu_page {
 		JButton Minus_2 = new JButton("-");
 		Minus_2.setBounds(10, 58, 50, 21);
 		panel_2.add(Minus_2);
+		
+		JLabel Show_StockCount_2 = new JLabel("null");
+		Show_StockCount_2.setBounds(70, 62, 24, 13);
+		panel_2.add(Show_StockCount_2);
 		Minus_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_TwoCounter--;
@@ -196,6 +209,10 @@ public class Menu_page {
 		JButton Minus_3 = new JButton("-");
 		Minus_3.setBounds(10, 58, 50, 21);
 		panel_3.add(Minus_3);
+		
+		JLabel Show_StockCount_3 = new JLabel("null");
+		Show_StockCount_3.setBounds(70, 62, 24, 13);
+		panel_3.add(Show_StockCount_3);
 		Minus_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_ThreeCounter--;
@@ -236,6 +253,10 @@ public class Menu_page {
 		JButton Minus_4 = new JButton("-");
 		Minus_4.setBounds(10, 57, 50, 21);
 		panel_4.add(Minus_4);
+		
+		JLabel Show_StockCount_4 = new JLabel("null");
+		Show_StockCount_4.setBounds(70, 65, 24, 13);
+		panel_4.add(Show_StockCount_4);
 		Minus_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_FourCounter--;
@@ -276,6 +297,10 @@ public class Menu_page {
 		JButton Minus_5 = new JButton("-");
 		Minus_5.setBounds(10, 57, 50, 21);
 		panel_5.add(Minus_5);
+		
+		JLabel Show_StockCount_5 = new JLabel("null");
+		Show_StockCount_5.setBounds(67, 61, 24, 13);
+		panel_5.add(Show_StockCount_5);
 		Minus_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_FiveCounter--;
@@ -316,6 +341,10 @@ public class Menu_page {
 		JButton Minus_6 = new JButton("-");
 		Minus_6.setBounds(10, 57, 50, 21);
 		panel_6.add(Minus_6);
+		
+		JLabel Show_StockCount_6 = new JLabel("null");
+		Show_StockCount_6.setBounds(71, 61, 24, 13);
+		panel_6.add(Show_StockCount_6);
 		Minus_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_SixCounter--;
@@ -356,6 +385,10 @@ public class Menu_page {
 		JButton Minus_7 = new JButton("-");
 		Minus_7.setBounds(20, 95, 39, 21);
 		panel_7.add(Minus_7);
+		
+		JLabel Show_StockCount_7 = new JLabel("null");
+		Show_StockCount_7.setBounds(69, 66, 24, 13);
+		panel_7.add(Show_StockCount_7);
 		Minus_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_SevenCounter--;
@@ -396,6 +429,10 @@ public class Menu_page {
 		JButton Minus_8 = new JButton("-");
 		Minus_8.setBounds(10, 97, 39, 21);
 		panel_8.add(Minus_8);		
+		
+		JLabel Show_StockCount_8 = new JLabel("null");
+		Show_StockCount_8.setBounds(67, 65, 24, 13);
+		panel_8.add(Show_StockCount_8);
 		Minus_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_EightCounter--;
@@ -436,6 +473,10 @@ public class Menu_page {
 		JButton Minus_9 = new JButton("-");
 		Minus_9.setBounds(10, 93, 39, 21);
 		panel_9.add(Minus_9);
+		
+		JLabel Show_StockCount_9 = new JLabel("null");
+		Show_StockCount_9.setBounds(70, 62, 24, 13);
+		panel_9.add(Show_StockCount_9);
 		Minus_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_NineCounter--;
@@ -476,6 +517,10 @@ public class Menu_page {
 		JButton Minus_10 = new JButton("-");
 		Minus_10.setBounds(10, 94, 39, 21);
 		panel_10.add(Minus_10);
+		
+		JLabel Show_StockCount_10 = new JLabel("null");
+		Show_StockCount_10.setBounds(69, 65, 24, 13);
+		panel_10.add(Show_StockCount_10);
 		Minus_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_TenCounter--;
@@ -516,6 +561,10 @@ public class Menu_page {
 		JButton Minus_11 = new JButton("-");
 		Minus_11.setBounds(10, 95, 39, 21);
 		panel_11.add(Minus_11);
+		
+		JLabel Show_StockCount_11 = new JLabel("null");
+		Show_StockCount_11.setBounds(66, 65, 24, 13);
+		panel_11.add(Show_StockCount_11);
 		Minus_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_ElevenCounter--;
@@ -556,6 +605,10 @@ public class Menu_page {
 		JButton Minus_12 = new JButton("-");
 		Minus_12.setBounds(10, 92, 39, 21);
 		panel_12.add(Minus_12);
+		
+		JLabel Show_StockCount_12 = new JLabel("null");
+		Show_StockCount_12.setBounds(70, 64, 24, 13);
+		panel_12.add(Show_StockCount_12);
 		Minus_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_TwelveCounter--;

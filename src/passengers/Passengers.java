@@ -79,6 +79,17 @@ public class Passengers extends JFrame implements ActionListener {
 //	int ticketNum;
 //	int passengerCount;
 	
+/******************************  variables used for storing the inputs from the user ***********************************/
+	
+	String first_Name;
+	String last_Name;
+	String date_Of_Birth;
+	String telephone_Number;
+	String emailAddress;
+	int number_Of_Bags;
+	String departing_Seat;
+	String returning_Seat;
+	
 	public Passengers()
 	{
 		
@@ -425,16 +436,17 @@ public class Passengers extends JFrame implements ActionListener {
 					
 				}
 				else {
-					String first_Name = txtFirstName.getText();
-					String last_name = txtLastName.getText();
-					String date_of_birth = sdf.format(dateOfBirth.getDate());
-					String telephoneNumber = txtTelephoneNumber.getText();
-					String emailAddress = txtEmailAddress.getText();
-					int number_Of_Bags = (int)numberOfBags.getSelectedItem();
-					String departSeat = (String) departingSeats.getSelectedItem();
-					String returnSeat = (String) returningSeats.getSelectedItem();
+					//ArrayList<E>
+					first_Name = txtFirstName.getText();
+					last_Name = txtLastName.getText();
+					date_Of_Birth = sdf.format(dateOfBirth.getDate());
+					telephone_Number = txtTelephoneNumber.getText();
+					emailAddress = txtEmailAddress.getText();
+					number_Of_Bags = (int)numberOfBags.getSelectedItem();
+					departing_Seat = (String) departingSeats.getSelectedItem();
+					returning_Seat = (String) returningSeats.getSelectedItem();
 					
-					System.out.println(first_Name + " " + last_name + " " + date_of_birth + " " + telephoneNumber + " " + emailAddress + " " + number_Of_Bags + " " + departSeat + " " + returnSeat);
+					JOptionPane.showMessageDialog(this, first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
 					int randomNumber = randomNum();
 					System.out.println(randomNumber);
 //					

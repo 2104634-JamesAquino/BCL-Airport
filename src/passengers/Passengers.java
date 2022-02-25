@@ -103,7 +103,7 @@ public class Passengers extends JFrame implements ActionListener {
 		lblPassengerFormTitle.setBounds(35, 79, 236, 34);
 		
 		//image icon class used to pass the image file path to its constructor
-		ImageIcon BCLlogo = new ImageIcon("./BCL_Logo.PNG");
+		ImageIcon BCLlogo = new ImageIcon("./BCL_Logo_Passengers.PNG");
 		
 		//label for the logo
 		lblLogo = new JLabel("Logo");

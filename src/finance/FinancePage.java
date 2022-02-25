@@ -24,6 +24,7 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class FinancePage extends JFrame {
@@ -157,12 +158,14 @@ public class FinancePage extends JFrame {
 		totalPrice = (dBagPrice + TicketPrice + FoodPrice) - dComp;
 		return totalPrice;
 	}
-	public void displayPassengerData() {
+	public static void displayPassengerData() {
 		//passengerRecord record = passengerRecord.get__();
-		String [][] booking = {{}};
-		int amount = booking.length;
+		ArrayList<ArrayList<String>> booking = new ArrayList<ArrayList<String>>();
+		int amount = booking.size();
+		System.out.println(amount);
+		/*
 		for(int i =0; i<amount;i++) {
-			//passengerRecord passenger = new passengerRecord();
+			passengerRecord passenger = new passengerRecord();
 			String[] passengerDetails = booking[i];
 			String pFName = changeString(passengerDetails[0]);
 			String pLName = changeString(passengerDetails[1]);
@@ -181,15 +184,15 @@ public class FinancePage extends JFrame {
 			} else {
 				//setFoodPrice(pFoodPrice);
 			}
-			/* String pTicketPrice = (calculateTicketPrice()).toString();
+			 String pTicketPrice = (calculateTicketPrice()).toString();
 			 
-			 */
+			
 			int delayMins = 100 ;
 			String pCompensation = String.valueOf(calculateCompensation(delayMins));
-			System.out.println(pFName+","+pLName+","+pDOB+","+pTicketNum+","+pNumBags+","+pFoodPrice+","+pCompensation/*+pTicketPrice+","+","+pTotalPrice*/);
-			
+			System.out.println(pFName+","+pLName+","+pDOB+","+pTicketNum+","+pNumBags+","+pFoodPrice+","+pCompensation/*+pTicketPrice+","+","+pTotalPrice);
+			*/
 		}
-	}
+
 	public boolean checkString(String sVariable) {
 		boolean validate = true;
 		if(sVariable == "" || sVariable == null) {

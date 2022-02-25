@@ -19,6 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import com.toedter.calendar.JDateChooser;
 
+import passengerData.passengerData;
+import passengerData.passengerRecord;
+
 /******************************  Class name that extends a JFrame and implements action listener class ***********************************/
 
 //action listener class is added in order to use it in the Passengers class
@@ -436,7 +439,8 @@ public class Passengers extends JFrame implements ActionListener {
 					
 				}
 				else {
-					//ArrayList<E>
+					ArrayList<passengerRecord> passengerRecord = new ArrayList<>();
+					
 					first_Name = txtFirstName.getText();
 					last_Name = txtLastName.getText();
 					date_Of_Birth = sdf.format(dateOfBirth.getDate());
@@ -445,10 +449,13 @@ public class Passengers extends JFrame implements ActionListener {
 					number_Of_Bags = (int)numberOfBags.getSelectedItem();
 					departing_Seat = (String) departingSeats.getSelectedItem();
 					returning_Seat = (String) returningSeats.getSelectedItem();
-					
-					JOptionPane.showMessageDialog(this, first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
 					int randomNumber = randomNum();
 					System.out.println(randomNumber);
+					
+					passengerRecord newPassenger = new passengerRecord(randomNumber,first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
+					passengerRecord.add(newPassenger);
+					
+					JOptionPane.showMessageDialog(this, first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
 //					
 //					passengerData.addPassengerRecord(randomNumber,first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
 //					

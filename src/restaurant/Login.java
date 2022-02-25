@@ -3,7 +3,6 @@ package restaurant;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -98,11 +97,6 @@ public class Login {
 		frame.getContentPane().add(LoginBUTTON);
 		LoginBUTTON.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//String path = "C:\\Users\\Wasif Khan\\OneDrive - Brunel University London\\CS1701 Group Projects\\CS1810\\Passenger_Data.csv",
-						//Ticket_Number = Ticket_NumberTxt.getText(),First_Name,Surname ;
-				
-				
-			//new Passenger_Open_CSV().ReadFile(path,Ticket_Number, First_Name, Surname);
 				String TickNum = TicketNumENTER.getText();
 				String FIRSTNAME = FirstNameENTER.getText();
 				String SURNAME = SurnameENTER.getText();
@@ -112,8 +106,6 @@ public class Login {
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
-					
-					Inventory_counter info = new Inventory_counter();
 					Inventory_counter.main(null);
 				}
 				else {

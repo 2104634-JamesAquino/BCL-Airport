@@ -11,13 +11,9 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.Font;
-import javax.swing.JTextField;
-import javax.swing.SpinnerNumberModel;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
-import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
 
 public class Menu_page {
 	
@@ -28,6 +24,9 @@ public class Menu_page {
 		System.out.println(E.get(D));
 		E.put(D,C);
 		return C;			
+		// This is a Method that is used to update the stock, this method will be called at the end.
+		//when the user has decided on all items they will like to order
+		
 	}
 	
 	static int Total_MenuItems;
@@ -44,26 +43,35 @@ public class Menu_page {
 	static int Item_TenCounter = 0;
 	static int Item_ElevenCounter = 0;
 	static int Item_TwelveCounter = 0;
+	// All of these variables are used to keep count of each item of which will be ordered.
+	// The variable "Total_MenuItems" is used for the check out page to show how many Products are being ordered. 
+	// The variable "Total_Price" is also used for the Check out page to show how much the user has spent, it will also be used to add the amount to the finances. 
 	
 	public static int Plus_button(int a, HashMap<String, Integer> L, String K, int G) {
 		a++;
 		G = (int) L.get(K);
 		if(a>100 || a > G) {
 			a = 99;	
-			JOptionPane.showMessageDialog(null,"Cannot Order This Many","Login Error",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Cannot Order This Many","Login Error",JOptionPane.ERROR_MESSAGE); 
+			// This is an error message that will pop up if the use is ordering more than 100 or the amount of stock left.
 		}
 		return a;
 	}
-	
+	// This is a method that has 2 Functions 
+	// Function one is, to increment how many of the products will be added to the basket
+	// Function tow is to, make sure there is no order above 100, or the amount of stock left.
 	public static int Minus_button(int b) {
 		b--;
 		if(b<0) {
 			b=0;
-			JOptionPane.showMessageDialog(null,"Cannot Order below 0", null, JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Cannot Order below 0", null, JOptionPane.ERROR_MESSAGE); 
+			// this is an error message if the customer tries to order bellow 0.
 		}
 		return b;	
 	}
-	
+	// This Method has 2 functions.
+	// The first Function is to reduce the number of that product by 1.
+	// The Second function is to make sure the customer is not ordering any products below 0
 	
 	private JFrame frame;
 	JLabel Show_StockCount_1;
@@ -79,25 +87,6 @@ public class Menu_page {
 	JLabel Show_StockCount_11;
 	JLabel Show_StockCount_12;
 	
-	public static  void Data() {
-		HashMap<String , Integer> Restrant_data = new HashMap<String, Integer>();
-		
-		Restrant_data.put("Toast", 100);
-		Restrant_data.put("Sausages", 100);
-		Restrant_data.put("Pancakes", 100);
-		Restrant_data.put("Rice and Curry", 100);
-		Restrant_data.put("Fish and Chips", 100);
-		Restrant_data.put("Pasta", 100);
-		Restrant_data.put("CheeseCake", 100);
-		Restrant_data.put("Choclate Cake", 100);
-		Restrant_data.put("MilkShake", 100);
-		Restrant_data.put("Orange Juice", 100);
-		Restrant_data.put("Apple Juice", 100);
-		Restrant_data.put("Coffee", 100);
-	}
-	
-	
-
 	/**
 	 * Launch the application.
 	 */
@@ -144,20 +133,20 @@ public class Menu_page {
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
-		frame.setBounds(100, 100, 875, 864);
+		frame.setBounds(100, 100, 839, 650);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Inventory");
 		frame.getContentPane().setLayout(null);
 		
 		JLabel Title = new JLabel("Restaurant");
+		Title.setBounds(231, 0, 423, 46);
 		Title.setFont(new Font("Tahoma", Font.BOLD, 41));
 		Title.setHorizontalAlignment(SwingConstants.CENTER);
-		Title.setBounds(232, 10, 423, 56);
 		frame.getContentPane().add(Title);
 		
 		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(56, 64, 190, 100);
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_1.setBounds(58, 95, 190, 100);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -191,8 +180,8 @@ public class Menu_page {
 		});
 		
 		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(334, 64, 190, 100);
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_2.setBounds(336, 95, 190, 100);
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 			
@@ -227,8 +216,8 @@ public class Menu_page {
 		});
 		
 		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(625, 64, 190, 100);
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_3.setBounds(627, 95, 190, 100);
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -263,8 +252,8 @@ public class Menu_page {
 		});
 		
 		JPanel panel_4 = new JPanel();
+		panel_4.setBounds(56, 195, 190, 100);
 		panel_4.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_4.setBounds(58, 226, 190, 100);
 		frame.getContentPane().add(panel_4);
 		panel_4.setLayout(null);
 		
@@ -298,8 +287,8 @@ public class Menu_page {
 		});
 		
 		JPanel panel_5 = new JPanel();
+		panel_5.setBounds(334, 195, 190, 100);
 		panel_5.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_5.setBounds(336, 226, 190, 100);
 		frame.getContentPane().add(panel_5);
 		panel_5.setLayout(null);
 		
@@ -334,8 +323,8 @@ public class Menu_page {
 		});
 		
 		JPanel panel_6 = new JPanel();
+		panel_6.setBounds(625, 195, 190, 100);
 		panel_6.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_6.setBounds(627, 226, 190, 100);
 		frame.getContentPane().add(panel_6);
 		panel_6.setLayout(null);
 		
@@ -369,8 +358,8 @@ public class Menu_page {
 		});
 		
 		JPanel panel_7 = new JPanel();
+		panel_7.setBounds(56, 329, 190, 100);
 		panel_7.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_7.setBounds(58, 360, 190, 100);
 		frame.getContentPane().add(panel_7);
 		
 		JLabel Item_7 = new JLabel("CheeeseCake (Two Slices)");
@@ -404,14 +393,14 @@ public class Menu_page {
 		});
 		
 		JPanel panel_8 = new JPanel();
+		panel_8.setBounds(334, 329, 190, 100);
 		panel_8.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_8.setBounds(336, 360, 190, 100);
 		frame.getContentPane().add(panel_8);
 		panel_8.setLayout(null);
 		
 		JLabel Item_8 = new JLabel("Choclate Cake (2 Slices)");
 		Double Choclate_Cake = 5.50;
-		Item_8.setBounds(32, 21, 123, 13);
+		Item_8.setBounds(32, 21, 148, 13);
 		panel_8.add(Item_8);		
 		
 		JLabel Show_StockCount_8 = new JLabel(""+Item_EightCounter);
@@ -439,8 +428,8 @@ public class Menu_page {
 		});
 			
 		JPanel panel_9 = new JPanel();
+		panel_9.setBounds(625, 329, 190, 100);
 		panel_9.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_9.setBounds(627, 360, 190, 100);
 		frame.getContentPane().add(panel_9);
 		panel_9.setLayout(null);
 		
@@ -475,8 +464,8 @@ public class Menu_page {
 		});
 		
 		JPanel panel_10 = new JPanel();
+		panel_10.setBounds(56, 459, 190, 100);
 		panel_10.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_10.setBounds(58, 490, 190, 100);
 		frame.getContentPane().add(panel_10);
 		panel_10.setLayout(null);
 		
@@ -510,8 +499,8 @@ public class Menu_page {
 		});
 		
 		JPanel panel_11 = new JPanel();
+		panel_11.setBounds(334, 459, 190, 100);
 		panel_11.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_11.setBounds(336, 490, 190, 100);
 		frame.getContentPane().add(panel_11);
 		
 		JLabel Item_11 = new JLabel("Apple Juice");
@@ -546,8 +535,8 @@ public class Menu_page {
 		});
 		
 		JPanel panel_12 = new JPanel();
+		panel_12.setBounds(625, 459, 190, 100);
 		panel_12.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_12.setBounds(627, 490, 190, 100);
 		frame.getContentPane().add(panel_12);
 		
 		JLabel Item_12 = new JLabel("Coffee");
@@ -581,6 +570,7 @@ public class Menu_page {
 		});
 		
 		JButton Check_out = new JButton("Check Out");
+		Check_out.setBounds(691, 586, 111, 21);
 		Check_out.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Total_MenuItems = Item_OneCounter+Item_TwoCounter + Item_ThreeCounter + Item_FourCounter +Item_FiveCounter
@@ -606,13 +596,9 @@ public class Menu_page {
 				Stock_Updater(Temp, "Coffee", Restrant_data, Item_TwelveCounter ); //12
 				
 				System.out.println(Restrant_data);
-
-
-				Check_Out info = new Check_Out();
 				Check_Out.main(null);
 			}
 		});
-		Check_out.setBounds(685, 632, 111, 21);
 		frame.getContentPane().add(Check_out);
 		
 	}

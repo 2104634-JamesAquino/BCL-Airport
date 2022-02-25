@@ -220,6 +220,7 @@ public class Check_Out {
 		JButton btnNewButton = new JButton("Confirm Payment");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		btnNewButton.setBounds(276, 395, 276, 57);
@@ -235,7 +236,6 @@ public class Check_Out {
 		panel.setBounds(30, 80, 216, 25);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
-		
 		
 	}
 }

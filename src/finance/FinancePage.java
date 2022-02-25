@@ -71,15 +71,6 @@ public class FinancePage extends JFrame {
 		lblNewLabel.setBounds(307, 36, 298, 43);
 		contentPane.add(lblNewLabel);
 		
-		JButton btnNewButton = new JButton("New button");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		btnNewButton.setBounds(635, 129, 117, 21);
-		contentPane.add(btnNewButton);
-		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 179, 766, 327);
 		contentPane.add(scrollPane);

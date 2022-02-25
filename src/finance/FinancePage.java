@@ -51,6 +51,7 @@ public class FinancePage extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * test comment
 	 */
 	public FinancePage() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

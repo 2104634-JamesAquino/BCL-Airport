@@ -6,8 +6,8 @@ public class TestPassenger1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 	
-		passengerRecord record1 = new passengerRecord("Johann", "Cardona", "01/04/2001", "01213823433", "2007048@brunel.ac.uk", 4, 12345678, "A1", "A2");
-		passengerRecord record2 = new passengerRecord("Miguel", "Quevedo", "04/06/2003", "27878127841", "2375732@brunel.ac.uk", 2, 12345679, "A4", "A6");
+		passengerRecord record1 = new passengerRecord(12345678, "Johann", "Cardona", "01/04/2001", "01213823433", "2007048@brunel.ac.uk", 4, "A1", "A2");
+		passengerRecord record2 = new passengerRecord(12345679, "Miguel", "Quevedo", "04/06/2003", "27878127841", "2375732@brunel.ac.uk", 2, "A4", "A6");
 		passengerData data1 = new passengerData();
 		passengerData data2 = new passengerData();
 		data1.addPassengerRecord(record1);

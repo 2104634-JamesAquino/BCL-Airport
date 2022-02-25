@@ -21,15 +21,13 @@ import javax.swing.JSpinner;
 
 public class Menu_page {
 	
-	static int Stock_Updater(int C, String D, HashMap<String, Integer> E, int F) {
+	static int Stock_Updater(int C, String D, HashMap<String, Integer> E, int J) {
 		C = (int) E.get(D);
-		C = C - F;
+		C =C -J;
 		E.put(D,C);
 		System.out.println(E.get(D));
 		E.put(D,C);
-		return C;
-
-		
+		return C;			
 	}
 	
 	static int Total_MenuItems;
@@ -47,15 +45,15 @@ public class Menu_page {
 	static int Item_ElevenCounter = 0;
 	static int Item_TwelveCounter = 0;
 	
-	public static int Plus_button(int a) {
+	public static int Plus_button(int a, HashMap<String, Integer> L, String K, int G) {
 		a++;
-		if(a>100) {
+		G = (int) L.get(K);
+		if(a>100 || a > G) {
 			a = 99;	
 			JOptionPane.showMessageDialog(null,"Cannot Order This Many","Login Error",JOptionPane.ERROR_MESSAGE);
 		}
 		return a;
 	}
-	
 	
 	public static int Minus_button(int b) {
 		b--;
@@ -80,6 +78,23 @@ public class Menu_page {
 	JLabel Show_StockCount_10;
 	JLabel Show_StockCount_11;
 	JLabel Show_StockCount_12;
+	
+	public static  void Data() {
+		HashMap<String , Integer> Restrant_data = new HashMap<String, Integer>();
+		
+		Restrant_data.put("Toast", 100);
+		Restrant_data.put("Sausages", 100);
+		Restrant_data.put("Pancakes", 100);
+		Restrant_data.put("Rice and Curry", 100);
+		Restrant_data.put("Fish and Chips", 100);
+		Restrant_data.put("Pasta", 100);
+		Restrant_data.put("CheeseCake", 100);
+		Restrant_data.put("Choclate Cake", 100);
+		Restrant_data.put("MilkShake", 100);
+		Restrant_data.put("Orange Juice", 100);
+		Restrant_data.put("Apple Juice", 100);
+		Restrant_data.put("Coffee", 100);
+	}
 	
 	
 
@@ -111,6 +126,21 @@ public class Menu_page {
 	 * Initialise the contents of the frame.
 	 */
 	private void initialize() {
+		
+		HashMap<String , Integer> Restrant_data = new HashMap<String, Integer>();
+		
+		Restrant_data.put("Toast", 100);
+		Restrant_data.put("Sausages", 100);
+		Restrant_data.put("Pancakes", 100);
+		Restrant_data.put("Rice and Curry", 100);
+		Restrant_data.put("Fish and Chips", 100);
+		Restrant_data.put("Pasta", 100);
+		Restrant_data.put("CheeseCake", 100);
+		Restrant_data.put("Choclate Cake", 100);
+		Restrant_data.put("MilkShake", 100);
+		Restrant_data.put("Orange Juice", 100);
+		Restrant_data.put("Apple Juice", 100);
+		Restrant_data.put("Coffee", 100);
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
@@ -145,7 +175,7 @@ public class Menu_page {
 		panel_1.add(Plus_1);
 		Plus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_OneCounter = Plus_button(Item_OneCounter);
+				Item_OneCounter = Plus_button(Item_OneCounter, Restrant_data, "Toast", 0);
 				Show_StockCount_1.setText(String.valueOf(Item_OneCounter));
 			}
 		});
@@ -180,7 +210,7 @@ public class Menu_page {
 		panel_2.add(Plus_2);
 		Plus_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TwoCounter = Plus_button(Item_TwoCounter);
+				Item_TwoCounter = Plus_button(Item_TwoCounter, Restrant_data, "Sausages", 0);
 				Show_StockCount_2.setText(String.valueOf(Item_TwoCounter));
 				
 				}
@@ -203,6 +233,7 @@ public class Menu_page {
 		panel_3.setLayout(null);
 		
 		JLabel Item_3 = new JLabel("Pancakes (3 Pieces)");
+		@SuppressWarnings("unused")
 		Double Pancakes = 4.5;
 		Item_3.setBounds(20, 24, 121, 13);
 		panel_3.add(Item_3);
@@ -216,7 +247,7 @@ public class Menu_page {
 		panel_3.add(Plus_3);
 		Plus_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_ThreeCounter = Plus_button(Item_ThreeCounter);
+				Item_ThreeCounter = Plus_button(Item_ThreeCounter, Restrant_data, "Pancakes", 0);
 				Show_StockCount_3.setText(String.valueOf(Item_ThreeCounter));
 				}
 		});
@@ -251,7 +282,7 @@ public class Menu_page {
 		panel_4.add(Plus_4);
 		Plus_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_FourCounter =  Plus_button(Item_FourCounter);
+				Item_FourCounter =  Plus_button(Item_FourCounter, Restrant_data,"Rice and Curry", 0);
 				Show_StockCount_4.setText(String.valueOf(Item_FourCounter));
 			}
 		});
@@ -286,7 +317,7 @@ public class Menu_page {
 		panel_5.add(Plus_5);
 		Plus_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_FiveCounter = Plus_button(Item_FiveCounter);
+				Item_FiveCounter = Plus_button(Item_FiveCounter,Restrant_data, "Fish and Chips", 0);
 				Show_StockCount_5.setText(String.valueOf(Item_FiveCounter));		
 				}
 		});
@@ -322,7 +353,7 @@ public class Menu_page {
 		panel_6.add(Plus_6);
 		Plus_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_SixCounter = Plus_button(Item_SixCounter);
+				Item_SixCounter = Plus_button(Item_SixCounter, Restrant_data, "Pasta", 0);
 				Show_StockCount_6.setText(String.valueOf(Item_SixCounter));		
 				}
 		});
@@ -357,7 +388,7 @@ public class Menu_page {
 		panel_7.add(Plus_7);
 		Plus_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_SevenCounter = Plus_button(Item_SevenCounter);
+				Item_SevenCounter = Plus_button(Item_SevenCounter, Restrant_data, "CheeseCake", 0);
 				Show_StockCount_7.setText(String.valueOf(Item_SevenCounter));
 				}
 		});
@@ -392,7 +423,7 @@ public class Menu_page {
 		panel_8.add(Plus_8);
 		Plus_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_EightCounter = Plus_button(Item_EightCounter);
+				Item_EightCounter = Plus_button(Item_EightCounter, Restrant_data, "Choclate Cake", 0);
 				Show_StockCount_8.setText(String.valueOf(Item_EightCounter));		
 				}
 		});
@@ -427,7 +458,7 @@ public class Menu_page {
 		panel_9.add(Plus_9);
 		Plus_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_NineCounter = Plus_button(Item_NineCounter);
+				Item_NineCounter = Plus_button(Item_NineCounter, Restrant_data, "MilkShake", 0);
 				Show_StockCount_9.setText(String.valueOf(Item_NineCounter));
 			}
 		});
@@ -463,7 +494,7 @@ public class Menu_page {
 		panel_10.add(Plus_10);
 		Plus_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TenCounter = Plus_button(Item_TenCounter);
+				Item_TenCounter = Plus_button(Item_TenCounter, Restrant_data, "Orange Juice", 0);
 				Show_StockCount_10.setText(String.valueOf(Item_TenCounter));		
 				}
 		});
@@ -499,7 +530,7 @@ public class Menu_page {
 		panel_11.add(Plus_11);
 		Plus_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_ElevenCounter = Plus_button(Item_ElevenCounter);
+				Item_ElevenCounter = Plus_button(Item_ElevenCounter, Restrant_data, "Apple Juice", 0);
 				Show_StockCount_11.setText(String.valueOf(Item_ElevenCounter));
 			}
 		});
@@ -534,7 +565,7 @@ public class Menu_page {
 		panel_12.add(Plus_12);
 		Plus_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TwelveCounter = Plus_button(Item_TwelveCounter);
+				Item_TwelveCounter = Plus_button(Item_TwelveCounter, Restrant_data, "Coffee", 0);
 				Show_StockCount_12.setText(String.valueOf(Item_TwelveCounter));	
 				}
 		});
@@ -549,32 +580,16 @@ public class Menu_page {
 			}
 		});
 		
-		HashMap<String , Integer> Restrant_data = new HashMap<String, Integer>();
-		
-		Restrant_data.put("Toast", 100);
-		Restrant_data.put("Sausages", 100);
-		Restrant_data.put("Pancakes", 100);
-		Restrant_data.put("Rice and Curry", 100);
-		Restrant_data.put("Fish and Chips", 100);
-		Restrant_data.put("Pasta", 100);
-		Restrant_data.put("CheeseCake", 100);
-		Restrant_data.put("Choclate Cake", 100);
-		Restrant_data.put("MilkShake", 100);
-		Restrant_data.put("Orange Juice", 100);
-		Restrant_data.put("Apple Juice", 100);
-		Restrant_data.put("Coffee", 100);
-		
-		
 		JButton Check_out = new JButton("Check Out");
 		Check_out.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Total_MenuItems = Item_OneCounter+Item_TwoCounter + Item_ThreeCounter + Item_FourCounter +Item_FiveCounter
 						+ Item_SixCounter + Item_SevenCounter + Item_EightCounter + Item_NineCounter + Item_TenCounter + Item_ElevenCounter
 						+ Item_TwelveCounter;
+				
 				Total_Price = (int) ((Item_OneCounter*Toast)+(Item_TwoCounter*Sausages)+(Item_ThreeCounter*Pancakes)+(Item_FourCounter*Rice_and_Curry)+
 						(Item_FiveCounter*Fish_and_Chips)+(Item_SixCounter*Pasta)+(Item_SevenCounter*CheeseCake)+(Item_EightCounter*Choclate_Cake)
 						+(Item_NineCounter*MilkShake)+(Item_TenCounter*Orange_Juice)+(Item_ElevenCounter*Apple_Juice)+(Item_TwelveCounter*Coffee));
-				System.out.println("£"+Total_Price);
 				
 				int Temp = 0;
 				Stock_Updater(Temp, "Toast", Restrant_data, Item_OneCounter ); //1

@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class testing_pls {
 	
-	static int Stock_Updater(int C, String D, HashMap E, int F) {
+	static int Stock_Updater(int C, String D, HashMap<String, Integer> E, int F) {
 		C = (int) E.get(D);
 		C = C - F;
 		E.put(D,C);

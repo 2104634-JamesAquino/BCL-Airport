@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import java.awt.Color;
@@ -12,7 +13,6 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
-
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
@@ -21,7 +21,7 @@ import javax.swing.JSpinner;
 
 public class Menu_page {
 	
-	static int Stock_Updater(int C, String D, HashMap E, int F) {
+	static int Stock_Updater(int C, String D, HashMap<String, Integer> E, int F) {
 		C = (int) E.get(D);
 		C = C - F;
 		E.put(D,C);
@@ -50,10 +50,9 @@ public class Menu_page {
 	public static int Plus_button(int a) {
 		a++;
 		if(a>100) {
-			System.out.println("You cannot order this much");
 			a = 99;	
+			JOptionPane.showMessageDialog(null,"Cannot Order This Many","Login Error",JOptionPane.ERROR_MESSAGE);
 		}
-		System.out.println("Item One: "+a);
 		return a;
 	}
 	
@@ -61,10 +60,9 @@ public class Menu_page {
 	public static int Minus_button(int b) {
 		b--;
 		if(b<0) {
-			System.out.println("Order cannot be below 0");
 			b=0;
+			JOptionPane.showMessageDialog(null,"Cannot Order below 0", null, JOptionPane.ERROR_MESSAGE);
 		}
-		System.out.println("Item One: "+b);
 		return b;	
 	}
 	
@@ -129,7 +127,7 @@ public class Menu_page {
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_1.setBounds(58, 95, 165, 100);
+		panel_1.setBounds(58, 95, 190, 100);
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
 		
@@ -139,11 +137,11 @@ public class Menu_page {
 		panel_1.add(Item_1);
 		
 		Show_StockCount_1 = new JLabel(""+Item_OneCounter);
-		Show_StockCount_1.setBounds(71, 62, 24, 13);
+		Show_StockCount_1.setBounds(93, 62, 24, 13);
 		panel_1.add(Show_StockCount_1);
 		
 		JButton Plus_1 = new JButton("+");
-		Plus_1.setBounds(105, 58, 50, 21);
+		Plus_1.setBounds(116, 58, 50, 21);
 		panel_1.add(Plus_1);
 		Plus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -153,7 +151,7 @@ public class Menu_page {
 		});
 		
 		JButton Minus_1 = new JButton("-");
-		Minus_1.setBounds(10, 58, 50, 21);
+		Minus_1.setBounds(21, 58, 50, 21);
 		panel_1.add(Minus_1);
 		Minus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -164,7 +162,7 @@ public class Menu_page {
 		
 		JPanel panel_2 = new JPanel();
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_2.setBounds(336, 95, 165, 100);
+		panel_2.setBounds(336, 95, 190, 100);
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
 			
@@ -200,7 +198,7 @@ public class Menu_page {
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_3.setBounds(627, 95, 165, 100);
+		panel_3.setBounds(627, 95, 190, 100);
 		frame.getContentPane().add(panel_3);
 		panel_3.setLayout(null);
 		
@@ -235,21 +233,21 @@ public class Menu_page {
 		
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_4.setBounds(58, 226, 165, 100);
+		panel_4.setBounds(58, 226, 190, 100);
 		frame.getContentPane().add(panel_4);
 		panel_4.setLayout(null);
 		
 		JLabel Item_4 = new JLabel("Rice and Curry");
 		Double Rice_and_Curry = 8.00;
-		Item_4.setBounds(32, 23, 96, 13);
+		Item_4.setBounds(47, 22, 96, 13);
 		panel_4.add(Item_4);
 		
 		JLabel Show_StockCount_4 = new JLabel(""+Item_FourCounter);
-		Show_StockCount_4.setBounds(70, 65, 24, 13);
+		Show_StockCount_4.setBounds(95, 61, 24, 13);
 		panel_4.add(Show_StockCount_4);
 		
 		JButton Plus_4 = new JButton("+");
-		Plus_4.setBounds(105, 57, 50, 21);
+		Plus_4.setBounds(119, 57, 50, 21);
 		panel_4.add(Plus_4);
 		Plus_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -259,7 +257,7 @@ public class Menu_page {
 		});
 		
 		JButton Minus_4 = new JButton("-");
-		Minus_4.setBounds(10, 57, 50, 21);
+		Minus_4.setBounds(24, 57, 50, 21);
 		panel_4.add(Minus_4);
 		Minus_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -270,7 +268,7 @@ public class Menu_page {
 		
 		JPanel panel_5 = new JPanel();
 		panel_5.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_5.setBounds(336, 226, 165, 100);
+		panel_5.setBounds(336, 226, 190, 100);
 		frame.getContentPane().add(panel_5);
 		panel_5.setLayout(null);
 		
@@ -278,6 +276,10 @@ public class Menu_page {
 		Double Fish_and_Chips = 11.50;
 		Item_5.setBounds(34, 30, 96, 13);
 		panel_5.add(Item_5);
+		
+		JLabel Show_StockCount_5 = new JLabel(""+Item_FiveCounter);
+		Show_StockCount_5.setBounds(67, 61, 24, 13);
+		panel_5.add(Show_StockCount_5);
 		
 		JButton Plus_5 = new JButton("+");
 		Plus_5.setBounds(101, 57, 50, 21);
@@ -292,10 +294,6 @@ public class Menu_page {
 		JButton Minus_5 = new JButton("-");
 		Minus_5.setBounds(10, 57, 50, 21);
 		panel_5.add(Minus_5);
-		
-		JLabel Show_StockCount_5 = new JLabel(""+Item_FiveCounter);
-		Show_StockCount_5.setBounds(67, 61, 24, 13);
-		panel_5.add(Show_StockCount_5);
 		Minus_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_FiveCounter = Minus_button(Item_FiveCounter);
@@ -306,7 +304,7 @@ public class Menu_page {
 		
 		JPanel panel_6 = new JPanel();
 		panel_6.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_6.setBounds(627, 226, 165, 100);
+		panel_6.setBounds(627, 226, 190, 100);
 		frame.getContentPane().add(panel_6);
 		panel_6.setLayout(null);
 		
@@ -341,21 +339,21 @@ public class Menu_page {
 		
 		JPanel panel_7 = new JPanel();
 		panel_7.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_7.setBounds(58, 360, 165, 100);
+		panel_7.setBounds(58, 360, 190, 100);
 		frame.getContentPane().add(panel_7);
 		
 		JLabel Item_7 = new JLabel("CheeeseCake (Two Slices)");
-		Item_7.setBounds(10, 23, 145, 13);
+		Item_7.setBounds(20, 23, 170, 13);
 		Double CheeseCake = 4.50;
 		panel_7.setLayout(null);
 		panel_7.add(Item_7);
 		
 		JLabel Show_StockCount_7 = new JLabel(""+Item_SevenCounter);
-		Show_StockCount_7.setBounds(69, 62, 24, 13);
+		Show_StockCount_7.setBounds(89, 60, 24, 13);
 		panel_7.add(Show_StockCount_7);
 		
 		JButton Plus_7 = new JButton("+");
-		Plus_7.setBounds(101, 58, 54, 21);
+		Plus_7.setBounds(111, 56, 54, 21);
 		panel_7.add(Plus_7);
 		Plus_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -365,7 +363,7 @@ public class Menu_page {
 		});
 		
 		JButton Minus_7 = new JButton("-");
-		Minus_7.setBounds(10, 58, 49, 21);
+		Minus_7.setBounds(20, 56, 49, 21);
 		panel_7.add(Minus_7);
 		Minus_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -376,7 +374,7 @@ public class Menu_page {
 		
 		JPanel panel_8 = new JPanel();
 		panel_8.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_8.setBounds(336, 360, 165, 100);
+		panel_8.setBounds(336, 360, 190, 100);
 		frame.getContentPane().add(panel_8);
 		panel_8.setLayout(null);
 		
@@ -411,16 +409,16 @@ public class Menu_page {
 			
 		JPanel panel_9 = new JPanel();
 		panel_9.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_9.setBounds(627, 360, 165, 100);
+		panel_9.setBounds(627, 360, 190, 100);
 		frame.getContentPane().add(panel_9);
 		panel_9.setLayout(null);
 		
 		JLabel Item_9 = new JLabel("MilkShake (Vanila)");
 		Double MilkShake = 6.70;
-		Item_9.setBounds(33, 25, 98, 13);
+		Item_9.setBounds(33, 25, 133, 13);
 		panel_9.add(Item_9);
 		
-		JLabel Show_StockCount_9 = new JLabel("null");
+		JLabel Show_StockCount_9 = new JLabel(""+Item_NineCounter);
 		Show_StockCount_9.setBounds(70, 62, 24, 13);
 		panel_9.add(Show_StockCount_9);
 		
@@ -447,21 +445,21 @@ public class Menu_page {
 		
 		JPanel panel_10 = new JPanel();
 		panel_10.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_10.setBounds(58, 490, 165, 100);
+		panel_10.setBounds(58, 490, 190, 100);
 		frame.getContentPane().add(panel_10);
 		panel_10.setLayout(null);
 		
 		JLabel Item_10 = new JLabel("Orange Juice");
 		Double Orange_Juice = 2.0;
-		Item_10.setBounds(48, 26, 107, 13);
+		Item_10.setBounds(59, 30, 107, 13);
 		panel_10.add(Item_10);
 		
 		JLabel Show_StockCount_10 = new JLabel(""+Item_TenCounter);
-		Show_StockCount_10.setBounds(69, 65, 24, 13);
+		Show_StockCount_10.setBounds(92, 73, 24, 13);
 		panel_10.add(Show_StockCount_10);
 		
 		JButton Plus_10 = new JButton("+");
-		Plus_10.setBounds(103, 65, 52, 21);
+		Plus_10.setBounds(114, 69, 52, 21);
 		panel_10.add(Plus_10);
 		Plus_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -471,7 +469,7 @@ public class Menu_page {
 		});
 		
 		JButton Minus_10 = new JButton("-");
-		Minus_10.setBounds(10, 65, 49, 21);
+		Minus_10.setBounds(21, 69, 49, 21);
 		panel_10.add(Minus_10);
 		Minus_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -482,7 +480,7 @@ public class Menu_page {
 		
 		JPanel panel_11 = new JPanel();
 		panel_11.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_11.setBounds(336, 490, 165, 100);
+		panel_11.setBounds(336, 490, 190, 100);
 		frame.getContentPane().add(panel_11);
 		
 		JLabel Item_11 = new JLabel("Apple Juice");
@@ -518,7 +516,7 @@ public class Menu_page {
 		
 		JPanel panel_12 = new JPanel();
 		panel_12.setBorder(new LineBorder(new Color(0, 0, 0), 8));
-		panel_12.setBounds(627, 490, 165, 100);
+		panel_12.setBounds(627, 490, 190, 100);
 		frame.getContentPane().add(panel_12);
 		
 		JLabel Item_12 = new JLabel("Coffee");

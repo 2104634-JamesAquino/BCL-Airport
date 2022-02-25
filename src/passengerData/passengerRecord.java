@@ -18,21 +18,20 @@ public class passengerRecord {
 	double bagPrice;
 	double ticketPrice;
 	
-	public passengerRecord() {
-	}
+//	public passengerRecord() {
+//	}
 	
-	public passengerRecord(String fName, String lName, String DoB, String emailAddress, String telNum, int numOfBags, int ticketNo, String departSeat, String returnSeat) {
+	public passengerRecord(int ticketNo, String fName, String lName, String DoB, String emailAddress, String telNum, int numOfBags, String departSeat, String returnSeat) {
 		
+		this.ticketNumber = ticketNo;
 		this.firstName = fName;
 		this.lastName = lName;
 		this.DoB = DoB;
 		this.email = emailAddress;
 		this.telNo = telNum;
 		this.numBags = numOfBags;
-		this.ticketNumber = ticketNo;
 		this.departureSeat = departSeat;
 		this.returningSeat = returnSeat;
-		this.ticketNumber = randomNum();
 		
 	}
 

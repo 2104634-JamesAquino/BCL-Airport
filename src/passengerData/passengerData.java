@@ -4,22 +4,22 @@ import java.util.ArrayList;
 
 public class passengerData {
 	
-	ArrayList<passengerRecord> passengerData;
+	ArrayList<passengerRecord> passengersData;
 	
 	public passengerData() {
 		
-		this.passengerData = new ArrayList<passengerRecord>();
+		this.passengersData = new ArrayList<passengerRecord>();
 		
 	}
 	
 	public void addPassengerRecord(passengerRecord record)
 	{
-		this.passengerData.add(record);
+		this.passengersData.add(record);
 	}
 	
 	public passengerRecord getPassengerRecord(int index)
 	{
-		return this.passengerData.get(index);
+		return this.passengersData.get(index);
 	}
 
 }

@@ -14,11 +14,6 @@ import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 
 public class Check_Out {
-	static int Counter_reset(int Counters) {
-		Counters = 0;
-		return Counters;
-		
-	}
 	private JFrame frame;
 
 	/**
@@ -226,18 +221,21 @@ public class Check_Out {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Login.main(null);
-				Counter_reset(Menu_page.Item_OneCounter);
-				Counter_reset(Menu_page.Item_TwoCounter);
-				Counter_reset(Menu_page.Item_ThreeCounter);
-				Counter_reset(Menu_page.Item_FourCounter);
-				Counter_reset(Menu_page.Item_FiveCounter);
-				Counter_reset(Menu_page.Item_SixCounter);
-				Counter_reset(Menu_page.Item_SevenCounter);
-				Counter_reset(Menu_page.Item_EightCounter);
-				Counter_reset(Menu_page.Item_NineCounter);
-				Counter_reset(Menu_page.Item_TenCounter);
-				Counter_reset(Menu_page.Item_ElevenCounter);
-				Counter_reset(Menu_page.Item_TwelveCounter);
+				Menu_page.Item_OneCounter = 0;
+				Menu_page.Item_TwoCounter = 0;
+				Menu_page.Item_ThreeCounter = 0;
+				Menu_page.Item_FourCounter = 0;
+				Menu_page.Item_FiveCounter = 0;
+				Menu_page.Item_SixCounter = 0;
+				Menu_page.Item_SevenCounter = 0;
+				Menu_page.Item_EightCounter = 0;
+				Menu_page.Item_NineCounter = 0;
+				Menu_page.Item_TenCounter = 0;
+				Menu_page.Item_ElevenCounter = 0;
+				Menu_page.Item_TwelveCounter = 0;
+				
+				// Code to Add total price to passengers finances should be here 
+				
 			}
 		});
 		btnNewButton.setBounds(276, 395, 276, 57);

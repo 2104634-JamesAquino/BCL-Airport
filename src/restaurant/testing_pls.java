@@ -30,9 +30,14 @@ public class testing_pls {
 		Restrant_data.put("Apple Juice", 100);
 		Restrant_data.put("Coffee", 1030);
 		
-		int temp = 0;
+		int temp = 8;
 		
 		Stock_Updater(temp, "Toast", Restrant_data, temp);
+		
+		int C = Restrant_data.get("Toast");
+		C = C - 90;
+		Restrant_data.put("Toast",C);
+		System.out.println(Restrant_data);
 		
 //		int Temp;
 //		Temp = Restrant_data.get("Toast");

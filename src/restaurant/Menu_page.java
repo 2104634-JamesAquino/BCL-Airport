@@ -26,9 +26,7 @@ public class Menu_page {
 		return C;			
 		// This is a Method that is used to update the stock, this method will be called at the end.
 		//when the user has decided on all items they will like to order
-		
 	}
-	
 	static int Total_MenuItems;
 	static int Total_Price;
 	static int Item_OneCounter = 0;
@@ -47,20 +45,34 @@ public class Menu_page {
 	// The variable "Total_MenuItems" is used for the check out page to show how many Products are being ordered. 
 	// The variable "Total_Price" is also used for the Check out page to show how much the user has spent, it will also be used to add the amount to the finances. 
 	
-	public static int Plus_button(int a, HashMap<String, Integer> L, String K, int G) {
+	public static int Plus_button(int a, HashMap<String, Integer> HashMap_name, String Name_OfItem, int Item_stock) {
 		a++;
-		G = (int) L.get(K);
-		if(a>100 || a > G) {
+		Item_stock = (int) HashMap_name.get(Name_OfItem);
+		if(a>100 || a > Item_stock) {
 			a = 99;	
-			JOptionPane.showMessageDialog(null,"Cannot Order This Many","Login Error",JOptionPane.ERROR_MESSAGE); 
+			JOptionPane.showMessageDialog(null,"Cannot Order This Many",null,JOptionPane.ERROR_MESSAGE); 
 			// This is an error message that will pop up if the use is ordering more than 100 or the amount of stock left.
+		}
+		if (a > Item_stock || 5 > Item_stock) {
+			
 		}
 		return a;
 	}
 	// This is a method that has 2 Functions 
 	// Function one is, to increment how many of the products will be added to the basket
-	// Function tow is to, make sure there is no order above 100, or the amount of stock left.
-	public static int Minus_button(int b) {
+	// Function two is to, make sure there is no order above 100, or the amount of stock left.
+	
+public static int ReOrderStock(int a, HashMap<String, Integer> HashMap_name, String Name_OfItem, int Item_stock) throws InterruptedException {
+		if (a > Item_stock || 5 > Item_stock) {
+			Thread.sleep(300000); // This line of code will make the Method wait 5 Minutes to re-order the stock.
+			Item_stock = Item_stock + 90; // This line of Code Re-orders the stock.
+			JOptionPane.showMessageDialog(null,"There is not enouh stock, more has been ordered. Please wait 5 Minutes",null,JOptionPane.ERROR_MESSAGE);
+			}
+		return Item_stock;
+		}
+	// This Method is to re-order stock that is out of stock or that will be out of stock.
+	
+public static int Minus_button(int b) {
 		b--;
 		if(b<0) {
 			b=0;
@@ -72,20 +84,20 @@ public class Menu_page {
 	// This Method has 2 functions.
 	// The first Function is to reduce the number of that product by 1.
 	// The Second function is to make sure the customer is not ordering any products below 0
-	
 	private JFrame frame;
-	JLabel Show_StockCount_1;
-	JLabel Show_StockCount_2;
-	JLabel Show_StockCount_3;
-	JLabel Show_StockCount_4;
-	JLabel Show_StockCount_5;
-	JLabel Show_StockCount_6;
-	JLabel Show_StockCount_7;
-	JLabel Show_StockCount_8;
-	JLabel Show_StockCount_9;
-	JLabel Show_StockCount_10;
-	JLabel Show_StockCount_11;
-	JLabel Show_StockCount_12;
+	static JLabel Show_StockCount_1;
+	static JLabel Show_StockCount_2;
+	static JLabel Show_StockCount_3;
+	static JLabel Show_StockCount_4;
+	static JLabel Show_StockCount_5;
+	static JLabel Show_StockCount_6;
+	static JLabel Show_StockCount_7;
+	static JLabel Show_StockCount_8;
+	static JLabel Show_StockCount_9;
+	static JLabel Show_StockCount_10;
+	static JLabel Show_StockCount_11;
+	static JLabel Show_StockCount_12;
+	// These Jlabels will be used later on to show how much of each product will be ordered.
 	
 	/**
 	 * Launch the application.
@@ -130,7 +142,7 @@ public class Menu_page {
 		Restrant_data.put("Orange Juice", 100);
 		Restrant_data.put("Apple Juice", 100);
 		Restrant_data.put("Coffee", 100);
-		// This is a Hashmap, this used to store the data of the stock for the products 
+		// This is a Hashmap, this used to store the data of the stock for the products.
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
@@ -173,6 +185,13 @@ public class Menu_page {
 				// The two lines of code above allow the buttons to do a set function.
 				Item_OneCounter = Plus_button(Item_OneCounter, Restrant_data, "Toast", 0); // This line of codes calls a method to  the counter for the item on the menu. 
 				Show_StockCount_1.setText(String.valueOf(Item_OneCounter));// This line of code shows how much of the product the customer is ordering.
+				try {
+					ReOrderStock(Item_OneCounter, Restrant_data, "Toast", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				// This recalls the method to Re-order stock.
 			}
 		});
 		
@@ -184,6 +203,7 @@ public class Menu_page {
 				Item_OneCounter= Minus_button(Item_OneCounter);
 				Show_StockCount_1.setText(String.valueOf(Item_OneCounter));
 			}
+			
 		});
 		
 		JPanel panel_2 = new JPanel();
@@ -208,6 +228,12 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_TwoCounter = Plus_button(Item_TwoCounter, Restrant_data, "Sausages", 0);
 				Show_StockCount_2.setText(String.valueOf(Item_TwoCounter));
+				try {
+					ReOrderStock(Item_TwoCounter, Restrant_data, "Sausages", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				
 				}
 		});
@@ -245,7 +271,13 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_ThreeCounter = Plus_button(Item_ThreeCounter, Restrant_data, "Pancakes", 0);
 				Show_StockCount_3.setText(String.valueOf(Item_ThreeCounter));
+				try {
+					ReOrderStock(Item_TwoCounter, Restrant_data, "Toast", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+			}
 		});
 		
 		JButton Minus_3 = new JButton("-");
@@ -280,6 +312,12 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_FourCounter =  Plus_button(Item_FourCounter, Restrant_data,"Rice and Curry", 0);
 				Show_StockCount_4.setText(String.valueOf(Item_FourCounter));
+				try {
+					ReOrderStock(Item_FourCounter, Restrant_data,"Rice and Curry", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		
@@ -314,8 +352,14 @@ public class Menu_page {
 		Plus_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_FiveCounter = Plus_button(Item_FiveCounter,Restrant_data, "Fish and Chips", 0);
-				Show_StockCount_5.setText(String.valueOf(Item_FiveCounter));		
+				Show_StockCount_5.setText(String.valueOf(Item_FiveCounter));	
+				try {
+					ReOrderStock(Item_FiveCounter,Restrant_data, "Fish and Chips", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+			}
 		});
 		
 		JButton Minus_5 = new JButton("-");
@@ -350,8 +394,14 @@ public class Menu_page {
 		Plus_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_SixCounter = Plus_button(Item_SixCounter, Restrant_data, "Pasta", 0);
-				Show_StockCount_6.setText(String.valueOf(Item_SixCounter));		
+				Show_StockCount_6.setText(String.valueOf(Item_SixCounter));
+				try {
+					ReOrderStock(Item_SixCounter, Restrant_data, "Pasta", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+			}
 		});
 		
 		JButton Minus_6 = new JButton("-");
@@ -386,7 +436,13 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_SevenCounter = Plus_button(Item_SevenCounter, Restrant_data, "CheeseCake", 0);
 				Show_StockCount_7.setText(String.valueOf(Item_SevenCounter));
+				try {
+					ReOrderStock(Item_SevenCounter, Restrant_data, "CheeseCake", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+			}
 		});
 		
 		JButton Minus_7 = new JButton("-");
@@ -396,6 +452,7 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_SevenCounter = Minus_button(Item_SevenCounter);
 				Show_StockCount_7.setText(String.valueOf(Item_SevenCounter));
+				
 			}
 		});
 		
@@ -420,8 +477,14 @@ public class Menu_page {
 		Plus_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_EightCounter = Plus_button(Item_EightCounter, Restrant_data, "Choclate Cake", 0);
-				Show_StockCount_8.setText(String.valueOf(Item_EightCounter));		
+				Show_StockCount_8.setText(String.valueOf(Item_EightCounter));
+				try {
+					ReOrderStock(Item_EightCounter, Restrant_data, "Choclate Cake", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+			}
 		});
 		
 		JButton Minus_8 = new JButton("-");
@@ -456,6 +519,12 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_NineCounter = Plus_button(Item_NineCounter, Restrant_data, "MilkShake", 0);
 				Show_StockCount_9.setText(String.valueOf(Item_NineCounter));
+				try {
+					ReOrderStock(Item_NineCounter, Restrant_data, "MilkShake", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		
@@ -466,7 +535,6 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_NineCounter = Minus_button(Item_NineCounter);
 				Show_StockCount_9.setText(String.valueOf(Item_NineCounter));
-					
 				}
 		});
 		
@@ -492,7 +560,13 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_TenCounter = Plus_button(Item_TenCounter, Restrant_data, "Orange Juice", 0);
 				Show_StockCount_10.setText(String.valueOf(Item_TenCounter));		
+				try {
+					ReOrderStock(Item_TenCounter, Restrant_data, "Orange Juice", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+			}
 		});
 		
 		JButton Minus_10 = new JButton("-");
@@ -528,6 +602,12 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_ElevenCounter = Plus_button(Item_ElevenCounter, Restrant_data, "Apple Juice", 0);
 				Show_StockCount_11.setText(String.valueOf(Item_ElevenCounter));
+				try {
+					ReOrderStock(Item_ElevenCounter, Restrant_data, "Apple Juice", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 			}
 		});
 		
@@ -563,7 +643,13 @@ public class Menu_page {
 			public void actionPerformed(ActionEvent e) {
 				Item_TwelveCounter = Plus_button(Item_TwelveCounter, Restrant_data, "Coffee", 0);
 				Show_StockCount_12.setText(String.valueOf(Item_TwelveCounter));	
+				try {
+					ReOrderStock(Item_TwelveCounter, Restrant_data, "Coffee", 0);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
 				}
+			}
 		});
 
 		JButton Minus_12 = new JButton("-");

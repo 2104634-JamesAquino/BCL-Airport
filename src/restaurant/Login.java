@@ -14,10 +14,7 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class Login {
-	public static String[] FNUMBER = {"J334","S232"};
-	public static String[] UNAME = {"James","Lola"};
-	public static String[] PWORD = {"NAME","232"};
-
+	
 	private JFrame frame;
 	private JTextField TicketNumENTER;
 	private JTextField FirstNameENTER;
@@ -106,7 +103,7 @@ public class Login {
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
-					Inventory_counter.main(null);
+					Menu_page.main(null);
 				}
 				else {
 					JOptionPane.showMessageDialog(null,"Invalid Login","Login Error",JOptionPane.ERROR_MESSAGE);

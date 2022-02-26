@@ -14,6 +14,11 @@ import java.awt.event.ActionEvent;
 import javax.swing.JSeparator;
 
 public class Check_Out {
+	static int Counter_reset(int Counters) {
+		Counters = 0;
+		return Counters;
+		
+	}
 	private JFrame frame;
 
 	/**
@@ -220,7 +225,19 @@ public class Check_Out {
 		JButton btnNewButton = new JButton("Confirm Payment");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				Login.main(null);
+				Counter_reset(Menu_page.Item_OneCounter);
+				Counter_reset(Menu_page.Item_TwoCounter);
+				Counter_reset(Menu_page.Item_ThreeCounter);
+				Counter_reset(Menu_page.Item_FourCounter);
+				Counter_reset(Menu_page.Item_FiveCounter);
+				Counter_reset(Menu_page.Item_SixCounter);
+				Counter_reset(Menu_page.Item_SevenCounter);
+				Counter_reset(Menu_page.Item_EightCounter);
+				Counter_reset(Menu_page.Item_NineCounter);
+				Counter_reset(Menu_page.Item_TenCounter);
+				Counter_reset(Menu_page.Item_ElevenCounter);
+				Counter_reset(Menu_page.Item_TwelveCounter);
 			}
 		});
 		btnNewButton.setBounds(276, 395, 276, 57);

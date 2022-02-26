@@ -130,6 +130,7 @@ public class Menu_page {
 		Restrant_data.put("Orange Juice", 100);
 		Restrant_data.put("Apple Juice", 100);
 		Restrant_data.put("Coffee", 100);
+		// This is a Hashmap, this used to store the data of the stock for the products 
 		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
@@ -143,29 +144,35 @@ public class Menu_page {
 		Title.setFont(new Font("Tahoma", Font.BOLD, 41));
 		Title.setHorizontalAlignment(SwingConstants.CENTER);
 		frame.getContentPane().add(Title);
+		// This is a Jlabel, this is used as a title for the page.
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(56, 64, 190, 100);
 		panel_1.setBorder(new LineBorder(new Color(0, 0, 0), 8));
 		frame.getContentPane().add(panel_1);
 		panel_1.setLayout(null);
+		//This is a Panel for the first item on the menu which is "Toast".
 		
 		JLabel Item_1 = new JLabel("Toast (3 Slices)");
 		Double Toast = 1.5;
 		Item_1.setBounds(42, 22, 91, 13);
 		panel_1.add(Item_1);
+		// This Jlabel is used to show what product the customer will ordering
 		
 		Show_StockCount_1 = new JLabel(""+Item_OneCounter);
 		Show_StockCount_1.setBounds(93, 62, 24, 13);
 		panel_1.add(Show_StockCount_1);
+		// this is an another Jlabel which is used to to show how much the product the customer will be ordering.
 		
-		JButton Plus_1 = new JButton("+");
+		JButton Plus_1 = new JButton("+"); 
 		Plus_1.setBounds(116, 58, 50, 21);
 		panel_1.add(Plus_1);
+		// These 3 Lines of code create a button for the user to use when choosing how many products they will like to buy.
 		Plus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_OneCounter = Plus_button(Item_OneCounter, Restrant_data, "Toast", 0);
-				Show_StockCount_1.setText(String.valueOf(Item_OneCounter));
+				// The two lines of code above allow the buttons to do a set function.
+				Item_OneCounter = Plus_button(Item_OneCounter, Restrant_data, "Toast", 0); // This line of codes calls a method to  the counter for the item on the menu. 
+				Show_StockCount_1.setText(String.valueOf(Item_OneCounter));// This line of code shows how much of the product the customer is ordering.
 			}
 		});
 		

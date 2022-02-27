@@ -200,8 +200,8 @@ public static int Minus_button(int b) {
 		panel_1.add(Minus_1);
 		Minus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_OneCounter= Minus_button(Item_OneCounter);
-				Show_StockCount_1.setText(String.valueOf(Item_OneCounter));
+				Item_OneCounter= Minus_button(Item_OneCounter); // This calls the method to subtract the order counter by one each time the button is pressed .
+				Show_StockCount_1.setText(String.valueOf(Item_OneCounter)); //This updates the counter on the user interface to show how much is being updated.
 			}
 			
 		});
@@ -211,22 +211,27 @@ public static int Minus_button(int b) {
 		panel_2.setBorder(new LineBorder(new Color(0, 0, 0), 8));
 		frame.getContentPane().add(panel_2);
 		panel_2.setLayout(null);
+		//This is a Panel for the second item on the menu which is "Sausages".
 			
 		JLabel Item_2 = new JLabel("Sausages (3 Pieces)");
 		Double Sausages = 3.0;
 		Item_2.setBounds(36, 24, 119, 13);
 		panel_2.add(Item_2);
+		// this is an another Jlabel which is used to to show how much the product the customer will be ordering.
 
 		Show_StockCount_2 = new JLabel(""+Item_TwoCounter);
 		Show_StockCount_2.setBounds(70, 62, 24, 13);
 		panel_2.add(Show_StockCount_2);
+		// this is an another Jlabel which is used to to show how much the product the customer will be ordering.
 		
 		JButton Plus_2 = new JButton("+");
 		Plus_2.setBounds(101, 58, 50, 21);
 		panel_2.add(Plus_2);
+		// These 3 Lines of code create a button for the user to use when choosing how many products they will like to buy.
 		Plus_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TwoCounter = Plus_button(Item_TwoCounter, Restrant_data, "Sausages", 0);
+				// The two lines of code above allow the buttons to do a set function.
+				Item_TwoCounter = Plus_button(Item_TwoCounter, Restrant_data, "Sausages", 0);// This line of codes calls a method to  the counter for the item on the menu.
 				Show_StockCount_2.setText(String.valueOf(Item_TwoCounter));
 				try {
 					ReOrderStock(Item_TwoCounter, Restrant_data, "Sausages", 0);

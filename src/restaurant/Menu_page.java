@@ -64,9 +64,10 @@ public class Menu_page {
 	
 public static int ReOrderStock(int a, HashMap<String, Integer> HashMap_name, String Name_OfItem, int Item_stock) throws InterruptedException {
 		if (a > Item_stock || 5 > Item_stock) {
-			//Thread.sleep(300000); // This line of code will make the Method wait 5 Minutes to re-order the stock.
+			System.out.println(Item_stock);
+			Thread.sleep(300000); // This line of code will make the Method wait 5 Minutes to re-order the stock.
 			Item_stock = Item_stock + 90; // This line of Code Re-orders the stock.
-			//JOptionPane.showMessageDialog(null,"There is not enouh stock, more has been ordered. Please wait 5 Minutes",null,JOptionPane.ERROR_MESSAGE);
+			//JOptionPane.showMessageDialog(null,"There is not enough stock, more has been ordered. Please wait 5 Minutes",null,JOptionPane.ERROR_MESSAGE);
 			}
 		return Item_stock;
 		}
@@ -142,6 +143,7 @@ public static int Minus_button(int b) {
 		Restrant_data.put("Orange Juice", 100);
 		Restrant_data.put("Apple Juice", 100);
 		Restrant_data.put("Coffee", 100);
+		
 		// This is a Hashmap, this used to store the data of the stock for the products.
 		
 		frame = new JFrame();

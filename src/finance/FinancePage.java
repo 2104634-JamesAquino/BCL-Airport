@@ -1,6 +1,7 @@
 package finance;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -18,6 +19,11 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+
+import flightData.FlightRecord;
+import passengerData.passengerRecord;
+import testFinance.FinanceTestExample;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -28,11 +34,13 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class FinancePage extends JFrame {
-
+	
 	private JPanel contentPane;
 	private JTable table;
-	private JTable table_1;
-
+	private static JTable table_1;
+	
+	DefaultTableModel model;
+	Object[] row = new Object[10];
 	/**
 	 * Launch the application.
 	 */
@@ -55,7 +63,7 @@ public class FinancePage extends JFrame {
 	 */
 	public FinancePage() {
 		
-		DefaultTableModel model;
+		
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 553);
@@ -86,18 +94,25 @@ public class FinancePage extends JFrame {
 		table_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		table_1.setModel(model);
 		model.setColumnIdentifiers(column);
+		ArrayList<Object[]> rows = new ArrayList<Object[]>(displayPassengerData());
+		int amount = rows.size();
+		for(int i=0;i<amount;i++) {
+			Object[] row = rows.get(i);
+
+			model.addRow(row);
+		}
 		scrollPane.setViewportView(table_1);
 		
 	}
 	
-	public int calculateBagPrice(int numBags) {
+	public static int calculateBagPrice(int numBags) {
 		int totalBPrice = 0;
 		if (numBags > 1) {
 			totalBPrice = (numBags - 1) * 25;
 		}
 		return totalBPrice;
 	}
-	public int calculateCompensation(int delayMins) {
+	public static int calculateCompensation(int delayMins) {
 		double delayHours = delayMins /60.0;
 		int comp = 0;
 		if (delayHours > 3.00) {
@@ -109,7 +124,7 @@ public class FinancePage extends JFrame {
 		} 
 		return comp;
 	}
-	public double calculateSeat(String seat, double duration) {
+	public static double calculateSeat(String seat, double duration) {
 		double Type = 0.5;
 		String planeType = "";
 		if (duration > 2.00) {
@@ -140,63 +155,71 @@ public class FinancePage extends JFrame {
 		} 
 		return Type;
 	}
-	public double calculateTicketPrice(String seatA, String seatB, double durationA, double durationB, double Distance) {
+	public static double calculateTicketPrice(String seatA, String seatB, double durationA, double durationB, double DistanceA, double DistanceB) {
 		double ticketPrice = 0;
-		double JourneyA = (calculateSeat(seatA, durationA)) * Distance;
-		double JourneyB = (calculateSeat(seatB, durationB)) * Distance;
+		double JourneyA = (calculateSeat(seatA, durationA)) * DistanceA;
+		double JourneyB = (calculateSeat(seatB, durationB)) * DistanceB;
 		ticketPrice = JourneyA + JourneyB;
 		return ticketPrice;
 	}
-	public double calculateTotalPrice(int BagPrice, int comp, double TicketPrice, double FoodPrice) {
-		double totalPrice = 0;
-		double dBagPrice = Double.valueOf(BagPrice);
-		double dComp = Double.valueOf(comp);
-		totalPrice = (dBagPrice + TicketPrice + FoodPrice) - dComp;
+	public static double calculateTotalPrice(double BagPrice, double comp, double TicketPrice, double FoodPrice) {
+		double totalPrice = (BagPrice + TicketPrice + FoodPrice) - comp;
 		return totalPrice;
 	}
-	public static void displayPassengerData() {
-		//passengerRecord record = passengerRecord.get__();
-		ArrayList<ArrayList<String>> booking = new ArrayList<ArrayList<String>>();
-		int amount = booking.size();
-		System.out.println(amount);
-		/*
+	public static double calculateDuration(String time) {
+		String[] timearray = time.split(":");
+		String hours = timearray[0];
+		String minutes = timearray[1];
+		double totalTime = Integer.valueOf(hours) + (Integer.valueOf(minutes)/60);
+		return totalTime;
+	}
+	public ArrayList<Object[]> displayPassengerData() {
+		ArrayList<Object[]> total = new ArrayList<Object[]>();
+		FinanceTestExample genPassenger = new FinanceTestExample();
+		passengerRecord[] booking = genPassenger.generatePassenger();
+		int amount = booking.length;
+		FlightRecord dep = genPassenger.generateDeparture();
+		FlightRecord arr = genPassenger.generateArrival();
 		for(int i =0; i<amount;i++) {
-			passengerRecord passenger = new passengerRecord();
-			String[] passengerDetails = booking[i];
-			String pFName = changeString(passengerDetails[0]);
-			String pLName = changeString(passengerDetails[1]);
-			String pDOB = changeString(passengerDetails[2]);
-			//set details
-			String pTicketNum = changeNumeric(passengerDetails[3]);
-			String pNumBags = changeNumeric(passengerDetails[4]);
-			if (pNumBags == "-1") {
-				//setBagPrice(1);
-			} else {
-				//calculate bag price
+			passengerRecord passengerDetails = booking[i];
+			String pFName = changeString(passengerDetails.getFirstName());
+			String pLName = changeString(passengerDetails.getLastName());
+			String pDOB = changeString(passengerDetails.getDoB());
+			//passenger String details
+			int pTicketNum = passengerDetails.getTicketNumber();
+			//calculate bag price
+			int pNumBags = passengerDetails.getNumBags();
+			double totalBag = Double.valueOf(pNumBags);
+			//calculate compensation
+			int compA = calculateCompensation(Integer.valueOf(dep.getDelay()));
+			int compB = calculateCompensation(Integer.valueOf(arr.getDelay()));
+			double totalComp = Double.valueOf(compA + compB);
+			//calculate ticket price
+			String seatA = passengerDetails.getDepartureSeat();
+			String seatB = passengerDetails.getReturningSeat();
+			double durationA = calculateDuration(dep.getFlightDur());
+			double durationB = calculateDuration(arr.getFlightDur());
+			double distanceA = Double.valueOf(dep.getDistTravelled());
+			double distanceB = Double.valueOf(arr.getDistTravelled());
+			double ticketPrice = calculateTicketPrice(seatA, seatB, durationA, durationB, distanceA, distanceB);
+			//calculate food price
+			double foodPrice = passengerDetails.getFoodCosts();
+			//calculate total price
+			double totalPrice = calculateTotalPrice(totalBag, totalComp, ticketPrice, foodPrice);
+			Object[] row = {pFName, pLName, pDOB, String.valueOf(pTicketNum), String.valueOf(totalBag),String.valueOf(foodPrice), String.valueOf(ticketPrice),String.valueOf(totalComp),String.valueOf(totalPrice)};
+			total.add(row);
 			}
-			String pFoodPrice = changeNumeric(passengerDetails[5]);
-			if (pFoodPrice == "-1") {
-				//setFoodPrice = 0;
-			} else {
-				//setFoodPrice(pFoodPrice);
-			}
-			 String pTicketPrice = (calculateTicketPrice()).toString();
-			 
-			
-			int delayMins = 100 ;
-			String pCompensation = String.valueOf(calculateCompensation(delayMins));
-			System.out.println(pFName+","+pLName+","+pDOB+","+pTicketNum+","+pNumBags+","+pFoodPrice+","+pCompensation/*+pTicketPrice+","+","+pTotalPrice);
-			*/
+		return total;
 		}
 
-	public boolean checkString(String sVariable) {
+	public static boolean checkString(String sVariable) {
 		boolean validate = true;
 		if(sVariable == "" || sVariable == null) {
 			validate = false;
 		} 
 		return validate;
 	}
-	public boolean checkNumeric(String value) {
+	public static boolean checkNumeric(String value) {
 		boolean validate = checkString(value);
 		if (validate == true){
 			try {
@@ -211,7 +234,7 @@ public class FinancePage extends JFrame {
 		}
 		 return validate;
 	}
-	public String changeString(String sVariable) {
+	public static String changeString(String sVariable) {
 		String checkedString = "-";
 		boolean validate = checkString(sVariable);
 		if (validate == true){
@@ -226,7 +249,7 @@ public class FinancePage extends JFrame {
 		}
 		return checkedString;
 	}
-	public String changeNumeric(String value) {
+	public static String changeNumeric(String value) {
 		String checkedNumeric = "-1";
 		boolean validate = checkNumeric(value);
 		if (validate == true) {

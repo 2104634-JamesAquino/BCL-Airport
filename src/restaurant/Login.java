@@ -1,9 +1,8 @@
 package restaurant;
 
 import java.awt.EventQueue;
-
+import passengerData.passengerData;
 import javax.swing.JFrame;
-import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
@@ -14,7 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Font;
 
-public class Login_Page {
+public class Login {
 	
 	private JFrame frame;
 	private JTextField TicketNumENTER;
@@ -28,7 +27,7 @@ public class Login_Page {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Login_Page window = new Login_Page();
+					Login window = new Login();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -40,7 +39,7 @@ public class Login_Page {
 	/**
 	 * Create the application.
 	 */
-	public Login_Page() {
+	public Login() {
 		initialize();
 	}
 
@@ -95,7 +94,6 @@ public class Login_Page {
 		frame.getContentPane().add(LoginBUTTON);
 		LoginBUTTON.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
 				String TickNum = TicketNumENTER.getText();
 				String FIRSTNAME = FirstNameENTER.getText();
 				String SURNAME = SurnameENTER.getText();
@@ -105,9 +103,15 @@ public class Login_Page {
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
+					Menu_page.main(null);
+				
+//				if (TickNum.get FIRSTNAME.get("Wasif")&&SURNAME.get("Wasim")) {
+//					System.out.println("Sucess");
+//					TicketNumENTER.setText(null);
+//					FirstNameENTER.setText(null);
+//					SurnameENTER.setText(null);
+//					Menu_page.main(null);			
 					
-					Inventory_counter info = new Inventory_counter();
-					Inventory_counter.main(null);
 				}
 				else {
 					JOptionPane.showMessageDialog(null,"Invalid Login","Login Error",JOptionPane.ERROR_MESSAGE);

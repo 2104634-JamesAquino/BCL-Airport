@@ -121,6 +121,7 @@ public class Login {
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
 					Menu_page.main(null);
+					System.out.println(passengerData.passenger_Data);
 				
 //				if (TickNum.get FIRSTNAME.get("Wasif")&&SURNAME.get("Wasim")) {
 //					System.out.println("Sucess");

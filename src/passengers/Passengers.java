@@ -4,7 +4,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -21,7 +20,6 @@ import com.toedter.calendar.JDateChooser;
 
 import passengerData.passengerData;
 import passengerData.passengerRecord;
-
 /******************************  Class name that extends a JFrame and implements action listener class ***********************************/
 
 //action listener class is added in order to use it in the Passengers class
@@ -31,6 +29,8 @@ public class Passengers extends JFrame implements ActionListener {
 /******************************  Passenger Data declaration ***********************************/
 	
 //	PassengerData passengerData;
+	passengerData passenger_Data = new passengerData();
+	passengerRecord newPassengerRecord;
 	
 /******************************  Declaring the labels for the Passengers Form ***********************************/
 	
@@ -95,6 +95,9 @@ public class Passengers extends JFrame implements ActionListener {
 	
 	public Passengers()
 	{
+		
+//		this.ticketNum = Integer.valueOf(ticketNum);
+//		this.passengerCount = Integer.valueOf(count);
 		
 /******************************  Creating instances of the Jlabel ***********************************/
 		
@@ -408,13 +411,6 @@ public class Passengers extends JFrame implements ActionListener {
 		}
 	}
 	
-/****************************** This method is used to display a message when clicking the submit button ***********************************/
-	
-	public void validSubmit()
-	{
-			JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNum());
-	}
-	
 	/****************************** This method is used to to handle the actions that are performed by the component ***********************************/
 	//method is overwritten as it is already declared in the Action Listener class
 	@Override
@@ -422,9 +418,6 @@ public class Passengers extends JFrame implements ActionListener {
 		
 		if(e.getSource() == submit) 
 		{
-			
-//			if(ticketNum != passengerCount)
-//			{
 				if(isValidString(txtLastName, txtFirstName) == false)
 				{
 					
@@ -439,7 +432,6 @@ public class Passengers extends JFrame implements ActionListener {
 					
 				}
 				else {
-					ArrayList<passengerRecord> passengerRecord = new ArrayList<>();
 					
 					first_Name = txtFirstName.getText();
 					last_Name = txtLastName.getText();
@@ -452,8 +444,8 @@ public class Passengers extends JFrame implements ActionListener {
 					int randomNumber = randomNum();
 					System.out.println(randomNumber);
 					
-					passengerRecord newPassenger = new passengerRecord(randomNumber,first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
-					passengerRecord.add(newPassenger);
+					newPassengerRecord = new passengerRecord(randomNumber,first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
+					passenger_Data.addPassengerRecord(newPassengerRecord);
 					
 					JOptionPane.showMessageDialog(this, first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
 //					
@@ -463,27 +455,39 @@ public class Passengers extends JFrame implements ActionListener {
 					
 					dispose();
 					Passengers passenger = new Passengers();
+//					passenger.initialiseGUI(String.valueOf(ticketNum), String.valueOf(passengerCount+1));
 					passenger.setLocationRelativeTo(null);
 				}
-//			}
-//			else {
-//				
-//				String first_Name = txtFirstName.getText();
-//				String last_name = txtLastName.getText();
-//				String date_of_birth = sdf.format(dateOfBirth.getDate());
-//				int number_Of_Bags = (int) numberOfBags.getSelectedItem();
-//				String departSeat = (String) departingSeats.getSelectedItem();
-//				String returnSeat = (String) returningSeats.getSelectedItem();
-////				
-////				passengerData.addPassengerRecord(randomNum(), first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
-////				
-////				dispose();
-//				
-//			}
-//			
+			}
+			else {
+				
+					first_Name = txtFirstName.getText();
+					last_Name = txtLastName.getText();
+					date_Of_Birth = sdf.format(dateOfBirth.getDate());
+					telephone_Number = txtTelephoneNumber.getText();
+					emailAddress = txtEmailAddress.getText();
+					number_Of_Bags = (int)numberOfBags.getSelectedItem();
+					departing_Seat = (String) departingSeats.getSelectedItem();
+					returning_Seat = (String) returningSeats.getSelectedItem();
+					int randomNumber = randomNum();
+					System.out.println(randomNumber);
+					
+					newPassengerRecord = new passengerRecord(randomNumber,first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
+					passenger_Data.addPassengerRecord(newPassengerRecord);
+					
+					JOptionPane.showMessageDialog(this, first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
+//					
+//					passengerData.addPassengerRecord(randomNumber,first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
+//					
+					JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNumber);
+				
+				dispose();
+				
+			}
+			
 		}
 		
-	}
+//	}
 	
 /******************************  Main method for displaying the Passengers UI constructor with all the content ***********************************/
 	

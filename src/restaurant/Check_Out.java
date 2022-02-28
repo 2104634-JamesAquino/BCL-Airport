@@ -220,19 +220,19 @@ public class Check_Out {
 		JButton btnNewButton = new JButton("Confirm Payment");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Login.main(null);
-				Menu_page.Item_OneCounter = 0;
-				Menu_page.Item_TwoCounter = 0;
-				Menu_page.Item_ThreeCounter = 0;
-				Menu_page.Item_FourCounter = 0;
-				Menu_page.Item_FiveCounter = 0;
-				Menu_page.Item_SixCounter = 0;
-				Menu_page.Item_SevenCounter = 0;
-				Menu_page.Item_EightCounter = 0;
-				Menu_page.Item_NineCounter = 0;
-				Menu_page.Item_TenCounter = 0;
-				Menu_page.Item_ElevenCounter = 0;
-				Menu_page.Item_TwelveCounter = 0;
+//				Login.main(null);
+//				Menu_page.Item_OneCounter = 0;
+//				Menu_page.Item_TwoCounter = 0;
+//				Menu_page.Item_ThreeCounter = 0;
+//				Menu_page.Item_FourCounter = 0;
+//				Menu_page.Item_FiveCounter = 0;
+//				Menu_page.Item_SixCounter = 0;
+//				Menu_page.Item_SevenCounter = 0;
+//				Menu_page.Item_EightCounter = 0;
+//				Menu_page.Item_NineCounter = 0;
+//				Menu_page.Item_TenCounter = 0;
+//				Menu_page.Item_ElevenCounter = 0;
+//				Menu_page.Item_TwelveCounter = 0;
 				
 				// Code to Add total price to passengers finances should be here 
 				

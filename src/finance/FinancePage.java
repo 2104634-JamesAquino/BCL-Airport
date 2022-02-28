@@ -98,7 +98,8 @@ public class FinancePage extends JFrame {
 		int amount = rows.size();
 		for(int i=0;i<amount;i++) {
 			Object[] row = rows.get(i);
-			System.out.println(row);
+
+			model.addRow(row);
 		}
 		scrollPane.setViewportView(table_1);
 		
@@ -167,7 +168,10 @@ public class FinancePage extends JFrame {
 	}
 	public static double calculateDuration(String time) {
 		String[] timearray = time.split(":");
-		return 0;
+		String hours = timearray[0];
+		String minutes = timearray[1];
+		double totalTime = Integer.valueOf(hours) + (Integer.valueOf(minutes)/60);
+		return totalTime;
 	}
 	public ArrayList<Object[]> displayPassengerData() {
 		ArrayList<Object[]> total = new ArrayList<Object[]>();
@@ -193,8 +197,8 @@ public class FinancePage extends JFrame {
 			//calculate ticket price
 			String seatA = passengerDetails.getDepartureSeat();
 			String seatB = passengerDetails.getReturningSeat();
-			double durationA = Double.valueOf(dep.getFlightDur());
-			double durationB = Double.valueOf(arr.getFlightDur());
+			double durationA = calculateDuration(dep.getFlightDur());
+			double durationB = calculateDuration(arr.getFlightDur());
 			double distanceA = Double.valueOf(dep.getDistTravelled());
 			double distanceB = Double.valueOf(arr.getDistTravelled());
 			double ticketPrice = calculateTicketPrice(seatA, seatB, durationA, durationB, distanceA, distanceB);

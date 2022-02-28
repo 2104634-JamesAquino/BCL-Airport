@@ -6,7 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
+import testFinance.FinanceTestExample;
 
 
 import java.awt.BorderLayout;
@@ -54,6 +54,9 @@ public class FinancePage extends JFrame {
 	 * test comment
 	 */
 	public FinancePage() {
+		
+		DefaultTableModel model;
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 553);
 		contentPane = new JPanel();
@@ -63,7 +66,7 @@ public class FinancePage extends JFrame {
 		
 		ImageIcon image = new ImageIcon("./BCL_Logo.png");
 		JLabel imageLabel = new JLabel("");
-		imageLabel.setBounds(10,9,287,131);
+		imageLabel.setBounds(10,9,277,134);
 		imageLabel.setIcon(image);
 		contentPane.add(imageLabel);
 		
@@ -72,23 +75,19 @@ public class FinancePage extends JFrame {
 		lblNewLabel.setBounds(307, 36, 298, 43);
 		contentPane.add(lblNewLabel);
 		
+		
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 179, 766, 327);
 		contentPane.add(scrollPane);
 		
 		table_1 = new JTable();
+		model = new DefaultTableModel();
+		Object[] column = {"First Name", "Last Name", "Date of Birth", "Ticket Number", "Number of Bags", "Food Price", "Ticket Price", "Compensation", "Total Price"};
 		table_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		table_1.setModel(model);
+		model.setColumnIdentifiers(column);
 		scrollPane.setViewportView(table_1);
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-				{null, null, null, null, null, null, null, null, null},
-			},
-			new String[] {
-				"First Name", "Last Name", "Date of Birth", "Ticket Number", "Number of Bags", "Food Price", "Ticket Price", "Compensation", "Total Price"
-			}
-		));
+		
 	}
 	
 	public int calculateBagPrice(int numBags) {
@@ -110,8 +109,14 @@ public class FinancePage extends JFrame {
 		} 
 		return comp;
 	}
-	public double calculateSeat(String seat, String planeType) {
+	public double calculateSeat(String seat, double duration) {
 		double Type = 0.5;
+		String planeType = "";
+		if (duration > 2.00) {
+			planeType = "Boeing";
+		} else {
+			planeType = "Airbus";
+		}
 		String[] airClassBui = {"1A","1B","2A","2B","3A","3B","4A","4B","5A","5B"};
 		String[] boeClassFir = {"1A","1B","2A","2B","3A","3B","4A","4B","5A","5B"};
 		String[] boeClassBui = {"6A","6B","6C","6D","7A","7B","7C","7D","8A","8B","8C","8D","9A","9B","9C","9D","10A","10B","10C","10D"};
@@ -135,11 +140,10 @@ public class FinancePage extends JFrame {
 		} 
 		return Type;
 	}
-	public double calculateTicketPrice() {
-		double ticketPrice = 0, FlightDistance = 1000.00;
-		String seatA = "5A", seatB = "6A", planeType = "Boeing";
-		double JourneyA = (calculateSeat(seatA, planeType)) * FlightDistance;
-		double JourneyB = (calculateSeat(seatB,planeType)) * FlightDistance;
+	public double calculateTicketPrice(String seatA, String seatB, double durationA, double durationB, double Distance) {
+		double ticketPrice = 0;
+		double JourneyA = (calculateSeat(seatA, durationA)) * Distance;
+		double JourneyB = (calculateSeat(seatB, durationB)) * Distance;
 		ticketPrice = JourneyA + JourneyB;
 		return ticketPrice;
 	}

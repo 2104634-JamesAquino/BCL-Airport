@@ -34,10 +34,13 @@ import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class FinancePage extends JFrame {
-
+	
 	private JPanel contentPane;
 	private JTable table;
 	private static JTable table_1;
+	
+	DefaultTableModel model;
+	Object[] row = new Object[10];
 	/**
 	 * Launch the application.
 	 */
@@ -60,7 +63,7 @@ public class FinancePage extends JFrame {
 	 */
 	public FinancePage() {
 		
-		DefaultTableModel model;
+		
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 553);
@@ -91,6 +94,12 @@ public class FinancePage extends JFrame {
 		table_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		table_1.setModel(model);
 		model.setColumnIdentifiers(column);
+		ArrayList<Object[]> rows = new ArrayList<Object[]>(displayPassengerData());
+		int amount = rows.size();
+		for(int i=0;i<amount;i++) {
+			Object[] row = rows.get(i);
+			System.out.println(row);
+		}
 		scrollPane.setViewportView(table_1);
 		
 	}
@@ -156,7 +165,12 @@ public class FinancePage extends JFrame {
 		double totalPrice = (BagPrice + TicketPrice + FoodPrice) - comp;
 		return totalPrice;
 	}
-	public static void displayPassengerData() {
+	public static double calculateDuration(String time) {
+		String[] timearray = time.split(":");
+		return 0;
+	}
+	public ArrayList<Object[]> displayPassengerData() {
+		ArrayList<Object[]> total = new ArrayList<Object[]>();
 		FinanceTestExample genPassenger = new FinanceTestExample();
 		passengerRecord[] booking = genPassenger.generatePassenger();
 		int amount = booking.length;
@@ -188,9 +202,10 @@ public class FinancePage extends JFrame {
 			double foodPrice = passengerDetails.getFoodCosts();
 			//calculate total price
 			double totalPrice = calculateTotalPrice(totalBag, totalComp, ticketPrice, foodPrice);
-			String[] row = {pFName, pLName, pDOB, String.valueOf(pTicketNum), String.valueOf(totalBag),String.valueOf(foodPrice), String.valueOf(ticketPrice),String.valueOf(totalComp),String.valueOf(totalPrice)};
-			table_1.add(row);
+			Object[] row = {pFName, pLName, pDOB, String.valueOf(pTicketNum), String.valueOf(totalBag),String.valueOf(foodPrice), String.valueOf(ticketPrice),String.valueOf(totalComp),String.valueOf(totalPrice)};
+			total.add(row);
 			}
+		return total;
 		}
 
 	public static boolean checkString(String sVariable) {

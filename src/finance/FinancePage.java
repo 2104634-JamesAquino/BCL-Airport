@@ -30,8 +30,11 @@ import javax.swing.JTextField;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
+
 
 public class FinancePage extends JFrame {
 	
@@ -40,6 +43,7 @@ public class FinancePage extends JFrame {
 	private static JTable table_1;
 	
 	DefaultTableModel model;
+	//Allows the methods to easily display code
 	Object[] row = new Object[10];
 	/**
 	 * Launch the application.
@@ -90,7 +94,7 @@ public class FinancePage extends JFrame {
 		
 		table_1 = new JTable();
 		model = new DefaultTableModel();
-		Object[] column = {"First Name", "Last Name", "Date of Birth", "Ticket Number", "Number of Bags", "Food Price", "Ticket Price", "Compensation", "Total Price"};
+		Object[] column = {"First Name", "Last Name", "Date of Birth", "Ticket Number", "Bag Costs", "Food Price", "Ticket Price", "Compensation", "Total Price"};
 		table_1.setFont(new Font("Tahoma", Font.BOLD, 12));
 		table_1.setModel(model);
 		model.setColumnIdentifiers(column);
@@ -173,6 +177,11 @@ public class FinancePage extends JFrame {
 		double totalTime = Integer.valueOf(hours) + (Integer.valueOf(minutes)/60);
 		return totalTime;
 	}
+	public static double round(double value) {
+		BigDecimal bd = new BigDecimal(value).setScale(2,RoundingMode.HALF_UP);
+		double newValue = bd.doubleValue();
+		return newValue;
+	}
 	public ArrayList<Object[]> displayPassengerData() {
 		ArrayList<Object[]> total = new ArrayList<Object[]>();
 		FinanceTestExample genPassenger = new FinanceTestExample();
@@ -189,7 +198,7 @@ public class FinancePage extends JFrame {
 			int pTicketNum = passengerDetails.getTicketNumber();
 			//calculate bag price
 			int pNumBags = passengerDetails.getNumBags();
-			double totalBag = Double.valueOf(pNumBags);
+			double totalBag = Double.valueOf(calculateBagPrice(pNumBags));
 			//calculate compensation
 			int compA = calculateCompensation(Integer.valueOf(dep.getDelay()));
 			int compB = calculateCompensation(Integer.valueOf(arr.getDelay()));
@@ -201,11 +210,12 @@ public class FinancePage extends JFrame {
 			double durationB = calculateDuration(arr.getFlightDur());
 			double distanceA = Double.valueOf(dep.getDistTravelled());
 			double distanceB = Double.valueOf(arr.getDistTravelled());
-			double ticketPrice = calculateTicketPrice(seatA, seatB, durationA, durationB, distanceA, distanceB);
+			double ticketPrice = round(calculateTicketPrice(seatA, seatB, durationA, durationB, distanceA, distanceB));
 			//calculate food price
-			double foodPrice = passengerDetails.getFoodCosts();
+			double foodPrice = round(passengerDetails.getFoodCosts());
 			//calculate total price
-			double totalPrice = calculateTotalPrice(totalBag, totalComp, ticketPrice, foodPrice);
+			double totalPrice = round(calculateTotalPrice(totalBag, totalComp, ticketPrice, foodPrice));
+			System.out.println(totalBag+" "+foodPrice+" "+ticketPrice+" "+totalPrice);
 			Object[] row = {pFName, pLName, pDOB, String.valueOf(pTicketNum), String.valueOf(totalBag),String.valueOf(foodPrice), String.valueOf(ticketPrice),String.valueOf(totalComp),String.valueOf(totalPrice)};
 			total.add(row);
 			}

@@ -449,7 +449,7 @@ public class Passengers extends JFrame implements ActionListener {
 					
 					JOptionPane.showMessageDialog(this, first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
 //					
-//					passengerData.addPassengerRecord(randomNumber,first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
+       				passenger_Data.addPassengerRecord(newPassengerRecord);
 //					
 					JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNumber);
 					

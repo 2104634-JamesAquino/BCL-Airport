@@ -1,7 +1,7 @@
 package restaurant;
 
 import java.awt.EventQueue;
-
+import passengerData.passengerData;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -104,6 +104,14 @@ public class Login {
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
 					Menu_page.main(null);
+				
+//				if (TickNum.get FIRSTNAME.get("Wasif")&&SURNAME.get("Wasim")) {
+//					System.out.println("Sucess");
+//					TicketNumENTER.setText(null);
+//					FirstNameENTER.setText(null);
+//					SurnameENTER.setText(null);
+//					Menu_page.main(null);			
+					
 				}
 				else {
 					JOptionPane.showMessageDialog(null,"Invalid Login","Login Error",JOptionPane.ERROR_MESSAGE);

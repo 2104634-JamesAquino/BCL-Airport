@@ -18,10 +18,7 @@ public class passengerRecord {
 	double bagPrice;
 	double ticketPrice;
 	
-//	public passengerRecord() {
-//	}
-	
-	public passengerRecord(int ticketNo, String fName, String lName, String DoB, String emailAddress, String telNum, int numOfBags,int foodPrice, String departSeat, String returnSeat) {
+	public passengerRecord(int ticketNo, String fName, String lName, String DoB, String emailAddress, String telNum, int numOfBags, String departSeat, String returnSeat) {
 		
 		this.ticketNumber = ticketNo;
 		this.firstName = fName;
@@ -30,7 +27,7 @@ public class passengerRecord {
 		this.email = emailAddress;
 		this.telNo = telNum;
 		this.numBags = numOfBags;
-		this.foodCosts = foodPrice;
+		//this.foodCosts = 0.0;
 		this.departureSeat = departSeat;
 		this.returningSeat = returnSeat;
 		
@@ -146,16 +143,6 @@ public class passengerRecord {
 
 	public void setTicketPrice(double ticketPrice) {
 		this.ticketPrice = ticketPrice;
-	}
-	
-	public int randomNum()
-	{
-		int min = 11111111;
-		int max = 99999999;
-		
-		int positiveNum = (int) Math.floor(Math.random()*(max - min + 1) + min);
-		return positiveNum;
-		
 	}
 	
 }

@@ -613,9 +613,9 @@ if (loopSeatingPlan == 0) {   // if continue button hasn't been pressed it will 
 		    			System.out.print("not 2B");
 		    			txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[',' ').replace(']',' '));
 					}
-					
+					 
 				}
-				else {  // if th 
+				else {  // if th
 	  
                     if (btn2B_A.isSelected()) {
                     	

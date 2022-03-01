@@ -1,8 +1,8 @@
 package testFinance;
 import java.util.Random;
 import flightData.FlightRecord;
-import passengerDetails.passengerData;
-import passengerDetails.passengerRecord;
+import passengerData.passengerData;
+import passengerData.passengerRecord;
 public class FinanceTestExample {
 	public static void main(String[] args) {
 		

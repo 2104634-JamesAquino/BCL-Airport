@@ -16,7 +16,7 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import flightData.FlightRecord;//To use getter and setter from classes
-import passengerDetails.passengerRecord;
+import passengerData.passengerRecord;
 import testFinance.FinanceTestExample;//To get the data from test folder
 import javax.swing.JLabel;//More JFrame 
 import java.awt.Font;
@@ -71,6 +71,7 @@ public class FinancePage extends JFrame {
 		scrollPane.setBounds(10, 179, 766, 327);
 		contentPane.add(scrollPane);
 		table_1 = new JTable();
+		table_1.setEnabled(false);
 		model = new DefaultTableModel();
 		//Column name for the data - data will follow this format
 		Object[] column = {"First Name", "Last Name", "Date of Birth", "Ticket Number", "Bag Costs", "Food Price", "Ticket Price", "Compensation", "Total Price"};

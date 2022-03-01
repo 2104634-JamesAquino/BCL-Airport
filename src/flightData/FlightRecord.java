@@ -1,6 +1,6 @@
 package flightData;
 
-import passengerDetails.passengerData;
+import passengerData.passengerData;
 
 public class FlightRecord {
 	String dateOfFlight;

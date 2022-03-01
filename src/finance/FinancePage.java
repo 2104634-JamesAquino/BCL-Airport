@@ -206,7 +206,7 @@ public class FinancePage extends JFrame {
 			passengerDetails.setFoodCosts(foodPrice);
 			//calculate total price
 
-			double totalPrice = round(calculateTotalPrice(totalBag, Comp, ticketPrice, foodPrice));
+			double totalPrice = round(calculateTotalPrice(totalBag, totalComp, ticketPrice, foodPrice));
 			passengerDetails.setTotalPrice(totalPrice);
 			Object[] row = {pFName, pLName, pDOB, String.valueOf(pTicketNum), String.valueOf(totalBag),String.valueOf(foodPrice), String.valueOf(ticketPrice),String.valueOf(totalComp),String.valueOf(totalPrice)};
 			total.add(row);

@@ -16,7 +16,7 @@ import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
 import flightData.FlightRecord;//To use getter and setter from classes
-import passengerData.passengerRecord;
+import passengerDetails.passengerRecord;
 import testFinance.FinanceTestExample;//To get the data from test folder
 import javax.swing.JLabel;//More JFrame 
 import java.awt.Font;

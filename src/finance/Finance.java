@@ -1,6 +1,6 @@
 package finance;
 
-import passengerData.passengerRecord;
+import passengerDetails.passengerRecord;
 
 public class Finance {
 	public Finance(){

@@ -2,57 +2,47 @@ package passengerDetails;
 
 import java.util.ArrayList;
 
-public class passengerData {
-	
-	//Declaration of ArrayList of type passengerRecord
-	ArrayList<ArrayList<passengerRecord>> passenger_Data;
-	
-	//ArrayList<passengerRecord> passengerData;
-	
-	//******************************* Constructor of the passengerData class
-	
-	public passengerData() {
-		
-		passenger_Data = new ArrayList<ArrayList<passengerRecord>>();
-		
-	}
-	
-//	public passengerData() {
-//		
-//		this.passengerData = new ArrayList<passengerRecord>();
-//		
-//	}
-	
-	//This method is used to add a passenger record to the ArrayList 
-	
-	public void addPassengerRecord(ArrayList<passengerRecord> record)
-	{
-		passenger_Data.add(record);
-	}
-	
-//	public void addPassengerRecord(passengerRecord record)
-//	{
-//		this.passengerData.add(record);
-//	}
-	
-	//This method is used to get the index of a passengerRecord
-	
-	public ArrayList<passengerRecord> getPassengerRecord(int index) 
-	{
-		return this.passenger_Data.get(index);
-	}
-	
-//	public passengerRecord getPassengerRecord(int index) 
-//	{
-//		return this.passengerData.get(index);
-//	}
-	
-	//This method is used to return the passenger records from the ArrayList  
-	
-	public ArrayList<ArrayList<passengerRecord>> returnPassengerRecords()
-	{
-		return passenger_Data;
-	}
+public class PassengerData {
 
+//************************* Declaring the ArrayList of Object array that contains passenger data *******************************//
+	
+	ArrayList<Object[]> passengerData = new ArrayList<>();
+	
+//************************* Declaring the Object array of size 10 that will be added to the ArrayList *******************************//
+	
+	Object[] passengers = new Object[10];
+	
+	public PassengerData()
+	{
+		
+	}
+	
+//************************* Method used to add inputs from user to ArrayList *******************************//
+	
+	public void addPassengerRecord(int ticketNum, String fName, String lName, String dob, String telNum, String email, int numBags, String departingSeats, String returningSeats) {
+		
+		passengers[0] = ticketNum;
+		passengers[1] = fName;
+		passengers[2] = lName;
+		passengers[3] = dob;
+		passengers[4] = 0.00;
+		passengers[5] = 0.00;
+		passengers[6] = 0.00;
+		passengers[7] = 0.00;
+		passengers[8] = 0.00;
+		passengers[9] = 0.00;
+		
+		Object[] passenger = passengers.clone();
+		passengerData.add(passenger);
+		
+	}
+	
+//************************* Method used to return the passenger records that are stored in the ArrayList *******************************//
+	
+	public ArrayList<Object[]> returnPassengerRecords()
+	{
+		return passengerData;
+	}
+	
 }
 

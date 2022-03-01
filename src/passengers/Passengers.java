@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import com.toedter.calendar.JDateChooser;
 
-import passengerData.PassengerData;
+import passengerDetails.PassengerData;
 /******************************  Class name that extends a JFrame and implements action listener class ***********************************/
 
 //action listener class is added in order to use it in the Passengers class

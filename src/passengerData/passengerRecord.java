@@ -1,4 +1,4 @@
-package passengerDetails;
+package passengerData;
 
 
 public class passengerRecord {

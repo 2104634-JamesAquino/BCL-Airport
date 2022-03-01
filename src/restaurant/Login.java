@@ -2,12 +2,14 @@ package restaurant;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
-import passengerData.passengerData;
-import passengerData.passengerRecord;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import passengerDetails.passengerData;
+import passengerDetails.passengerRecord;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
@@ -121,7 +123,7 @@ public class Login {
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
 					Menu_page.main(null);
-					System.out.println(passengerData.passenger_Data);
+					System.out.println(passengerDetails.passenger_Data);
 				
 //				if (TickNum.get FIRSTNAME.get("Wasif")&&SURNAME.get("Wasim")) {
 //					System.out.println("Sucess");

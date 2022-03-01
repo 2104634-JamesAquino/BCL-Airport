@@ -1,4 +1,4 @@
-package passengerData;
+package passengerDetails;
 
 import java.util.ArrayList;
 

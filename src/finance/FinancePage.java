@@ -170,6 +170,8 @@ public class FinancePage extends JFrame {
 		ArrayList<Object[]> total = new ArrayList<Object[]>();//will store passenger data to display in this arrayList
 		FinanceTestExample genPassenger = new FinanceTestExample();//To get the data from test class and methods
 		passengerRecord[] booking = genPassenger.generatePassenger();
+		//ArrayList<passengerRecord[]> booking = PassengerData.returnPassengerRecords();
+		//int amount = booking.size();
 		int amount = booking.length;
 		FlightRecord dep = genPassenger.generateDeparture();//Get test data - flight and arrival
 		FlightRecord arr = genPassenger.generateArrival();

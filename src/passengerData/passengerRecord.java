@@ -1,6 +1,5 @@
 package passengerData;
 
-
 public class passengerRecord {
 	
 	String firstName;
@@ -17,18 +16,20 @@ public class passengerRecord {
 	double totalPrice;
 	double bagPrice;
 	double ticketPrice;
-	
-	public passengerRecord(int ticketNum, String fName, String lName, String DoB, String emailAddress, String telNum, int numOfBags, String departSeat, String returnSeat) {
+
+	public passengerRecord(int ticketNo, String fName, String lName, String DoB, String emailAddress, String telNum, int numOfBags, String departSeat, String returnSeat) {
 		
-		this.ticketNumber = ticketNum;
+		this.ticketNumber = ticketNo;
 		this.firstName = fName;
 		this.lastName = lName;
 		this.DoB = DoB;
 		this.email = emailAddress;
 		this.telNo = telNum;
 		this.numBags = numOfBags;
+
 //		this.foodCosts = 0.00;
 //		this.bagPrice = 0.00;
+		//this.foodCosts = 0.0;
 		this.departureSeat = departSeat;
 		this.returningSeat = returnSeat;
 		

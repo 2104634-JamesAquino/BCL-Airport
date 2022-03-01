@@ -30,6 +30,7 @@ public class passengerRecord {
 		this.bagPrice = 0.00;
 		this.ticketPrice = 0.00;
 		this.compensation = 0.00;
+		this.totalPrice = 0.00;
 		this.departureSeat = departSeat;
 		this.returningSeat = returnSeat;
 		

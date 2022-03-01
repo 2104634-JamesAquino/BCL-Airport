@@ -186,10 +186,12 @@ public class FinancePage extends JFrame {
 			//calculate bag price
 			int pNumBags = passengerDetails.getNumBags();
 			double totalBag = Double.valueOf(calculateBagPrice(pNumBags));
+			passengerDetails.setBagPrice(totalBag);
 			//calculate compensation
 			int compA = calculateCompensation(Integer.valueOf(dep.getDelay()));
 			int compB = calculateCompensation(Integer.valueOf(arr.getDelay()));
-			double totalComp = Double.valueOf(compA + compB);
+			int totalComp = compA + compB;
+			passengerDetails.setCompensation(totalComp);
 			//calculate ticket price
 			String seatA = passengerDetails.getDepartureSeat();
 			String seatB = passengerDetails.getReturningSeat();
@@ -198,11 +200,14 @@ public class FinancePage extends JFrame {
 			double distanceA = Double.valueOf(dep.getDistTravelled());
 			double distanceB = Double.valueOf(arr.getDistTravelled());
 			double ticketPrice = round(calculateTicketPrice(seatA, seatB, durationA, durationB, distanceA, distanceB));
+			passengerDetails.setTicketPrice(ticketPrice);
 			//calculate food price
 			double foodPrice = round(passengerDetails.getFoodCosts());
+			passengerDetails.setFoodCosts(foodPrice);
 			//calculate total price
-			double totalPrice = round(calculateTotalPrice(totalBag, totalComp, ticketPrice, foodPrice));
-			System.out.println(totalBag+" "+foodPrice+" "+ticketPrice+" "+totalPrice);
+			double Comp = Double.valueOf(totalComp);
+			double totalPrice = round(calculateTotalPrice(totalBag, Comp, ticketPrice, foodPrice));
+			passengerDetails.setTotalPrice(totalPrice);
 			Object[] row = {pFName, pLName, pDOB, String.valueOf(pTicketNum), String.valueOf(totalBag),String.valueOf(foodPrice), String.valueOf(ticketPrice),String.valueOf(totalComp),String.valueOf(totalPrice)};
 			total.add(row);
 			}

@@ -26,10 +26,9 @@ public class passengerRecord {
 		this.email = emailAddress;
 		this.telNo = telNum;
 		this.numBags = numOfBags;
-
-//		this.foodCosts = 0.00;
-//		this.bagPrice = 0.00;
-		//this.foodCosts = 0.0;
+		this.foodCosts = 0.00;
+		this.bagPrice = 0.00;
+		this.foodCosts = 0.0;
 		this.departureSeat = departSeat;
 		this.returningSeat = returnSeat;
 		

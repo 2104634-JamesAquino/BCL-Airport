@@ -45,7 +45,7 @@ public class Arrivals_Modal extends JFrame{
 		JLabel flight_number_label = new JLabel("Flight");
 		
 		panel.add(departure_time_label);
-		panel.add(departur_city_label);
+		panel.add(departur_city_label); 
 		panel.add(departure_airport_label);
 		panel.add(flight_number_label);
 		

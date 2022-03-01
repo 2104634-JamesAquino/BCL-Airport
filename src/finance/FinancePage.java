@@ -155,9 +155,9 @@ public class FinancePage extends JFrame {
 	}
 	public static double calculateDuration(String time) {//Time comes in format HH:MM so must convert into double for calculations
 		String[] timearray = time.split(":");//Splits string at : character
-		String hours = timearray[0];
-		String minutes = timearray[1];
-		double totalTime = Integer.valueOf(hours) + (Integer.valueOf(minutes)/60);//Converts minutes into hours
+		String StringHours = timearray[0];
+		String StringMinutes = timearray[1];
+		double totalTime = Double.valueOf(StringHours) + (Double.valueOf(StringMinutes)/60.0);//Converts minutes into hours
 		return totalTime;
 	}
 	public static double round(double value) {//method to round double to 2 decimal places

@@ -1,7 +1,7 @@
 package testPassenger;
 
-import passengerDetails.passengerData;
-import passengerDetails.passengerRecord;
+import passengerData.passengerData;
+import passengerData.passengerRecord;
 public class TestPassenger1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub

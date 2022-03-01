@@ -190,7 +190,7 @@ public class FinancePage extends JFrame {
 			//calculate compensation
 			int compA = calculateCompensation(Integer.valueOf(dep.getDelay()));
 			int compB = calculateCompensation(Integer.valueOf(arr.getDelay()));
-			int totalComp = compA + compB;
+			double totalComp = Double.valueOf(compA + compB);
 			passengerDetails.setCompensation(totalComp);
 			//calculate ticket price
 			String seatA = passengerDetails.getDepartureSeat();
@@ -205,7 +205,7 @@ public class FinancePage extends JFrame {
 			double foodPrice = round(passengerDetails.getFoodCosts());
 			passengerDetails.setFoodCosts(foodPrice);
 			//calculate total price
-			double Comp = Double.valueOf(totalComp);
+
 			double totalPrice = round(calculateTotalPrice(totalBag, Comp, ticketPrice, foodPrice));
 			passengerDetails.setTotalPrice(totalPrice);
 			Object[] row = {pFName, pLName, pDOB, String.valueOf(pTicketNum), String.valueOf(totalBag),String.valueOf(foodPrice), String.valueOf(ticketPrice),String.valueOf(totalComp),String.valueOf(totalPrice)};

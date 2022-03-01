@@ -112,7 +112,7 @@ public class passengerRecord {
 		return compensation;
 	}
 
-	public void setCompensation(int compensation) {
+	public void setCompensation(double compensation) {
 		this.compensation = compensation;
 	}
 

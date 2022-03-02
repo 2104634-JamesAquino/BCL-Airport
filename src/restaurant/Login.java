@@ -105,31 +105,13 @@ public class Login {
 				String FIRSTNAME = FirstNameENTER.getText();
 				String SURNAME = SurnameENTER.getText();
 				
-				String [][] PassData = {
-						{"LK99","Wasif","Khan"},
-						{"LM77","James","Chow"},
-						{"JK44","Maher","Mub"}
-				};
-				List<CharSequence[]> list = Arrays.asList(PassData);
-
-				
 				if (TickNum.contains("LK99")&& FIRSTNAME.contains("Wasif")&&SURNAME.contains("Wasim")) {
-				//if(TickNum.contains((CharSequence) list)&&FIRSTNAME.contains((CharSequence) list)&&SURNAME.contains((CharSequence) list)){
 					System.out.println("Sucess");
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
 					Menu_page.main(null);		
 					Menu_page.main(null);
-					//System.out.println(passengerDetails.passenger_Data);
-				
-//				if (TickNum.get FIRSTNAME.get("Wasif")&&SURNAME.get("Wasim")) {
-//					System.out.println("Sucess");
-//					TicketNumENTER.setText(null);
-//					FirstNameENTER.setText(null);
-//					SurnameENTER.setText(null);
-//					Menu_page.main(null);			
-					
 				}
 				else 
 				{
@@ -140,7 +122,7 @@ public class Login {
 				}
 			}
 		});
-		
+	
 		JSeparator separator = new JSeparator();
 		separator.setBounds(20, 37, 456, 2);
 		frame.getContentPane().add(separator);

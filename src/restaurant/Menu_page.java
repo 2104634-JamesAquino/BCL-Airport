@@ -111,6 +111,19 @@ public class Menu_page{
 	 */
 	public static void main(String[] args) {
 		
+		Hash_Stock.Restrant_data.put("Toast", Hash_Stock.stock_1);
+		Hash_Stock.Restrant_data.put("Sausages", 100);
+		Hash_Stock.Restrant_data.put("Pancakes", 100);
+		Hash_Stock.Restrant_data.put("Rice and Curry", 100);
+		Hash_Stock.Restrant_data.put("Fish and Chips", 100);
+		Hash_Stock.Restrant_data.put("Pasta", 100);
+		Hash_Stock.Restrant_data.put("CheeseCake", 100);
+		Hash_Stock.Restrant_data.put("Choclate Cake", 100);
+		Hash_Stock.Restrant_data.put("MilkShake", 100);
+		Hash_Stock.Restrant_data.put("Orange Juice", 100);
+		Hash_Stock.Restrant_data.put("Apple Juice", 100);
+		Hash_Stock.Restrant_data.put("Coffee", 100);
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

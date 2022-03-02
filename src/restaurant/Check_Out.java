@@ -220,6 +220,18 @@ public class Check_Out {
 		JButton btnNewButton = new JButton("Confirm Payment");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Hash_Stock.stock_1 = Hash_Stock.stock_1 - Menu_page.Item_OneCounter;
+				Hash_Stock.stock_2 = Hash_Stock.stock_1 - Menu_page.Item_TwoCounter;
+				Hash_Stock.stock_3 = Hash_Stock.stock_1 - Menu_page.Item_ThreeCounter;
+				Hash_Stock.stock_4 = Hash_Stock.stock_1 - Menu_page.Item_FourCounter;
+				Hash_Stock.stock_5 = Hash_Stock.stock_1 - Menu_page.Item_FiveCounter;
+				Hash_Stock.stock_6 = Hash_Stock.stock_1 - Menu_page.Item_SixCounter;
+				Hash_Stock.stock_7 = Hash_Stock.stock_1 - Menu_page.Item_SevenCounter;
+				Hash_Stock.stock_8 = Hash_Stock.stock_1 - Menu_page.Item_EightCounter;
+				Hash_Stock.stock_9 = Hash_Stock.stock_1 - Menu_page.Item_NineCounter;
+				Hash_Stock.stock_10 = Hash_Stock.stock_1 - Menu_page.Item_TenCounter;
+				Hash_Stock.stock_11 = Hash_Stock.stock_1 - Menu_page.Item_ElevenCounter;
+				Hash_Stock.stock_12 = Hash_Stock.stock_1 - Menu_page.Item_TwelveCounter;
 				Menu_page.main(null);
 				Menu_page.Item_OneCounter = 0;
 				Menu_page.Item_TwoCounter = 0;

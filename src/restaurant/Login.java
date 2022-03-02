@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
+
 import passengerData.passengerData;
 import passengerData.passengerRecord;
 import javax.swing.JFrame;
@@ -19,13 +21,15 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class Login {
+	static String TickNum;
+	static String FIRSTNAME;
+	static String SURNAME;
+	// These are variables that will be used for the user, input for the restaurant.
 	
 	private JFrame frame;
 	private JTextField TicketNumENTER;
 	private JTextField FirstNameENTER;
 	private JTextField SurnameENTER;
-	
-	
 
 	/**
 	 * Launch the application.
@@ -64,54 +68,63 @@ public class Login {
 		TicketNumLABEL.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		TicketNumLABEL.setBounds(10, 49, 119, 19);
 		frame.getContentPane().add(TicketNumLABEL);
+		// This is a label for the User Interface to show where the customer should input their ticket number.
 		
 		JLabel FirstNameLABEL = new JLabel("First Name:");
 		FirstNameLABEL.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		FirstNameLABEL.setBounds(10, 112, 108, 19);
 		frame.getContentPane().add(FirstNameLABEL);
+		// This is a label for the User Interface to show where the customer should input their First name.
 		
 		JLabel SurnameLABEL = new JLabel("Surname: ");
 		SurnameLABEL.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		SurnameLABEL.setBounds(10, 181, 96, 19);
 		frame.getContentPane().add(SurnameLABEL);
+		// This is a label for the User Interface to show where the customer should input their Surname.
 		
 		TicketNumENTER = new JTextField();
 		TicketNumENTER.setBounds(10, 83, 96, 19);
 		frame.getContentPane().add(TicketNumENTER);
 		TicketNumENTER.setColumns(10);
+		// This is a text field where the user inputs their ticket number.
 		
 		FirstNameENTER = new JTextField();
 		FirstNameENTER.setBounds(10, 141, 96, 19);
 		frame.getContentPane().add(FirstNameENTER);
 		FirstNameENTER.setColumns(10);
+		//This is a text field where the user inputs their first name.
 		
 		SurnameENTER = new JTextField();
 		SurnameENTER.setBounds(10, 210, 142, 19);
 		frame.getContentPane().add(SurnameENTER);
 		SurnameENTER.setColumns(10);
+		//This is a text field where the user inputs their surname.
 		
 		JLabel LoginPageLABEL = new JLabel("Login Page");
 		LoginPageLABEL.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		LoginPageLABEL.setBounds(175, 2, 211, 37);
 		frame.getContentPane().add(LoginPageLABEL);
+		// This is where the title for the program will be.
 		
 		JButton LoginBUTTON = new JButton("Login");
 		LoginBUTTON.setFont(new Font("Tahoma", Font.BOLD, 20));
 		LoginBUTTON.setBounds(10, 239, 142, 62);
 		frame.getContentPane().add(LoginBUTTON);
+		// This is the code to have the button on the software page.
 		LoginBUTTON.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				String TickNum = TicketNumENTER.getText();
-				String FIRSTNAME = FirstNameENTER.getText();
-				String SURNAME = SurnameENTER.getText();
+				TickNum = TicketNumENTER.getText();
+				FIRSTNAME = FirstNameENTER.getText();
+				SURNAME = SurnameENTER.getText();
+				// the 3 lines of code above store the user inputs into 3 variables.
 				
 				if (TickNum.contains("LK99")&& FIRSTNAME.contains("Wasif")&&SURNAME.contains("Wasim")) {
 					System.out.println("Sucess");
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
-					Menu_page.main(null);		
-					Menu_page.main(null);
+					Menu_page.main(null);	// this line of code opens the next page, which is the menu page.	
+					// this is an if statement to see if the user inputs are a match. 
 				}
 				else 
 				{
@@ -119,6 +132,7 @@ public class Login {
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
+					// if the user inputs are not a match it will give an error message and state that there is an error.
 				}
 			}
 		});

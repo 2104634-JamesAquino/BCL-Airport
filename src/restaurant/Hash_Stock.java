@@ -23,4 +23,6 @@ public class Hash_Stock {
 	public static HashMap<String , Integer> Restrant_data = new HashMap<String, Integer>();{
 
 		}
+	
+
 }

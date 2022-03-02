@@ -39,6 +39,7 @@ public class Menu_page{
 				a=Item_stock;
 				JOptionPane.showMessageDialog(null,"Cannot Order This Many",null,JOptionPane.ERROR_MESSAGE);
 			}	
+		
 			// This is an error message that will pop up if the use is ordering more than 100 or the amount of stock left.
 		return a;
 	}
@@ -61,10 +62,11 @@ public class Menu_page{
 
 	public static int ReOrderStock(int a, HashMap<String, Integer> HashMap_name, String Name_OfItem, int Item_stock){
 		Item_stock = (int) HashMap_name.get(Name_OfItem);
-		if (a > Item_stock || 5 > Item_stock) {
+		while (a >= Item_stock || 5 >= Item_stock) {
 			a = Item_stock;
 			Item_stock = Item_stock + 90; // This line of Code Re-orders the stock.
 			JOptionPane.showMessageDialog(null,"Not enough stock, stock will be ordered. Please wait 3 minutes", null, JOptionPane.ERROR_MESSAGE);
+			break;
       
 		}
 			
@@ -109,8 +111,7 @@ public class Menu_page{
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		
-		
+		System.out.print(Hash_Stock.stock_1);
 		
 		Hash_Stock.Restrant_data.put("Toast", Hash_Stock.stock_1);
 		Hash_Stock.Restrant_data.put("Sausages", Hash_Stock.stock_2);

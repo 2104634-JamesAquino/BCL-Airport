@@ -19,7 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import com.toedter.calendar.JDateChooser;
 
-import passengerDetails.PassengerData;
+//import passengerDetails.PassengerData;
+import passengerData.passengerData;
+import passengerData.passengerRecord;
 /******************************  Class name that extends a JFrame and implements action listener class ***********************************/
 
 //action listener class is added in order to use it in the Passengers class
@@ -27,8 +29,8 @@ import passengerDetails.PassengerData;
 public class Passengers extends JFrame implements ActionListener {
 	
 /******************************  Passenger Data declaration ***********************************/
-	
-	PassengerData newPassengerRecord;
+	passengerData passengers = new passengerData();
+	passengerRecord newPassengerRecord;
 	
 /******************************  Declaring the labels for the Passengers Form ***********************************/
 	
@@ -93,9 +95,6 @@ public class Passengers extends JFrame implements ActionListener {
 	
 	public Passengers()
 	{
-		
-//		this.ticketNum = Integer.valueOf(ticketNum);
-//		this.passengerCount = Integer.valueOf(count);
 		
 /******************************  Creating instances of the Jlabel ***********************************/
 		
@@ -446,8 +445,8 @@ public class Passengers extends JFrame implements ActionListener {
 					int randomNumber = randomNum();
 					System.out.println(randomNumber);
 					
-					newPassengerRecord.addPassengerRecord(randomNumber, first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
-					
+					newPassengerRecord = new passengerRecord(randomNumber, first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
+					passengers.addPassengerRecord(newPassengerRecord);
 //					try {
 					//newPassengerRecord = new passengerRecord(randomNumber, first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
 //					passengers.addPassengerRecord(new ArrayList<passengerRecord>());

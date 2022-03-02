@@ -19,7 +19,6 @@ import javax.swing.JTextPane;
 import javax.swing.JToggleButton;
 import javax.swing.border.LineBorder;
 
-
 public class Seating_Plan {
 
 	public JFrame frame;
@@ -72,6 +71,7 @@ public class Seating_Plan {
 					e.printStackTrace();
 				}
 			}
+
 		});
 	}
 
@@ -80,21 +80,13 @@ public class Seating_Plan {
 		 * this method places values with variables depending on the duration of the
 		 * flight
 		 */
-
-		System.out.println(selectedSeatsDepartA.size());
-
 		if (fDuration >= 0200) { /* if the flight duration is more then or equal to 2 hours */
 			seatDisplay = +1; /* adds 1 to seat display */
 			seatNumber = 84; /* total number of seats in boeing747 */
-			System.out.println(seatDisplay);
-			System.out.println("Boeing747"); /* test */
 
 		} else { /* if the flight duration variable is less then 2 hours */
-
 			seatDisplay = +2; /* adds 2 to seatDisplay */
 			seatNumber = 64; /* total number of seats in AirbusA138 */
-			System.out.println(seatDisplay); /* prints out the number stored in the seatDisplay */
-			System.out.println("AirBusA138"); /* test */
 
 		}
 
@@ -175,10 +167,11 @@ public class Seating_Plan {
 					 */
 					TxtFTicketAmount_D.setText(
 							ticketAmounts = Integer.toString(ticketAmount_R).replace('[', ' ').replace(']', ' '));
-					ticketAmountA.add(ticketAmounts); /*
-														 * adds and removes ticketAmounts from array list for every
-														 * button pressed (alternative for refreshing/updating)
-														 */
+					ticketAmountA.add(ticketAmounts);
+					/*
+					 * adds and removes ticketAmounts from array list for every button pressed
+					 * (alternative for refreshing/updating)
+					 */
 					ticketAmountA.remove(ticketAmounts);
 
 				}
@@ -218,9 +211,6 @@ public class Seating_Plan {
 
 				}
 
-				System.out.println(ticketAmount_D);
-				System.out.println(ticketAmount_R); /* test */
-
 			}
 		});
 		// -----------------------------------------------------------------------------------------------------------------
@@ -239,10 +229,11 @@ public class Seating_Plan {
 					 */
 					TxtFTicketAmount_D.setText(
 							ticketAmounts = Integer.toString(ticketAmount_D).replace('[', ' ').replace(']', ' '));
-					ticketAmountA.add(ticketAmounts); /*
-														 * adds and removes ticketAmounts from array list for every
-														 * button pressed (alternative to refreshing/updating)
-														 */
+					ticketAmountA.add(ticketAmounts);
+					/*
+					 * adds and removes ticketAmounts from array list for every button pressed
+					 * (alternative to refreshing/updating)
+					 */
 					ticketAmountA.remove(ticketAmounts);
 
 				}
@@ -257,19 +248,20 @@ public class Seating_Plan {
 					 */
 					TxtFTicketAmount_D.setText(
 							ticketAmounts = Integer.toString(ticketAmount_R).replace('[', ' ').replace(']', ' '));
-					ticketAmountA.add(ticketAmounts); /*
-														 * adds and removes ticketAmounts from array list for every
-														 * button pressed (alternative to refreshing/updating)
-														 */
+					ticketAmountA.add(ticketAmounts);
+					/*
+					 * adds and removes ticketAmounts from array list for every button pressed
+					 * (alternative to refreshing/updating)
+					 */
 					ticketAmountA.remove(ticketAmounts);
 
 				}
 
 				if (loopSeatingPlan == 0) {
-					if (ticketAmount_D > seatNumber) { /*
-														 * if ticketAmoutn is more then seatNumber then an error message
-														 * shoudl appear
-														 */
+					if (ticketAmount_D > seatNumber) {
+						/*
+						 * if ticketAmoutn is more then seatNumber then an error message should appear
+						 */
 
 						JOptionPane.showMessageDialog(frame, "You cannot go above the total amount of seats ",
 								"Press the minus button to go down",
@@ -279,8 +271,8 @@ public class Seating_Plan {
 						btnMinus.setEnabled(true);
 					}
 
-					else if (ticketAmount_D != seatNumber
-							|| ticketAmount_D != -1) { /* re enables the button if the condition is */
+					else if (ticketAmount_D != seatNumber || ticketAmount_D != -1) {
+						/* re enables the button if the condition is */
 
 						btnPlus.setEnabled(true);
 						btnMinus.setEnabled(true);
@@ -289,10 +281,10 @@ public class Seating_Plan {
 				}
 
 				else {
-					if (ticketAmount_R > seatNumber) { /*
-														 * if ticketAmoutn is more then seatNumber then an error message
-														 * shoudl appear
-														 */
+					if (ticketAmount_R > seatNumber) {
+						/*
+						 * if ticketAmoutn is more then seatNumber then an error message should appear
+						 */
 
 						JOptionPane.showMessageDialog(frame, "You cannot go above the total amount of seats",
 								"Press the Minus button to go down",
@@ -310,11 +302,6 @@ public class Seating_Plan {
 					}
 
 				}
-
-				System.out.println(ticketAmount_D);
-
-				System.out.println(ticketAmount_R); /* test */
-
 			}
 		});
 		btnMinus.setBounds(208, 64, 130, 37);
@@ -396,8 +383,10 @@ public class Seating_Plan {
 		AirbusA318SeatingPlan.setBackground(Color.WHITE);
 		AirbusA318SeatingPlan.setForeground(Color.BLACK);
 		AirbusA318SeatingPlan.setLayout(null);
+		// creates a btnContinue for airbusa318
 
 		JButton btnContinue_A = new JButton("Continue");
+		// creates a btnBack for Airbusa318
 
 		JButton btnBack_A = new JButton("Back");
 
@@ -432,36 +421,46 @@ public class Seating_Plan {
 		JToggleButton btn1A_A = new JToggleButton("1A");
 		btn1A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/* if btn1 is pressed for airbusA138 then the actions bellow would occur */
 
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
+					/* this will detect whether the user is on the departures page or return page */
 
-					if (btn1A_A.isSelected()) {
+					if (btn1A_A.isSelected()) { /* if the button is selected */
 
 						selectedSeatsDepartA.add("1A");
-						System.out.print("1A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-					else {
+					else {/* if the button is unselected */
+						/* removes the the string "1A" from the array list */
+
 						selectedSeatsDepartA.remove("1A");
-						System.out.print("not 1A");
+						/*
+						 * displays the array list containing the selected seats for boeing747 departure
+						 * displayed within a text field
+						 */
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
+					/*
+					 * this executables bellow are used for the return page of boeing747 seating
+					 * Plan
+					 */
 
 					if (btn1A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("1A");
-						System.out.print("1A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 
 					}
 
-					else {
+					else { /* if the button is unselected */
 						selectedSeatsReturnA.remove("1A");
-						System.out.print("not 1A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -478,34 +477,32 @@ public class Seating_Plan {
 		JToggleButton btn1B_A = new JToggleButton("1B");
 		btn1B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
-
+				if (loopSeatingPlan == 0) {
 					if (btn1B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("1B");
-						System.out.print("1B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("1B");
-						System.out.print("not 1B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn1B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("1B");
-						System.out.print("1B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("1B");
-						System.out.print("not 1B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -523,34 +520,33 @@ public class Seating_Plan {
 		btn2A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn2A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("2A");
-						System.out.print("2A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("2A");
-						System.out.print("not 2A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn2A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("2A");
-						System.out.print("2A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("2A");
-						System.out.print("not 2A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -569,19 +565,18 @@ public class Seating_Plan {
 		btn2B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn2B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("2B");
-						System.out.print("2B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("2B");
-						System.out.print("not 2B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
@@ -590,13 +585,13 @@ public class Seating_Plan {
 					if (btn2B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("2B");
-						System.out.print("2B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("2B");
-						System.out.print("not 2B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -613,34 +608,33 @@ public class Seating_Plan {
 		JToggleButton btn3A_A = new JToggleButton("3A");
 		btn3A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn3A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("2B");
-						System.out.print("2B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("2B");
-						System.out.print("not 2B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn3A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("2B");
-						System.out.print("2B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("2B");
-						System.out.print("not 2B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -657,34 +651,33 @@ public class Seating_Plan {
 		btn3B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn3B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("3B");
-						System.out.print("3B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("3B");
-						System.out.print("not 3B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn3B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("3B");
-						System.out.print("3B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("3B");
-						System.out.print("not 3B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -722,34 +715,33 @@ public class Seating_Plan {
 		JToggleButton btn4B_A = new JToggleButton("4B");
 		btn4B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn4B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("4B");
-						System.out.print("4B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("4B");
-						System.out.print("not 4B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn4B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("4B");
-						System.out.print("4B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("4B");
-						System.out.print("not 4B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -790,8 +782,7 @@ public class Seating_Plan {
 		btn5B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					JOptionPane.showMessageDialog(frame, "This seat has been taken",
 							"Choose seats that are not coloured red", JOptionPane.ERROR_MESSAGE);
@@ -822,34 +813,33 @@ public class Seating_Plan {
 		JToggleButton btn6A_A = new JToggleButton("6A");
 		btn6A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn6A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("6A");
-						System.out.print("6A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("6A");
-						System.out.print("not 6A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn6A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("6A");
-						System.out.print("6A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("6A");
-						System.out.print("not 6A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -864,34 +854,33 @@ public class Seating_Plan {
 		JToggleButton btn6B_A = new JToggleButton("6B");
 		btn6B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn6B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("6B");
-						System.out.print("6B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("6B");
-						System.out.print("not 6B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn6B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("6B");
-						System.out.print("6B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("6B");
-						System.out.print("not 6B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -906,34 +895,33 @@ public class Seating_Plan {
 		JToggleButton btn6C_A = new JToggleButton("6C");
 		btn6C_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn6C_A.isSelected()) {
 
 						selectedSeatsDepartA.add("6C");
-						System.out.print("6C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("6C");
-						System.out.print("not 6C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn6C_A.isSelected()) {
 
 						selectedSeatsReturnA.add("6C");
-						System.out.print("6C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("6C");
-						System.out.print("not 6C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -948,34 +936,33 @@ public class Seating_Plan {
 		JToggleButton btn6D_A = new JToggleButton("6D");
 		btn6D_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn6D_A.isSelected()) {
 
 						selectedSeatsDepartA.add("6D");
-						System.out.print("6D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("6D");
-						System.out.print("not 6D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn6D_A.isSelected()) {
 
 						selectedSeatsReturnA.add("6D");
-						System.out.print("6D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("6D");
-						System.out.print("not 6D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -990,34 +977,33 @@ public class Seating_Plan {
 		JToggleButton btn6E_A = new JToggleButton("6E");
 		btn6E_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn6E_A.isSelected()) {
 
 						selectedSeatsDepartA.add("6E");
-						System.out.print("6E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("6E");
-						System.out.print("not 6E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn6E_A.isSelected()) {
 
 						selectedSeatsReturnA.add("6E");
-						System.out.print("6E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("6E");
-						System.out.print("not 6E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1032,37 +1018,36 @@ public class Seating_Plan {
 		JToggleButton btn6F_A = new JToggleButton("6F");
 		btn6F_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					// if (btn6F_A.isSelected()) {
 
 					// selectedSeatsDepartA.add("6F");
-					// System.out.print("6F");
+					//
 					// txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[','
 					// ').replace(']',' '));
 					// }
 
 					// else {
 					// selectedSeatsDepartA.remove("6F");
-					// System.out.print("not 6F");
+					//
 					// txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[','
 					// ').replace(']',' '));
 					// }
 
-				} else { // if the
+				} else {
 
 					// if (btn6F_A.isSelected()) {
 
 					// selectedSeatsReturnA.add("6F");
-					/// System.out.print("6F");
+					///
 					// txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[','
 					// ').replace(']',' '));
 					// }
 
 					// else {
 					// selectedSeatsReturnA.remove("6F");
-					// System.out.print("not 6F");
+					//
 					// txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[','
 					// ').replace(']',' '));
 					// }
@@ -1078,34 +1063,33 @@ public class Seating_Plan {
 		JToggleButton btn7A_A = new JToggleButton("7A");
 		btn7A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn7A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("7A");
-						System.out.print("7A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("7A");
-						System.out.print("not 7A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn7A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("7A");
-						System.out.print("7A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("7A");
-						System.out.print("not 7A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1120,34 +1104,33 @@ public class Seating_Plan {
 		JToggleButton btn7B_A = new JToggleButton("7B");
 		btn7B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn7B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("7B");
-						System.out.print("7B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("7B");
-						System.out.print("not 7B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn7B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("7B");
-						System.out.print("7B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("7B");
-						System.out.print("not 7B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1162,34 +1145,33 @@ public class Seating_Plan {
 		JToggleButton btn7C_A = new JToggleButton("7C");
 		btn7C_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn7C_A.isSelected()) {
 
 						selectedSeatsDepartA.add("7C");
-						System.out.print("7C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("7C");
-						System.out.print("not 7C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn7C_A.isSelected()) {
 
 						selectedSeatsReturnA.add("7C");
-						System.out.print("7C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("7C");
-						System.out.print("not 7C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1204,34 +1186,33 @@ public class Seating_Plan {
 		JToggleButton btn7D_A = new JToggleButton("7D");
 		btn7D_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn7D_A.isSelected()) {
 
 						selectedSeatsDepartA.add("7D");
-						System.out.print("7D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("7D");
-						System.out.print("not 7D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn7D_A.isSelected()) {
 
 						selectedSeatsReturnA.add("7D");
-						System.out.print("7D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("7D");
-						System.out.print("not 7D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1246,34 +1227,33 @@ public class Seating_Plan {
 		JToggleButton btn7E_A = new JToggleButton("7E");
 		btn7E_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn7E_A.isSelected()) {
 
 						selectedSeatsDepartA.add("7E");
-						System.out.print("7E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("7E");
-						System.out.print("not 7E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn7E_A.isSelected()) {
 
 						selectedSeatsReturnA.add("7E");
-						System.out.print("7E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("7E");
-						System.out.print("not 7E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1288,34 +1268,33 @@ public class Seating_Plan {
 		JToggleButton btn7F_A = new JToggleButton("7F");
 		btn7F_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn7F_A.isSelected()) {
 
 						selectedSeatsDepartA.add("7F");
-						System.out.print("7F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("7F");
-						System.out.print("not 7F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn7F_A.isSelected()) {
 
 						selectedSeatsReturnA.add("7F");
-						System.out.print("7F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("7F");
-						System.out.print("not 7F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1330,34 +1309,33 @@ public class Seating_Plan {
 		JToggleButton btn8A_A = new JToggleButton("8A");
 		btn8A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn8A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("8A");
-						System.out.print("8A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("8A");
-						System.out.print("not 8A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn8A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("8A");
-						System.out.print("8A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("8A");
-						System.out.print("not 8A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1372,34 +1350,33 @@ public class Seating_Plan {
 		JToggleButton btn8B_A = new JToggleButton("8B");
 		btn8B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn8B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("8B");
-						System.out.print("8B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("8B");
-						System.out.print("not 8B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn8B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("8B");
-						System.out.print("8B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("8B");
-						System.out.print("not 8B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1414,34 +1391,33 @@ public class Seating_Plan {
 		JToggleButton btn8C_A = new JToggleButton("8C");
 		btn8C_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn8C_A.isSelected()) {
 
 						selectedSeatsDepartA.add("8C");
-						System.out.print("8C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("8C");
-						System.out.print("not 8C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn8C_A.isSelected()) {
 
 						selectedSeatsReturnA.add("8C");
-						System.out.print("8C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("8C");
-						System.out.print("not 8C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1456,34 +1432,33 @@ public class Seating_Plan {
 		JToggleButton btn8D_A = new JToggleButton("8D");
 		btn8D_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn8D_A.isSelected()) {
 
 						selectedSeatsDepartA.add("8D");
-						System.out.print("8D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("8D");
-						System.out.print("not 8D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn8D_A.isSelected()) {
 
 						selectedSeatsReturnA.add("8D");
-						System.out.print("8D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("8D");
-						System.out.print("not 8D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1498,34 +1473,33 @@ public class Seating_Plan {
 		JToggleButton btn8E_A = new JToggleButton("8E");
 		btn8E_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn8E_A.isSelected()) {
 
 						selectedSeatsDepartA.add("8E");
-						System.out.print("8E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("8E");
-						System.out.print("not 8E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn8E_A.isSelected()) {
 
 						selectedSeatsReturnA.add("8E");
-						System.out.print("8E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("8E");
-						System.out.print("not 8E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1540,34 +1514,33 @@ public class Seating_Plan {
 		JToggleButton btn8F_A = new JToggleButton("8F");
 		btn8F_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn8F_A.isSelected()) {
 
 						selectedSeatsDepartA.add("8F");
-						System.out.print("8F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("8F");
-						System.out.print("not 8F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn8F_A.isSelected()) {
 
 						selectedSeatsReturnA.add("8F");
-						System.out.print("8F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("8F");
-						System.out.print("not 8F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1582,34 +1555,33 @@ public class Seating_Plan {
 		JToggleButton btn9A_A = new JToggleButton("9A");
 		btn9A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn9A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("9A");
-						System.out.print("9A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("9A");
-						System.out.print("not 9A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn9A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("9A");
-						System.out.print("9A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("9A");
-						System.out.print("not 9A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1624,34 +1596,33 @@ public class Seating_Plan {
 		JToggleButton btn9B_A = new JToggleButton("9B");
 		btn9B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn9B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("9B");
-						System.out.print("9B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("9B");
-						System.out.print("not 9B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn9B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("9B");
-						System.out.print("9B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("9B");
-						System.out.print("not 9B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1666,34 +1637,33 @@ public class Seating_Plan {
 		JToggleButton btn9C_A = new JToggleButton("9C");
 		btn9C_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn9C_A.isSelected()) {
 
 						selectedSeatsDepartA.add("9C");
-						System.out.print("9C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("9C");
-						System.out.print("not 9C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn9C_A.isSelected()) {
 
 						selectedSeatsReturnA.add("9C");
-						System.out.print("9C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("9C");
-						System.out.print("not 9C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1708,34 +1678,33 @@ public class Seating_Plan {
 		JToggleButton btn9D_A = new JToggleButton("9D");
 		btn9D_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn9D_A.isSelected()) {
 
 						selectedSeatsDepartA.add("9D");
-						System.out.print("9D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("9D");
-						System.out.print("not 9D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn9D_A.isSelected()) {
 
 						selectedSeatsReturnA.add("9D");
-						System.out.print("9D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("9D");
-						System.out.print("not 9D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1750,34 +1719,33 @@ public class Seating_Plan {
 		JToggleButton btn9E_A = new JToggleButton("9E");
 		btn9E_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn9E_A.isSelected()) {
 
 						selectedSeatsDepartA.add("9E");
-						System.out.print("9E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("9E");
-						System.out.print("not 9E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn9E_A.isSelected()) {
 
 						selectedSeatsReturnA.add("9E");
-						System.out.print("9E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("9E");
-						System.out.print("not 9E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1792,34 +1760,33 @@ public class Seating_Plan {
 		JToggleButton btn9F_A = new JToggleButton("9F");
 		btn9F_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn9F_A.isSelected()) {
 
 						selectedSeatsDepartA.add("9F");
-						System.out.print("9F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("9F");
-						System.out.print("not 9F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn9F_A.isSelected()) {
 
 						selectedSeatsReturnA.add("9F");
-						System.out.print("9F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("9F");
-						System.out.print("not 9F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1834,34 +1801,33 @@ public class Seating_Plan {
 		JToggleButton btn10A_A = new JToggleButton("10A");
 		btn10A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn10A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("10A");
-						System.out.print("10A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("10A");
-						System.out.print("not 10A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn10A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("10A");
-						System.out.print("10A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("10A");
-						System.out.print("not 10A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1898,34 +1864,33 @@ public class Seating_Plan {
 		JToggleButton btn10C_A = new JToggleButton("10C");
 		btn10C_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn10C_A.isSelected()) {
 
 						selectedSeatsDepartA.add("10C");
-						System.out.print("10C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("10C");
-						System.out.print("not 10C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn10C_A.isSelected()) {
 
 						selectedSeatsReturnA.add("10C");
-						System.out.print("10C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("10C");
-						System.out.print("not 10C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1940,34 +1905,33 @@ public class Seating_Plan {
 		JToggleButton btn10D_A = new JToggleButton("10D");
 		btn10D_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn10D_A.isSelected()) {
 
 						selectedSeatsDepartA.add("10D");
-						System.out.print("10D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("10D");
-						System.out.print("not 10D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn10D_A.isSelected()) {
 
 						selectedSeatsReturnA.add("10D");
-						System.out.print("10D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("10D");
-						System.out.print("not 10D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -1982,34 +1946,33 @@ public class Seating_Plan {
 		JToggleButton btn10E_A = new JToggleButton("10E");
 		btn10E_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn10E_A.isSelected()) {
 
 						selectedSeatsDepartA.add("10E");
-						System.out.print("10E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("10E");
-						System.out.print("not 10E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn10E_A.isSelected()) {
 
 						selectedSeatsReturnA.add("10E");
-						System.out.print("10E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("10E");
-						System.out.print("not 10E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2024,34 +1987,33 @@ public class Seating_Plan {
 		JToggleButton btn10F_A = new JToggleButton("10F");
 		btn10F_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn10F_A.isSelected()) {
 
 						selectedSeatsDepartA.add("10F");
-						System.out.print("10F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("10F");
-						System.out.print("not 10F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn10F_A.isSelected()) {
 
 						selectedSeatsReturnA.add("10F");
-						System.out.print("10F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("10F");
-						System.out.print("not 10F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2066,34 +2028,33 @@ public class Seating_Plan {
 		JToggleButton btn11A_A = new JToggleButton("11A");
 		btn11A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn11A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("11A");
-						System.out.print("11A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("11A");
-						System.out.print("not 11A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn11A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("11A");
-						System.out.print("11A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("11A");
-						System.out.print("not 11A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2108,34 +2069,33 @@ public class Seating_Plan {
 		JToggleButton btn11B_A = new JToggleButton("11B");
 		btn11B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn11B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("11B");
-						System.out.print("11B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("11B");
-						System.out.print("not 11B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn11B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("11B");
-						System.out.print("11B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("11B");
-						System.out.print("not 11B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2150,34 +2110,33 @@ public class Seating_Plan {
 		JToggleButton btn11C_A = new JToggleButton("11C");
 		btn11C_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn11C_A.isSelected()) {
 
 						selectedSeatsDepartA.add("11C");
-						System.out.print("11C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("11C");
-						System.out.print("not 11C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn11C_A.isSelected()) {
 
 						selectedSeatsReturnA.add("11C");
-						System.out.print("11C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("11C");
-						System.out.print("not 11C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2192,34 +2151,33 @@ public class Seating_Plan {
 		JToggleButton btn11D_A = new JToggleButton("11D");
 		btn11D_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn11D_A.isSelected()) {
 
 						selectedSeatsDepartA.add("11D");
-						System.out.print("11D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("11D");
-						System.out.print("not 11D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn11D_A.isSelected()) {
 
 						selectedSeatsReturnA.add("11D");
-						System.out.print("11D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("11D");
-						System.out.print("not 11D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2234,34 +2192,33 @@ public class Seating_Plan {
 		JToggleButton btn11E_A = new JToggleButton("11E");
 		btn11E_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn11E_A.isSelected()) {
 
 						selectedSeatsDepartA.add("11E");
-						System.out.print("11E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("11E");
-						System.out.print("not 11E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn11E_A.isSelected()) {
 
 						selectedSeatsReturnA.add("11E");
-						System.out.print("11E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("11E");
-						System.out.print("not 11E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2276,34 +2233,33 @@ public class Seating_Plan {
 		JToggleButton btn11F_A = new JToggleButton("11F");
 		btn11F_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn11F_A.isSelected()) {
 
 						selectedSeatsDepartA.add("11F");
-						System.out.print("11F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("11F");
-						System.out.print("not 11F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn11F_A.isSelected()) {
 
 						selectedSeatsReturnA.add("11F");
-						System.out.print("11F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("11F");
-						System.out.print("not 11F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2318,34 +2274,33 @@ public class Seating_Plan {
 		JToggleButton btn12A_A = new JToggleButton("12A");
 		btn12A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn12A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("12A");
-						System.out.print("12A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("12A");
-						System.out.print("not 12A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn12A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("12A");
-						System.out.print("12A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("12A");
-						System.out.print("not 12A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2360,34 +2315,33 @@ public class Seating_Plan {
 		JToggleButton btn12B_A = new JToggleButton("12B");
 		btn12B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn12B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("12B");
-						System.out.print("12B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("12B");
-						System.out.print("not 12B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn12B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("12B");
-						System.out.print("12B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("12B");
-						System.out.print("not 12B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2402,34 +2356,33 @@ public class Seating_Plan {
 		JToggleButton btn12C_A = new JToggleButton("12C");
 		btn12C_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn12C_A.isSelected()) {
 
 						selectedSeatsDepartA.add("12C");
-						System.out.print("12C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("12C");
-						System.out.print("not 12C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn12C_A.isSelected()) {
 
 						selectedSeatsReturnA.add("12C");
-						System.out.print("12C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("12C");
-						System.out.print("not 12C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2444,34 +2397,33 @@ public class Seating_Plan {
 		JToggleButton btn12D_A = new JToggleButton("12D");
 		btn12D_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn12D_A.isSelected()) {
 
 						selectedSeatsDepartA.add("12D");
-						System.out.print("12D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("12D");
-						System.out.print("not 12D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn12D_A.isSelected()) {
 
 						selectedSeatsReturnA.add("12D");
-						System.out.print("12D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("12D");
-						System.out.print("not 12D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2486,34 +2438,33 @@ public class Seating_Plan {
 		JToggleButton btn12E_A = new JToggleButton("12E");
 		btn12E_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn12E_A.isSelected()) {
 
 						selectedSeatsDepartA.add("12E");
-						System.out.print("12E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("12E");
-						System.out.print("not 12E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn12E_A.isSelected()) {
 
 						selectedSeatsReturnA.add("12E");
-						System.out.print("12E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("12E");
-						System.out.print("not 12E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2528,34 +2479,33 @@ public class Seating_Plan {
 		JToggleButton btn12F_A = new JToggleButton("12F");
 		btn12F_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn12F_A.isSelected()) {
 
 						selectedSeatsDepartA.add("12F");
-						System.out.print("12F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("12F");
-						System.out.print("not 12F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn12F_A.isSelected()) {
 
 						selectedSeatsReturnA.add("12F");
-						System.out.print("12F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("12F");
-						System.out.print("not 12F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2570,34 +2520,33 @@ public class Seating_Plan {
 		JToggleButton btn13A_A = new JToggleButton("13A");
 		btn13A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn13A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("13A");
-						System.out.print("13A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("13A");
-						System.out.print("not 13A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn13A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("13A");
-						System.out.print("13A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("13A");
-						System.out.print("not 13A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2612,34 +2561,33 @@ public class Seating_Plan {
 		JToggleButton btn13B_A = new JToggleButton("13B");
 		btn13B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn13B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("13B");
-						System.out.print("13B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("13B");
-						System.out.print("not 13B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn13B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("13B");
-						System.out.print("13B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("13B");
-						System.out.print("not 13B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2654,34 +2602,33 @@ public class Seating_Plan {
 		JToggleButton btn13C_A = new JToggleButton("13C");
 		btn13C_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn13C_A.isSelected()) {
 
 						selectedSeatsDepartA.add("13C");
-						System.out.print("13C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("13C");
-						System.out.print("not 13C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn13C_A.isSelected()) {
 
 						selectedSeatsReturnA.add("13C");
-						System.out.print("13C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("13C");
-						System.out.print("not 13C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2696,34 +2643,33 @@ public class Seating_Plan {
 		JToggleButton btn13D_A = new JToggleButton("13D");
 		btn13D_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn13D_A.isSelected()) {
 
 						selectedSeatsDepartA.add("13D");
-						System.out.print("13D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("13D");
-						System.out.print("not 13D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn13D_A.isSelected()) {
 
 						selectedSeatsReturnA.add("13D");
-						System.out.print("13D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("13D");
-						System.out.print("not 13D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2738,8 +2684,7 @@ public class Seating_Plan {
 		JButton btn13E_A = new JButton("13E");
 		btn13E_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-					// text field
+				if (loopSeatingPlan == 0) {
 
 					JOptionPane.showMessageDialog(frame, "This seat has been taken",
 							"Choose seats that are not coloured red", JOptionPane.ERROR_MESSAGE);
@@ -2763,34 +2708,33 @@ public class Seating_Plan {
 		JToggleButton btn13F_A = new JToggleButton("13F");
 		btn13F_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn13F_A.isSelected()) {
 
 						selectedSeatsDepartA.add("13F");
-						System.out.print("13F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("13F");
-						System.out.print("not 13F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn13F_A.isSelected()) {
 
 						selectedSeatsReturnA.add("13F");
-						System.out.print("13F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("13F");
-						System.out.print("not 13F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2805,34 +2749,33 @@ public class Seating_Plan {
 		JToggleButton btn14A_A = new JToggleButton("14A");
 		btn14A_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn14A_A.isSelected()) {
 
 						selectedSeatsDepartA.add("14A");
-						System.out.print("14A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("14A");
-						System.out.print("not 14A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn14A_A.isSelected()) {
 
 						selectedSeatsReturnA.add("14A");
-						System.out.print("14A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("14A");
-						System.out.print("not 14A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2847,34 +2790,33 @@ public class Seating_Plan {
 		JToggleButton btn14B_A = new JToggleButton("14B");
 		btn14B_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn2B_A.isSelected()) {
 
 						selectedSeatsDepartA.add("2B");
-						System.out.print("2B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("2B");
-						System.out.print("not 2B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn2B_A.isSelected()) {
 
 						selectedSeatsReturnA.add("2B");
-						System.out.print("2B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("2B");
-						System.out.print("not 2B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2889,34 +2831,33 @@ public class Seating_Plan {
 		JToggleButton btn14C_A = new JToggleButton("14C");
 		btn14C_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn14C_A.isSelected()) {
 
 						selectedSeatsDepartA.add("14C");
-						System.out.print("14C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("14C");
-						System.out.print("not 14C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn14C_A.isSelected()) {
 
 						selectedSeatsReturnA.add("14C");
-						System.out.print("14C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("14C");
-						System.out.print("not 14C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2931,34 +2872,33 @@ public class Seating_Plan {
 		JToggleButton btn14D_A = new JToggleButton("14D");
 		btn14D_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn14D_A.isSelected()) {
 
 						selectedSeatsDepartA.add("14D");
-						System.out.print("14D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("14D");
-						System.out.print("not 14D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn14D_A.isSelected()) {
 
 						selectedSeatsReturnA.add("14D");
-						System.out.print("14D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("14D");
-						System.out.print("not 14D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -2973,34 +2913,33 @@ public class Seating_Plan {
 		JToggleButton btn14E_A = new JToggleButton("14E");
 		btn14E_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn14E_A.isSelected()) {
 
 						selectedSeatsDepartA.add("14E");
-						System.out.print("14E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("14E");
-						System.out.print("not 14E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn14E_A.isSelected()) {
 
 						selectedSeatsReturnA.add("14E");
-						System.out.print("14E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("14E");
-						System.out.print("not 14E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3015,34 +2954,33 @@ public class Seating_Plan {
 		JToggleButton btn14F_A = new JToggleButton("14F");
 		btn14F_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn14F_A.isSelected()) {
 
 						selectedSeatsDepartA.add("14F");
-						System.out.print("14F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("14F");
-						System.out.print("not 14F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn14F_A.isSelected()) {
 
 						selectedSeatsReturnA.add("14F");
-						System.out.print("14F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("14F");
-						System.out.print("not 14F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
@@ -3170,35 +3108,42 @@ public class Seating_Plan {
 		btn1A_B.setBounds(40, 83, 65, 30);
 		btn1A_B.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/* if btn1 is pressed for boeing747 then the actions bellow would occur */
 
 				if (loopSeatingPlan == 0) {
-					if (btn1A_B.isSelected()) {
+					/* this will detect whether the user is on the departures page or return page */
+					if (btn1A_B.isSelected()) { /* if the button is selected */
 
-						selectedSeatsDepartB.add("1B");
-						System.out.print("1B");
+						selectedSeatsDepartB.add("1A");
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-					else {
-						selectedSeatsDepartB.remove("1B");
-						System.out.print("not 1B");
+					else { /* if the button is unselected */
+						/* removes the the string "1B" from the array list */
+						selectedSeatsDepartB.remove("1A");
+						/*
+						 * displays the array list containing the selected seats for boeing747 departure
+						 * displayed within a text field
+						 */
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
+					/*
+					 * this executables bellow are used for the return page of boeing747 seating
+					 * Plan
+					 */
 
-					if (btn1A_B.isSelected()) {
+					if (btn1A_B.isSelected()) { /* if the button is selected */
 
 						selectedSeatsReturnB.add("1A");
-						System.out.print("1A");
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-					else {
+					else {/* if the button is unselected */
 						selectedSeatsReturnB.remove("1A");
-						System.out.print("not 1A");
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3215,34 +3160,33 @@ public class Seating_Plan {
 		btn1B_B.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-											// text field
+				if (loopSeatingPlan == 0) {
 
 					if (btn1B_B.isSelected()) {
 
 						selectedSeatsDepartA.add("1B");
-						System.out.print("1B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartA.remove("1B");
-						System.out.print("not 1B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
-				} else { // if the
+				} else {
 
 					if (btn1B_B.isSelected()) {
 
 						selectedSeatsReturnA.add("1B");
-						System.out.print("1B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnA.remove("1B");
-						System.out.print("not 1B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnA.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3261,31 +3205,31 @@ public class Seating_Plan {
 				if (loopSeatingPlan == 0) {
 					if (btn1A_B.isSelected()) {
 
-						selectedSeatsDepartB.add("1B");
-						System.out.print("1B");
+						selectedSeatsDepartB.add("2A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
-						selectedSeatsDepartB.remove("1B");
-						System.out.print("not 1B");
+						selectedSeatsDepartB.remove("2A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn1A_B.isSelected()) {
 
-						selectedSeatsReturnB.add("1A");
-						System.out.print("1A");
+						selectedSeatsReturnB.add("2A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
-						selectedSeatsReturnB.remove("1A");
-						System.out.print("not 1A");
+						selectedSeatsReturnB.remove("2A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3305,30 +3249,30 @@ public class Seating_Plan {
 					if (btn2B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("2B");
-						System.out.print("2B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("2B");
-						System.out.print("not 2B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn2B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("2B");
-						System.out.print("2B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("2B");
-						System.out.print("not 2B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3347,30 +3291,28 @@ public class Seating_Plan {
 					if (btn3A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("3A");
-						System.out.print("3A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("3A");
-						System.out.print("not 3A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn3A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("3A");
-						System.out.print("3A");
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("3A");
-						System.out.print("not 3A");
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3387,32 +3329,26 @@ public class Seating_Plan {
 			public void actionPerformed(ActionEvent e) {
 				if (loopSeatingPlan == 0) {
 					if (btn3B_B.isSelected()) {
-
 						selectedSeatsDepartB.add("3B");
-						System.out.print("3B");
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("3B");
-						System.out.print("not 3B");
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn3B_B.isSelected()) {
-
 						selectedSeatsReturnB.add("3A");
-						System.out.print("3A");
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("3A");
-						System.out.print("not 3A");
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3430,31 +3366,31 @@ public class Seating_Plan {
 				if (loopSeatingPlan == 0) {
 					if (btn1A_B.isSelected()) {
 
-						selectedSeatsDepartB.add("1B");
-						System.out.print("1B");
+						selectedSeatsDepartB.add("4A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
-						selectedSeatsDepartB.remove("1B");
-						System.out.print("not 1B");
+						selectedSeatsDepartB.remove("4A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn1A_B.isSelected()) {
 
-						selectedSeatsReturnB.add("1A");
-						System.out.print("1A");
+						selectedSeatsReturnB.add("4A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
-						selectedSeatsReturnB.remove("1A");
-						System.out.print("not 1A");
+						selectedSeatsReturnB.remove("4A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3473,30 +3409,30 @@ public class Seating_Plan {
 					if (btn4B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("4B");
-						System.out.print("4B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("4B");
-						System.out.print("not 4B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn4B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("4B");
-						System.out.print("4B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("4B");
-						System.out.print("not 4B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3516,30 +3452,30 @@ public class Seating_Plan {
 					if (btn5B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("5B");
-						System.out.print("5B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("5B");
-						System.out.print("not 5B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn5B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("5B");
-						System.out.print("5B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("5B");
-						System.out.print("not 5B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3558,30 +3494,30 @@ public class Seating_Plan {
 					if (btn5A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("5A");
-						System.out.print("5A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("5A");
-						System.out.print("not 5A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn5A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("5A");
-						System.out.print("5A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("5A");
-						System.out.print("not 5A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3608,30 +3544,30 @@ public class Seating_Plan {
 					if (btn6A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("6A");
-						System.out.print("6A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("6A");
-						System.out.print("not 6A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn6A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("6A");
-						System.out.print("6A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("6A");
-						System.out.print("not 6A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3650,30 +3586,30 @@ public class Seating_Plan {
 					if (btn6B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("6B");
-						System.out.print("6B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("6B");
-						System.out.print("not 6B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn6B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("6B");
-						System.out.print("6B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("6B");
-						System.out.print("not 6B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3688,8 +3624,7 @@ public class Seating_Plan {
 		btn6C_B.setBounds(315, 312, 65, 30);
 		btn6C_B.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-					// text field
+				if (loopSeatingPlan == 0) {
 
 					JOptionPane.showMessageDialog(frame, "This seat has been taken",
 							"Choose seats that are not coloured red", JOptionPane.ERROR_MESSAGE);
@@ -3717,30 +3652,30 @@ public class Seating_Plan {
 					if (btn6D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("6D");
-						System.out.print("6D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("6D");
-						System.out.print("not 6D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn6D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("6D");
-						System.out.print("6D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("6D");
-						System.out.print("not 6D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3759,30 +3694,30 @@ public class Seating_Plan {
 					if (btn7A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("7A");
-						System.out.print("7A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("7A");
-						System.out.print("not 7A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn7A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("7A");
-						System.out.print("7A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("7A");
-						System.out.print("not 7A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3801,30 +3736,30 @@ public class Seating_Plan {
 					if (btn7B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("7B");
-						System.out.print("7B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("7B");
-						System.out.print("not 7B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn7B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("7B");
-						System.out.print("7B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("7B");
-						System.out.print("not 7B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3843,30 +3778,30 @@ public class Seating_Plan {
 					if (btn7C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("7C");
-						System.out.print("7C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("7C");
-						System.out.print("not 7C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn7C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("7C");
-						System.out.print("7C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("7C");
-						System.out.print("not 7C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3885,30 +3820,30 @@ public class Seating_Plan {
 					if (btn7D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("7D");
-						System.out.print("7D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("7D");
-						System.out.print("not 7D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn7D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("7D");
-						System.out.print("7D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("7D");
-						System.out.print("not 7D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3927,30 +3862,30 @@ public class Seating_Plan {
 					if (btn8A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("8A");
-						System.out.print("8A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("8A");
-						System.out.print("not 8A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn8A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("8A");
-						System.out.print("8A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("8A");
-						System.out.print("not 8A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -3969,30 +3904,30 @@ public class Seating_Plan {
 					if (btn8B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("8B");
-						System.out.print("8B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("8B");
-						System.out.print("not 8B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn8B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("8B");
-						System.out.print("8B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("8B");
-						System.out.print("not 8B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4011,30 +3946,30 @@ public class Seating_Plan {
 					if (btn8C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("8C");
-						System.out.print("8C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("8C");
-						System.out.print("not 8C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn8C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("8C");
-						System.out.print("8C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("8C");
-						System.out.print("not 8C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4053,30 +3988,30 @@ public class Seating_Plan {
 					if (btn8D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("8D");
-						System.out.print("8D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("8D");
-						System.out.print("not 8D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn8D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("8D");
-						System.out.print("8D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("8D");
-						System.out.print("not 8D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4095,30 +4030,30 @@ public class Seating_Plan {
 					if (btn9A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("9A");
-						System.out.print("9A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("9A");
-						System.out.print("not 9A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn9A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("9A");
-						System.out.print("9A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("9A");
-						System.out.print("not 9A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4137,30 +4072,30 @@ public class Seating_Plan {
 					if (btn9B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("9B");
-						System.out.print("9B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("9B");
-						System.out.print("not 9B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn9B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("9B");
-						System.out.print("9B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("9B");
-						System.out.print("not 9B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4179,30 +4114,30 @@ public class Seating_Plan {
 					if (btn9C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("9C");
-						System.out.print("9C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("9C");
-						System.out.print("not 9C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn9C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("9C");
-						System.out.print("9C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("9C");
-						System.out.print("not 9C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4221,30 +4156,30 @@ public class Seating_Plan {
 					if (btn9D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("9D");
-						System.out.print("9D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("9D");
-						System.out.print("not 9D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn9D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("9D");
-						System.out.print("9D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("9D");
-						System.out.print("not 9D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4263,30 +4198,30 @@ public class Seating_Plan {
 					if (btn10A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("10A");
-						System.out.print("10A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("10A");
-						System.out.print("not 10A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn10A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("10A");
-						System.out.print("10A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("10A");
-						System.out.print("not 10A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4305,30 +4240,30 @@ public class Seating_Plan {
 					if (btn10B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("10B");
-						System.out.print("10B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("10B");
-						System.out.print("not 10B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn10B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("10B");
-						System.out.print("10B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("10B");
-						System.out.print("not 10B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4347,30 +4282,30 @@ public class Seating_Plan {
 					if (btn10C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("10C");
-						System.out.print("10C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("10C");
-						System.out.print("not 10C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn10C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("10C");
-						System.out.print("10C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("10C");
-						System.out.print("not 10C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4389,30 +4324,30 @@ public class Seating_Plan {
 					if (btn10D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("10D");
-						System.out.print("10D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("10D");
-						System.out.print("not 10D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn10D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("10D");
-						System.out.print("10D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("10D");
-						System.out.print("not 10D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4431,30 +4366,30 @@ public class Seating_Plan {
 					if (btn11A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("11A");
-						System.out.print("11A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("11A");
-						System.out.print("not 11A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn11A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("11A");
-						System.out.print("11A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("11A");
-						System.out.print("not 11A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4473,30 +4408,30 @@ public class Seating_Plan {
 					if (btn11B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("11B");
-						System.out.print("11B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("11B");
-						System.out.print("not 11B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn11B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("11B");
-						System.out.print("11B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("11B");
-						System.out.print("not 11B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4515,30 +4450,30 @@ public class Seating_Plan {
 					if (btn11C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("11C");
-						System.out.print("11C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("11C");
-						System.out.print("not 11C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn11C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("11C");
-						System.out.print("11C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("11C");
-						System.out.print("not 11C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4557,30 +4492,30 @@ public class Seating_Plan {
 					if (btn11D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("11D");
-						System.out.print("11D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("11D");
-						System.out.print("not 11D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn11D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("11D");
-						System.out.print("11D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("11D");
-						System.out.print("not 11D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4599,30 +4534,30 @@ public class Seating_Plan {
 					if (btn11E_B.isSelected()) {
 
 						selectedSeatsDepartB.add("11E");
-						System.out.print("11E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("11E");
-						System.out.print("not 11E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn11E_B.isSelected()) {
 
 						selectedSeatsReturnB.add("11E");
-						System.out.print("11E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("11E");
-						System.out.print("not 11E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4641,30 +4576,30 @@ public class Seating_Plan {
 					if (btn11F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("11F");
-						System.out.print("11F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("11F");
-						System.out.print("not 11F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn11F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("11F");
-						System.out.print("11F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("11F");
-						System.out.print("not 11F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4683,30 +4618,30 @@ public class Seating_Plan {
 					if (btn12A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("12A");
-						System.out.print("12A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("12A");
-						System.out.print("not 12A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn12A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("12A");
-						System.out.print("12A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("12A");
-						System.out.print("not 12A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4725,30 +4660,30 @@ public class Seating_Plan {
 					if (btn12B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("12B");
-						System.out.print("12B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("12B");
-						System.out.print("not 12B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn12B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("12B");
-						System.out.print("12B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("12B");
-						System.out.print("not 12B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4767,30 +4702,30 @@ public class Seating_Plan {
 					if (btn12C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("12C");
-						System.out.print("12C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("12C");
-						System.out.print("not 12C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn12C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("12C");
-						System.out.print("12C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("12C");
-						System.out.print("not 12C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4809,30 +4744,30 @@ public class Seating_Plan {
 					if (btn12D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("12D");
-						System.out.print("12D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("12D");
-						System.out.print("not 12D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn12D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("12D");
-						System.out.print("12D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("12D");
-						System.out.print("not 12D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4851,30 +4786,30 @@ public class Seating_Plan {
 					if (btn12E_B.isSelected()) {
 
 						selectedSeatsDepartB.add("12E");
-						System.out.print("12E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("12E");
-						System.out.print("not 12E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn12E_B.isSelected()) {
 
 						selectedSeatsReturnB.add("12E");
-						System.out.print("12E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("12E");
-						System.out.print("not 12E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4893,30 +4828,30 @@ public class Seating_Plan {
 					if (btn12F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("12F");
-						System.out.print("12F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("12F");
-						System.out.print("not 12F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn12F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("12F");
-						System.out.print("12F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("12F");
-						System.out.print("not 12F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4935,30 +4870,30 @@ public class Seating_Plan {
 					if (btn13A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("13A");
-						System.out.print("13A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("13A");
-						System.out.print("not 13A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn13A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("13A");
-						System.out.print("13A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("13A");
-						System.out.print("not 13A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -4977,30 +4912,30 @@ public class Seating_Plan {
 					if (btn13B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("13B");
-						System.out.print("13B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("13B");
-						System.out.print("not 13B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn13B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("13B");
-						System.out.print("13B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("13B");
-						System.out.print("not 13B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5019,30 +4954,30 @@ public class Seating_Plan {
 					if (btn13C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("13C");
-						System.out.print("13C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("13C");
-						System.out.print("not 13C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn13C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("13C");
-						System.out.print("13C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("13C");
-						System.out.print("not 13C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5061,30 +4996,30 @@ public class Seating_Plan {
 					if (btn13D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("13D");
-						System.out.print("13D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("13D");
-						System.out.print("not 13D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn13D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("13D");
-						System.out.print("13D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("13D");
-						System.out.print("not 13D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5103,30 +5038,30 @@ public class Seating_Plan {
 					if (btn13E_B.isSelected()) {
 
 						selectedSeatsDepartB.add("13E");
-						System.out.print("13E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("13E");
-						System.out.print("not 13E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn13E_B.isSelected()) {
 
 						selectedSeatsReturnB.add("13E");
-						System.out.print("13E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("13E");
-						System.out.print("not 13E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5145,30 +5080,30 @@ public class Seating_Plan {
 					if (btn13F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("13F");
-						System.out.print("13F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("13F");
-						System.out.print("not 13F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn13F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("13F");
-						System.out.print("13F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("13F");
-						System.out.print("not 13F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5187,30 +5122,30 @@ public class Seating_Plan {
 					if (btn14A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("14A");
-						System.out.print("14A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("14A");
-						System.out.print("not 14A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn14A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("14A");
-						System.out.print("14A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("14A");
-						System.out.print("not 14A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5229,30 +5164,30 @@ public class Seating_Plan {
 					if (btn14B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("14B");
-						System.out.print("14B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("14B");
-						System.out.print("not 14B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn14B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("14B");
-						System.out.print("14B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("14B");
-						System.out.print("not 14B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5271,30 +5206,30 @@ public class Seating_Plan {
 					if (btn14C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("14C");
-						System.out.print("14C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("14C");
-						System.out.print("not 14C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn14C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("14C");
-						System.out.print("14C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("14C");
-						System.out.print("not 14C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5314,30 +5249,30 @@ public class Seating_Plan {
 					if (btn14D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("14D");
-						System.out.print("14D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("14D");
-						System.out.print("not 14D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn14D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("14D");
-						System.out.print("14D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("14D");
-						System.out.print("not 14D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5356,30 +5291,30 @@ public class Seating_Plan {
 					if (btn14E_B.isSelected()) {
 
 						selectedSeatsDepartB.add("14E");
-						System.out.print("14E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("14E");
-						System.out.print("not 14E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn14E_B.isSelected()) {
 
 						selectedSeatsReturnB.add("14E");
-						System.out.print("14E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("14E");
-						System.out.print("not 14E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5398,30 +5333,30 @@ public class Seating_Plan {
 					if (btn14F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("14F");
-						System.out.print("14F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("14F");
-						System.out.print("not 14F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn14F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("14F");
-						System.out.print("14F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("14F");
-						System.out.print("not 14F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5446,30 +5381,30 @@ public class Seating_Plan {
 					if (btn15A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("15A");
-						System.out.print("15A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("15A");
-						System.out.print("not 15A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn15A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("15A");
-						System.out.print("15A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("15A");
-						System.out.print("not 15A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5488,30 +5423,30 @@ public class Seating_Plan {
 					if (btn15B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("15B");
-						System.out.print("15B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("15B");
-						System.out.print("not 15B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn15B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("15B");
-						System.out.print("15B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("15B");
-						System.out.print("not 15B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5530,30 +5465,30 @@ public class Seating_Plan {
 					if (btn15C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("15C");
-						System.out.print("15C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("15C");
-						System.out.print("not 15C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn15C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("15C");
-						System.out.print("15C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("15C");
-						System.out.print("not 15C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5572,30 +5507,30 @@ public class Seating_Plan {
 					if (btn15D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("15D");
-						System.out.print("15D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("15D");
-						System.out.print("not 15D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn15D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("15D");
-						System.out.print("15D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("15D");
-						System.out.print("not 15D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5614,30 +5549,30 @@ public class Seating_Plan {
 					if (btn15E_B.isSelected()) {
 
 						selectedSeatsDepartB.add("15E");
-						System.out.print("15E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("15E");
-						System.out.print("not 15E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn15E_B.isSelected()) {
 
 						selectedSeatsReturnB.add("15E");
-						System.out.print("15E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("15E");
-						System.out.print("not 15E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5656,30 +5591,30 @@ public class Seating_Plan {
 					if (btn15F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("15F");
-						System.out.print("15F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("15F");
-						System.out.print("not 15F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn15F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("15F");
-						System.out.print("15F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("15F");
-						System.out.print("not 15F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5698,30 +5633,30 @@ public class Seating_Plan {
 					if (btn16F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("16F");
-						System.out.print("16F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("16F");
-						System.out.print("not 16F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn16F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("16F");
-						System.out.print("16F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("16F");
-						System.out.print("not 16F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5740,30 +5675,30 @@ public class Seating_Plan {
 					if (btn16F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("16F");
-						System.out.print("16F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("16F");
-						System.out.print("not 16F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn16F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("16F");
-						System.out.print("16F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("16F");
-						System.out.print("not 16F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5782,30 +5717,30 @@ public class Seating_Plan {
 					if (btn16D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("16D");
-						System.out.print("16D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("16D");
-						System.out.print("not 16D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn16D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("16D");
-						System.out.print("16D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("16D");
-						System.out.print("not 16D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5824,30 +5759,30 @@ public class Seating_Plan {
 					if (btn16C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("16C");
-						System.out.print("16C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("16C");
-						System.out.print("not 16C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn16C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("16C");
-						System.out.print("16C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("16C");
-						System.out.print("not 16C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5888,30 +5823,30 @@ public class Seating_Plan {
 					if (btn16A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("16A");
-						System.out.print("16A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("16A");
-						System.out.print("not 16A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn16A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("16A");
-						System.out.print("16A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("16A");
-						System.out.print("not 16A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5930,30 +5865,30 @@ public class Seating_Plan {
 					if (btn17A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("17A");
-						System.out.print("17A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("17A");
-						System.out.print("not 17A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn17A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("17A");
-						System.out.print("17A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("17A");
-						System.out.print("not 17A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -5972,30 +5907,30 @@ public class Seating_Plan {
 					if (btn17B_B.isSelected()) {
 
 						selectedSeatsDepartB.add("17B");
-						System.out.print("17B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("17B");
-						System.out.print("not 17B");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn17B_B.isSelected()) {
 
 						selectedSeatsReturnB.add("17B");
-						System.out.print("17B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("17B");
-						System.out.print("not 17B");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6014,30 +5949,30 @@ public class Seating_Plan {
 					if (btn17C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("17C");
-						System.out.print("17C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("17C");
-						System.out.print("not 17C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn17C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("17C");
-						System.out.print("17C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("17C");
-						System.out.print("not 17C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6056,30 +5991,30 @@ public class Seating_Plan {
 					if (btn17D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("17D");
-						System.out.print("17D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("17D");
-						System.out.print("not 17D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn17D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("17D");
-						System.out.print("17D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("17D");
-						System.out.print("not 17D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6098,30 +6033,30 @@ public class Seating_Plan {
 					if (btn17E_B.isSelected()) {
 
 						selectedSeatsDepartB.add("17E");
-						System.out.print("17E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("17E");
-						System.out.print("not 17E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn17E_B.isSelected()) {
 
 						selectedSeatsReturnB.add("17E");
-						System.out.print("17E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("17E");
-						System.out.print("not 17E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6140,30 +6075,30 @@ public class Seating_Plan {
 					if (btn17F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("17F");
-						System.out.print("17F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("17F");
-						System.out.print("not 17F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn17F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("17F");
-						System.out.print("17F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("17F");
-						System.out.print("not 17F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6182,30 +6117,30 @@ public class Seating_Plan {
 					if (btn18F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("18F");
-						System.out.print("18F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("18F");
-						System.out.print("not 18F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn18F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("18F");
-						System.out.print("18F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("18F");
-						System.out.print("not 18F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6224,30 +6159,30 @@ public class Seating_Plan {
 					if (btn18E_B.isSelected()) {
 
 						selectedSeatsDepartB.add("18E");
-						System.out.print("18E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("18E");
-						System.out.print("not 18E");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn18E_B.isSelected()) {
 
 						selectedSeatsReturnB.add("18E");
-						System.out.print("18E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("18E");
-						System.out.print("not 18E");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6266,30 +6201,30 @@ public class Seating_Plan {
 					if (btn18D_B.isSelected()) {
 
 						selectedSeatsDepartB.add("18D");
-						System.out.print("18D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("18D");
-						System.out.print("not 18D");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn18D_B.isSelected()) {
 
 						selectedSeatsReturnB.add("18D");
-						System.out.print("18D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("18D");
-						System.out.print("not 18D");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6308,30 +6243,30 @@ public class Seating_Plan {
 					if (btn18C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("18C");
-						System.out.print("18C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("18C");
-						System.out.print("not 18C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn18C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("18C");
-						System.out.print("18C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("18C");
-						System.out.print("not 18C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6346,8 +6281,7 @@ public class Seating_Plan {
 		JButton btn18B_B = new JButton("18B");
 		btn18B_B.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (loopSeatingPlan == 0) { // if continue button hasn't been pressed it will only add to the departures
-					// text field
+				if (loopSeatingPlan == 0) {
 
 					JOptionPane.showMessageDialog(frame, "This seat has been taken",
 							"Choose seats that are not coloured red", JOptionPane.ERROR_MESSAGE);
@@ -6376,30 +6310,30 @@ public class Seating_Plan {
 					if (btn18A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("18A");
-						System.out.print("18A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("18A");
-						System.out.print("not 18A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn18A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("18A");
-						System.out.print("18A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("18A");
-						System.out.print("not 18A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6418,30 +6352,30 @@ public class Seating_Plan {
 					if (btn19A_B.isSelected()) {
 
 						selectedSeatsDepartB.add("19A");
-						System.out.print("19A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("19A");
-						System.out.print("not 19A");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn19A_B.isSelected()) {
 
 						selectedSeatsReturnB.add("19A");
-						System.out.print("19A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("19A");
-						System.out.print("not 19A");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6483,30 +6417,30 @@ public class Seating_Plan {
 					if (btn19C_B.isSelected()) {
 
 						selectedSeatsDepartB.add("19C");
-						System.out.print("19C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("19C");
-						System.out.print("not 19C");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn19C_B.isSelected()) {
 
 						selectedSeatsReturnB.add("19C");
-						System.out.print("19C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("19C");
-						System.out.print("not 19C");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6527,7 +6461,7 @@ public class Seating_Plan {
 
 				}
 
-				else { // if the
+				else {
 
 					JOptionPane.showMessageDialog(frame, "This seat has been taken",
 							"Choose seats that are not coloured red", 0);
@@ -6545,17 +6479,22 @@ public class Seating_Plan {
 		btn19E_B.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (loopSeatingPlan == 0) {
+					JOptionPane.showMessageDialog(frame, "This seat has been taken",
+							"Choose seats that are not coloured red", 0);
 
 				}
 
 				else {
+
+					JOptionPane.showMessageDialog(frame, "This seat has been taken",
+							"Choose seats that are not coloured red", 0);
 
 				}
 			}
 		});
 		btn19E_B.setForeground(Color.BLACK);
 		btn19E_B.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		btn19E_B.setBackground(Color.LIGHT_GRAY);
+		btn19E_B.setBackground(Color.RED);
 		btn19E_B.setBounds(390, 850, 65, 30);
 		Boeing747SeatingPlan.add(btn19E_B);
 
@@ -6566,30 +6505,30 @@ public class Seating_Plan {
 					if (btn19F_B.isSelected()) {
 
 						selectedSeatsDepartB.add("19F");
-						System.out.print("19F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsDepartB.remove("19F");
-						System.out.print("not 19F");
+
 						txtFDepartSeats.setText(selectedSeatsDepartB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 				}
 
-				else { // if the
+				else {
 
 					if (btn19F_B.isSelected()) {
 
 						selectedSeatsReturnB.add("19F");
-						System.out.print("19F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 
 					else {
 						selectedSeatsReturnB.remove("19F");
-						System.out.print("not 19F");
+
 						txtFReturnSeats.setText(selectedSeatsReturnB.toString().replace('[', ' ').replace(']', ' '));
 					}
 				}
@@ -6606,11 +6545,23 @@ public class Seating_Plan {
 
 			public void actionPerformed(ActionEvent e) {
 
+				/* this executable bellow will only occur when the button Continue is pressed */
+
 				if (loopSeatingPlan == 0) {
+					/*
+					 * if the user is on the first page then the acitons bellow will be checked and
+					 * performed
+					 */
 					if (selectedSeatsDepartB.size() != ticketAmount_D) {
 						JOptionPane.showMessageDialog(frame,
 								"seats selected is not the same amount as tickets selected",
 								"you must select the same amount of tickets to seats  ", JOptionPane.ERROR_MESSAGE);
+
+						/*
+						 * the user will not continue unless the ticket amount is = to the departure
+						 * seats selected for boieng747, a error message will appear telling the user
+						 * that
+						 */
 					}
 
 					else if (selectedSeatsDepartB.isEmpty()) {
@@ -6618,17 +6569,29 @@ public class Seating_Plan {
 						JOptionPane.showMessageDialog(frame, "No seats have been selected",
 								"you cannot continue Unless at least one seat has been selected",
 								JOptionPane.ERROR_MESSAGE);
+
+						/*
+						 * if no seats have been selected then the user cannot continue to the next page
+						 */
 					} else {
+
+						/* if all conditions are true then the executables bellow will be performed */
 						loopSeatingPlan += 1;
+						/*
+						 * adding 1 to loopSeatingPlan to change the executables of other if statements
+						 * when going to the next page
+						 */
 						btnBack_B.setEnabled(true);
 						Boeing747SeatingPlan.hide();
 						Boeing747SeatingPlan.show();
 						lblDepartureFlightSeats_B.hide();
 						lblReturnFlightSeats_B.show();
+						/* this will display the ticket Amount for returns in a text field */
 						TxtFTicketAmount_D.setText(
 								ticketAmounts = Integer.toString(ticketAmount_R).replace('[', ' ').replace(']', ' '));
 
 						JOptionPane.showMessageDialog(frame, "you must reselect the seats you want for Return");
+						/* this will display a */
 
 					}
 
@@ -6709,15 +6672,31 @@ public class Seating_Plan {
 		btnBack_A.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				/*
+				 * when the back button for AirbusA318 is pressed it will caused the action
+				 * bellow
+				 */
+
 				if (seatDisplay == 2) {
 
-					loopSeatingPlan -= 1;
+					/*
+					 * if the seatDisplay is on the Return seats page then the following executables
+					 * will be performed bellow
+					 */
+
+					loopSeatingPlan -= 1; /* Minus 1 from the integer LoopSeatingPlan */
 					AirbusA318SeatingPlan.show();
+
+					/* this will cause the previous */
 
 					plBack.hide();
 
 					lblDepartureFlightSeats_A.show();
 					lblReturnFlightSeats_A.hide();
+					/*
+					 * This executable will display the ticket amounts selected for departure when
+					 * going back to the page departure
+					 */
 					TxtFTicketAmount_D.setText(
 							ticketAmounts = Integer.toString(ticketAmount_D).replace('[', ' ').replace(']', ' '));
 					JOptionPane.showMessageDialog(frame,
@@ -6730,6 +6709,12 @@ public class Seating_Plan {
 
 					lblDepartureFlightSeats_A.hide();
 					lblReturnFlightSeats_A.show();
+					/* Hide and show the DepartureFlight label and ReturnFlight label */
+
+					/*
+					 * this executable will display the ticket amounts selected for return flight,
+					 * when going back to the page return
+					 */
 					TxtFTicketAmount_D.setText(
 							ticketAmounts = Integer.toString(ticketAmount_R).replace('[', ' ').replace(']', ' '));
 					JOptionPane.showMessageDialog(frame,
@@ -6748,9 +6733,15 @@ public class Seating_Plan {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				if (seatDisplay == 2) {
+				/*
+				 * This button is located on the last page which allows the user to return to
+				 * return page and departures page
+				 */
 
-					AirbusA318SeatingPlan.show();
+				if (seatDisplay == 2) {
+					/* if the seatDisplay = AirbusA318 then the following */
+
+					AirbusA318SeatingPlan.show(); /* Show AirbusA318 and hide boeing747 seating plan */
 					Boeing747SeatingPlan.hide();
 					plBack.hide();
 
@@ -6758,14 +6749,21 @@ public class Seating_Plan {
 					lblReturnFlightSeats_A.show();
 					JOptionPane.showMessageDialog(frame, "You must reselect the seats you want for return");
 
-				} else { /* if the seatDisplay isn't = 2 then the actions bellow would occur */
-					AirbusA318SeatingPlan.hide();
+				} else { /*
+							 * if the seatDisplay isn't = 2 then the actions bellow would occur for
+							 * boeing747
+							 */
+					AirbusA318SeatingPlan.hide(); /* Hide AirbusA318 and show boeing747 seating plan */
 					Boeing747SeatingPlan.show();
 					plBack.hide();
 
 					lblDepartureFlightSeats_B.hide();
 					lblReturnFlightSeats_B.show();
-					JOptionPane.showMessageDialog(frame, "You must reselect the seats you want for return");
+					JOptionPane.showMessageDialog(frame, "You must reselect the seats you want to remove for return");
+					/*
+					 * a Message Dialog box will appear when going back a page to inform the user to
+					 * reselect the seats to remove them
+					 */
 
 				}
 
@@ -6788,14 +6786,27 @@ public class Seating_Plan {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
+				/*
+				 * When the button submit is pressed the following actions bellow will be
+				 * performed
+				 */
+
 				int result = JOptionPane.showConfirmDialog(frame, "Sure? You want to continue?", "Swing Tester",
 						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+				/* This defines the Yes and No options in the confirm dialog box */
 
 				if (seatDisplay == 2) {
+					/*
+					 * if the seat displayed is Airbusa318 then the folLowing conditions would be
+					 * utilised with the following executables
+					 */
 					if (selectedSeatsDepartA.isEmpty()) {
 
 						JOptionPane.showMessageDialog(null, "A seat Hasn't been chosen",
 								"You must pick a seat before continuing ", JOptionPane.ERROR_MESSAGE);
+						/*
+						 * This will display a ERROrMessAGE if no seats have been picked for departure
+						 */
 
 					}
 
@@ -6803,23 +6814,34 @@ public class Seating_Plan {
 
 						JOptionPane.showMessageDialog(null, "A seat Hasn't been chosen",
 								"You must pick a seat before continuing ", JOptionPane.ERROR_MESSAGE);
+						/* This will display an Error message if no seats have been picked for return */
 
 					}
 
 					else {
 
+						/*
+						 * if all conditions have been met from above then the bellow would be the final
+						 * executable, this would display the ConfirmDialog when all conditions above
+						 * have been met
+						 */
+
 						if (result == JOptionPane.YES_OPTION) {
 
+							/*
+							 * if the user picks the option yes then it will close the program, add the
+							 * array lists that contain the selected seats into a new array list, for the
+							 * previous to be cleared automatically
+							 */
 							seatsDepart = selectedSeatsDepartA;
 							seatsReturn = selectedSeatsReturnA;
-
 							frame.dispose();
-
-							System.out.println(seatsDepart);
-							System.out.println(seatsReturn);
 							selectedSeatsDepartA.clear();
 							selectedSeatsReturnA.clear();
+
 						}
+
+						/* if the user picks no then nothing would happen */
 
 						else if (result == JOptionPane.NO_OPTION) {
 
@@ -6831,10 +6853,8 @@ public class Seating_Plan {
 				} else {
 
 					if (selectedSeatsDepartB.isEmpty()) {
-
 						JOptionPane.showMessageDialog(null, "A seat Hasn't been chosen",
 								"You must pick a seat before continuing ", JOptionPane.ERROR_MESSAGE);
-
 					}
 
 					else if (selectedSeatsReturnB.isEmpty()) {
@@ -6845,15 +6865,9 @@ public class Seating_Plan {
 					else {
 
 						if (result == JOptionPane.YES_OPTION) {
-
 							seatsDepart = selectedSeatsDepartB;
 							seatsReturn = selectedSeatsReturnB;
-
 							frame.dispose();
-
-							System.out.println(seatsDepart);
-							System.out.println(seatsReturn);
-
 							selectedSeatsDepartB.clear();
 							selectedSeatsReturnB.clear();
 
@@ -6869,14 +6883,18 @@ public class Seating_Plan {
 		});
 		btnSubmit.setFont(new Font("Tahoma", Font.PLAIN, 20));
 
-		// seatDisplay method {
+		// seatDisplay method
 
 		/*
 		 * this if statement displays the seating plans and label for both departure and
-		 * returns depending on the the seatDisplay value
+		 * returns depending on the the seatDisplay value, as a default screening.
 		 */
 
 		if (seatDisplay == 2) {
+			/*
+			 * This hides pages that shoudln't be seen or be utilised by the user based on
+			 * the conditions
+			 */
 			AirbusA318SeatingPlan.show();
 			Boeing747SeatingPlan.hide();
 			plBack.hide();
@@ -6893,8 +6911,6 @@ public class Seating_Plan {
 			lblReturnFlightSeats_B.hide();
 
 		}
-
-		// System.out.println(Seats)
 	}
 
 }

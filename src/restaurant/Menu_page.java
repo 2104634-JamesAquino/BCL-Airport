@@ -24,7 +24,6 @@ public class Menu_page{
 		C =C -J;
 		E.put(D,C);
 		System.out.println(E.get(D));
-		E.put(D,C);
 		return C;			
 		// This is a Method that is used to update the stock, this method will be called at the end.
 		//when the user has decided on all items they will like to order
@@ -66,7 +65,7 @@ public class Menu_page{
 			a = Item_stock;
 			Item_stock = Item_stock + 90; // This line of Code Re-orders the stock.
 			JOptionPane.showMessageDialog(null,"Not enough stock, stock will be ordered. Please wait 3 minutes", null, JOptionPane.ERROR_MESSAGE);
-				        
+      
 		}
 			
 		return Item_stock;
@@ -111,19 +110,20 @@ public class Menu_page{
 	 */
 	public static void main(String[] args) {
 		
-		Hash_Stock.Restrant_data.put("Toast", Hash_Stock.stock_1);
-		Hash_Stock.Restrant_data.put("Sausages", 100);
-		Hash_Stock.Restrant_data.put("Pancakes", 100);
-		Hash_Stock.Restrant_data.put("Rice and Curry", 100);
-		Hash_Stock.Restrant_data.put("Fish and Chips", 100);
-		Hash_Stock.Restrant_data.put("Pasta", 100);
-		Hash_Stock.Restrant_data.put("CheeseCake", 100);
-		Hash_Stock.Restrant_data.put("Choclate Cake", 100);
-		Hash_Stock.Restrant_data.put("MilkShake", 100);
-		Hash_Stock.Restrant_data.put("Orange Juice", 100);
-		Hash_Stock.Restrant_data.put("Apple Juice", 100);
-		Hash_Stock.Restrant_data.put("Coffee", 100);
 		
+		
+		Hash_Stock.Restrant_data.put("Toast", Hash_Stock.stock_1);
+		Hash_Stock.Restrant_data.put("Sausages", Hash_Stock.stock_2);
+		Hash_Stock.Restrant_data.put("Pancakes", Hash_Stock.stock_3);
+		Hash_Stock.Restrant_data.put("Rice and Curry", Hash_Stock.stock_4);
+		Hash_Stock.Restrant_data.put("Fish and Chips", Hash_Stock.stock_5);
+		Hash_Stock.Restrant_data.put("Pasta", Hash_Stock.stock_6);
+		Hash_Stock.Restrant_data.put("CheeseCake", Hash_Stock.stock_7);
+		Hash_Stock.Restrant_data.put("Choclate Cake", Hash_Stock.stock_8);
+		Hash_Stock.Restrant_data.put("MilkShake", Hash_Stock.stock_9);
+		Hash_Stock.Restrant_data.put("Orange Juice", Hash_Stock.stock_10);
+		Hash_Stock.Restrant_data.put("Apple Juice", Hash_Stock.stock_11);
+		Hash_Stock.Restrant_data.put("Coffee", Hash_Stock.stock_12);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -233,7 +233,6 @@ public class Check_Out {
 				Menu_page.Item_TenCounter = 0;
 				Menu_page.Item_ElevenCounter = 0;
 				Menu_page.Item_TwelveCounter = 0;
-				
 				// Code to Add total price to passengers finances should be here 
 				
 			}
@@ -251,6 +250,7 @@ public class Check_Out {
 		panel.setBounds(30, 80, 216, 25);
 		frame.getContentPane().add(panel);
 		panel.setLayout(null);
+		
 		
 	}
 }

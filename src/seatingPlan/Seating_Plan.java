@@ -46,7 +46,6 @@ import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.ButtonGroup; // Import the HashSet class
 
-
 public class Seating_Plan {
 
 	public JFrame frame;

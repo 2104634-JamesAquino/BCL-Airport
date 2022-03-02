@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class passengerData {
 	
-	//ArrayList<ArrayList<passengerRecord>> passenger_Data;
+	//Declaration of ArrayList of type passengerRecord
+//	ArrayList<ArrayList<passengerRecord>> passenger_Data;
 	
 	ArrayList<passengerRecord> passengerData;
 	
@@ -12,7 +13,7 @@ public class passengerData {
 	
 //	public passengerData() {
 //		
-//		this.passenger_Data = new ArrayList<ArrayList<passengerRecord>>();
+//		passenger_Data = new ArrayList<ArrayList<passengerRecord>>();
 //		
 //	}
 	
@@ -26,7 +27,7 @@ public class passengerData {
 	
 //	public void addPassengerRecord(ArrayList<passengerRecord> record)
 //	{
-//		this.passenger_Data.add(record);
+//		passenger_Data.add(record);
 //	}
 	
 	public void addPassengerRecord(passengerRecord record)
@@ -36,7 +37,7 @@ public class passengerData {
 	
 	//This method is used to get the index of a passengerRecord
 	
-//	public ArrayList<passengerRecord> getPassengerRecord(int index)
+//	public ArrayList<passengerRecord> getPassengerRecord(int index) 
 //	{
 //		return this.passenger_Data.get(index);
 //	}
@@ -45,4 +46,13 @@ public class passengerData {
 	{
 		return this.passengerData.get(index);
 	}
+	
+	//This method is used to return the passenger records from the ArrayList  
+	
+	public ArrayList<passengerRecord> returnPassengerRecords()
+	{
+		return passengerData;
+	}
+
 }
+

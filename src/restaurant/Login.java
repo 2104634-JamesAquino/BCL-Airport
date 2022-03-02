@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-
 import passengerData.passengerData;
 import passengerData.passengerRecord;
-
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -122,6 +120,15 @@ public class Login {
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
 					Menu_page.main(null);		
+					Menu_page.main(null);
+					//System.out.println(passengerDetails.passenger_Data);
+				
+//				if (TickNum.get FIRSTNAME.get("Wasif")&&SURNAME.get("Wasim")) {
+//					System.out.println("Sucess");
+//					TicketNumENTER.setText(null);
+//					FirstNameENTER.setText(null);
+//					SurnameENTER.setText(null);
+//					Menu_page.main(null);			
 					
 				}
 				else 

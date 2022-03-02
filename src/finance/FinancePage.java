@@ -71,6 +71,7 @@ public class FinancePage extends JFrame {
 		scrollPane.setBounds(10, 179, 766, 327);
 		contentPane.add(scrollPane);
 		table_1 = new JTable();
+		table_1.setEnabled(false);
 		model = new DefaultTableModel();
 		//Column name for the data - data will follow this format
 		Object[] column = {"First Name", "Last Name", "Date of Birth", "Ticket Number", "Bag Costs", "Food Price", "Ticket Price", "Compensation", "Total Price"};
@@ -155,9 +156,9 @@ public class FinancePage extends JFrame {
 	}
 	public static double calculateDuration(String time) {//Time comes in format HH:MM so must convert into double for calculations
 		String[] timearray = time.split(":");//Splits string at : character
-		String hours = timearray[0];
-		String minutes = timearray[1];
-		double totalTime = Integer.valueOf(hours) + (Integer.valueOf(minutes)/60);//Converts minutes into hours
+		String StringHours = timearray[0];
+		String StringMinutes = timearray[1];
+		double totalTime = Double.valueOf(StringHours) + (Double.valueOf(StringMinutes)/60.0);//Converts minutes into hours
 		return totalTime;
 	}
 	public static double round(double value) {//method to round double to 2 decimal places
@@ -169,6 +170,8 @@ public class FinancePage extends JFrame {
 		ArrayList<Object[]> total = new ArrayList<Object[]>();//will store passenger data to display in this arrayList
 		FinanceTestExample genPassenger = new FinanceTestExample();//To get the data from test class and methods
 		passengerRecord[] booking = genPassenger.generatePassenger();
+		//ArrayList<passengerRecord[]> booking = PassengerData.returnPassengerRecords();
+		//int amount = booking.size();
 		int amount = booking.length;
 		FlightRecord dep = genPassenger.generateDeparture();//Get test data - flight and arrival
 		FlightRecord arr = genPassenger.generateArrival();
@@ -183,10 +186,12 @@ public class FinancePage extends JFrame {
 			//calculate bag price
 			int pNumBags = passengerDetails.getNumBags();
 			double totalBag = Double.valueOf(calculateBagPrice(pNumBags));
+			passengerDetails.setBagPrice(totalBag);
 			//calculate compensation
 			int compA = calculateCompensation(Integer.valueOf(dep.getDelay()));
 			int compB = calculateCompensation(Integer.valueOf(arr.getDelay()));
 			double totalComp = Double.valueOf(compA + compB);
+			passengerDetails.setCompensation(totalComp);
 			//calculate ticket price
 			String seatA = passengerDetails.getDepartureSeat();
 			String seatB = passengerDetails.getReturningSeat();
@@ -195,11 +200,14 @@ public class FinancePage extends JFrame {
 			double distanceA = Double.valueOf(dep.getDistTravelled());
 			double distanceB = Double.valueOf(arr.getDistTravelled());
 			double ticketPrice = round(calculateTicketPrice(seatA, seatB, durationA, durationB, distanceA, distanceB));
+			passengerDetails.setTicketPrice(ticketPrice);
 			//calculate food price
 			double foodPrice = round(passengerDetails.getFoodCosts());
+			passengerDetails.setFoodCosts(foodPrice);
 			//calculate total price
+
 			double totalPrice = round(calculateTotalPrice(totalBag, totalComp, ticketPrice, foodPrice));
-			System.out.println(totalBag+" "+foodPrice+" "+ticketPrice+" "+totalPrice);
+			passengerDetails.setTotalPrice(totalPrice);
 			Object[] row = {pFName, pLName, pDOB, String.valueOf(pTicketNum), String.valueOf(totalBag),String.valueOf(foodPrice), String.valueOf(ticketPrice),String.valueOf(totalComp),String.valueOf(totalPrice)};
 			total.add(row);
 			}

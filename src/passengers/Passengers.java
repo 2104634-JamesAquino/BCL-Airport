@@ -1,6 +1,7 @@
 package passengers;
 
 import java.awt.*;
+
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -18,8 +19,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import com.toedter.calendar.JDateChooser;
 
-import passengerData.passengerData;
-import passengerData.passengerRecord;
+import passengerDetails.PassengerData;
 /******************************  Class name that extends a JFrame and implements action listener class ***********************************/
 
 //action listener class is added in order to use it in the Passengers class
@@ -28,9 +28,7 @@ public class Passengers extends JFrame implements ActionListener {
 	
 /******************************  Passenger Data declaration ***********************************/
 	
-//	PassengerData passengerData;
-	passengerData passenger_Data = new passengerData();
-	passengerRecord newPassengerRecord;
+	PassengerData newPassengerRecord;
 	
 /******************************  Declaring the labels for the Passengers Form ***********************************/
 	
@@ -418,7 +416,10 @@ public class Passengers extends JFrame implements ActionListener {
 		
 		if(e.getSource() == submit) 
 		{
-				if(isValidString(txtLastName, txtFirstName) == false)
+			
+//			if(ticketNum != passengerCount)
+//			{
+				if(isValidString(txtFirstName, txtLastName) == false)
 				{
 					
 				}
@@ -432,7 +433,6 @@ public class Passengers extends JFrame implements ActionListener {
 					
 				}
 				else {
-					
 					first_Name = txtFirstName.getText();
 					last_Name = txtLastName.getText();
 					date_Of_Birth = sdf.format(dateOfBirth.getDate());
@@ -441,51 +441,63 @@ public class Passengers extends JFrame implements ActionListener {
 					number_Of_Bags = (int)numberOfBags.getSelectedItem();
 					departing_Seat = (String) departingSeats.getSelectedItem();
 					returning_Seat = (String) returningSeats.getSelectedItem();
+					
+					System.out.println(first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
 					int randomNumber = randomNum();
 					System.out.println(randomNumber);
 					
-					newPassengerRecord = new passengerRecord(randomNumber,first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
-//					passenger_Data.addPassengerRecord(newPassengerRecord);
+					newPassengerRecord.addPassengerRecord(randomNumber, first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
 					
-					JOptionPane.showMessageDialog(this, first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
+//					try {
+					//newPassengerRecord = new passengerRecord(randomNumber, first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
+//					passengers.addPassengerRecord(new ArrayList<passengerRecord>());
+//					passengers.getPassengerRecord(0).add(newPassengerRecord);
+//					passengers.addPassengerRecord(newPassengerRecord);
+					//passengers.addPassengerRecord(newPassengerRecord);
+					//passengers.addPassengerRecord(randomNumber,first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
+//					} catch (Exception e2) {
+//						// TODO: handle exception
+//						System.out.println("Cannot save the data into the addPassengerRecord method" + e2);
+//					}
+					
 //					
-       				passenger_Data.addPassengerRecord(newPassengerRecord);
-//					
+					
+					System.out.println();
+					
 					JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNumber);
+					
+					departingSeats.removeItem(departing_Seat);
+					returningSeats.removeItem(returning_Seat);
 					
 					dispose();
 					Passengers passenger = new Passengers();
-//					passenger.initialiseGUI(String.valueOf(ticketNum), String.valueOf(passengerCount+1));
 					passenger.setLocationRelativeTo(null);
 				}
 		}
+		}
+//			}
 //			else {
 //				
-//					first_Name = txtFirstName.getText();
-//					last_Name = txtLastName.getText();
-//					date_Of_Birth = sdf.format(dateOfBirth.getDate());
-//					telephone_Number = txtTelephoneNumber.getText();
-//					emailAddress = txtEmailAddress.getText();
-//					number_Of_Bags = (int)numberOfBags.getSelectedItem();
-//					departing_Seat = (String) departingSeats.getSelectedItem();
-//					returning_Seat = (String) returningSeats.getSelectedItem();
-//					int randomNumber = randomNum();
-//					System.out.println(randomNumber);
-//					
-//					newPassengerRecord = new passengerRecord(randomNumber,first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
-//					passenger_Data.addPassengerRecord(newPassengerRecord);
-//					
-//					JOptionPane.showMessageDialog(this, first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
-////					
-////					passengerData.addPassengerRecord(randomNumber,first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
-////					
-//					JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNumber);
+//				first_Name = txtFirstName.getText();
+//				last_Name = txtLastName.getText();
+//				date_Of_Birth = sdf.format(dateOfBirth.getDate());
+//				telephone_Number = txtTelephoneNumber.getText();
+//				emailAddress = txtEmailAddress.getText();
+//				number_Of_Bags = (int)numberOfBags.getSelectedItem();
+//				departing_Seat = (String) departingSeats.getSelectedItem();
+//				returning_Seat = (String) returningSeats.getSelectedItem();
+//	
+//				System.out.println(first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
+//				int randomNumber = randomNum();
+//				System.out.println(randomNumber);
+//	
+//				newPassengerRecord.addPassengerRecord(randomNumber, first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
 //				
 //				dispose();
 //				
 //			}
 			
-		}
+//		}
 		
 //	}
 	

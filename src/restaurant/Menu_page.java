@@ -1,7 +1,6 @@
 package restaurant;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -12,16 +11,13 @@ import java.awt.Color;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionListener;
+import java.sql.Time;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.awt.event.ActionEvent;
 
-public class Menu_page extends TimerTask{
-	
-	static int Time = 180;
-	static Timer timer;
-	static boolean Update;
+public class Menu_page{
 	
 	static int Stock_Updater(int C, String D, HashMap<String, Integer> E, int J) {
 		C = (int) E.get(D);
@@ -63,25 +59,16 @@ public class Menu_page extends TimerTask{
 	// This Method has 2 functions.
 	// The first Function is to reduce the number of that product by 1.
 	// The Second function is to make sure the customer is not ordering any products below 0
-	
-	public static int ReOrderStock(int a, HashMap<String, Integer> HashMap_name, String Name_OfItem, int Item_stock) throws InterruptedException {
-		
+
+	public static int ReOrderStock(int a, HashMap<String, Integer> HashMap_name, String Name_OfItem, int Item_stock){
+		Item_stock = (int) HashMap_name.get(Name_OfItem);
 		if (a > Item_stock || 5 > Item_stock) {
-			System.out.println(Item_stock);
-			while(Time != 0) {
-				Update = false;
-				Time--;// This line of code will make the Method wait 5 Minutes to re-order the stock. 
-				System.out.println(Time);
-				if (Time == 0) {
-					Update = true;
-				}
-				if (Update=true) {
-				System.out.println(Item_stock);
-				Item_stock = Item_stock + 90; // This line of Code Re-orders the stock.
-			//JOptionPane.showMessageDialog(null,"There is not enough stock, more has been ordered. Please wait 5 Minutes",null,JOptionPane.ERROR_MESSAGE);
-					}
-				}
-			}
+			a = Item_stock;
+			Item_stock = Item_stock + 90; // This line of Code Re-orders the stock.
+			JOptionPane.showMessageDialog(null,"Not enough stock, stock will be ordered. Please wait 3 minutes", null, JOptionPane.ERROR_MESSAGE);
+				        
+		}
+			
 		return Item_stock;
 		}
 	// This Method is to re-order stock that is out of stock or that will be out of stock.
@@ -148,21 +135,6 @@ public class Menu_page extends TimerTask{
 	 */
 	private void initialize() {
 		
-		HashMap<String , Integer> Restrant_data = new HashMap<String, Integer>();
-		
-		Restrant_data.put("Toast", 100);
-		Restrant_data.put("Sausages", 100);
-		Restrant_data.put("Pancakes", 100);
-		Restrant_data.put("Rice and Curry", 100);
-		Restrant_data.put("Fish and Chips", 100);
-		Restrant_data.put("Pasta", 100);
-		Restrant_data.put("CheeseCake", 100);
-		Restrant_data.put("Choclate Cake", 100);
-		Restrant_data.put("MilkShake", 100);
-		Restrant_data.put("Orange Juice", 100);
-		Restrant_data.put("Apple Juice", 100);
-		Restrant_data.put("Coffee", 100);
-		
 		// This is a Hashmap, this used to store the data of the stock for the products.
 		
 		frame = new JFrame();
@@ -204,14 +176,9 @@ public class Menu_page extends TimerTask{
 		Plus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// The two lines of code above allow the buttons to do a set function.
-				Item_OneCounter = Plus_button(Item_OneCounter, Restrant_data, "Toast", 0); // This line of codes calls a method to  the counter for the item on the menu. 
+				Item_OneCounter = Plus_button(Item_OneCounter, Hash_Stock.Restrant_data, "Toast", 0); // This line of codes calls a method to  the counter for the item on the menu. 
 				Show_StockCount_1.setText(String.valueOf(Item_OneCounter));// This line of code shows how much of the product the customer is ordering.
-				try {
-					ReOrderStock(Item_TwoCounter, Restrant_data, "Toast", 0);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				ReOrderStock(Item_OneCounter, Hash_Stock.Restrant_data, "Toast", 0);
 			}
 		});
 		
@@ -222,6 +189,7 @@ public class Menu_page extends TimerTask{
 			public void actionPerformed(ActionEvent e) {
 				Item_OneCounter= Minus_button(Item_OneCounter); // This calls the method to subtract the order counter by one each time the button is pressed .
 				Show_StockCount_1.setText(String.valueOf(Item_OneCounter)); //This updates the counter on the user interface to show how much is being updated.
+				
 			}
 			
 		});
@@ -251,8 +219,9 @@ public class Menu_page extends TimerTask{
 		Plus_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// The two lines of code above allow the buttons to do a set function.
-				Item_TwoCounter = Plus_button(Item_TwoCounter, Restrant_data, "Sausages", 0);// This line of codes calls a method to  the counter for the item on the menu.
+				Item_TwoCounter = Plus_button(Item_TwoCounter, Hash_Stock.Restrant_data, "Sausages", 0);// This line of codes calls a method to  the counter for the item on the menu.
 				Show_StockCount_2.setText(String.valueOf(Item_TwoCounter));
+				ReOrderStock(Item_TwoCounter, Hash_Stock.Restrant_data, "Sausages", 0);
 				
 				
 				}
@@ -289,7 +258,7 @@ public class Menu_page extends TimerTask{
 		panel_3.add(Plus_3);
 		Plus_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_ThreeCounter = Plus_button(Item_ThreeCounter, Restrant_data, "Pancakes", 0);
+				Item_ThreeCounter = Plus_button(Item_ThreeCounter, Hash_Stock.Restrant_data, "Pancakes", 0);
 				Show_StockCount_3.setText(String.valueOf(Item_ThreeCounter));
 				
 			}
@@ -325,7 +294,7 @@ public class Menu_page extends TimerTask{
 		panel_4.add(Plus_4);
 		Plus_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_FourCounter =  Plus_button(Item_FourCounter, Restrant_data,"Rice and Curry", 0);
+				Item_FourCounter =  Plus_button(Item_FourCounter, Hash_Stock.Restrant_data,"Rice and Curry", 0);
 				Show_StockCount_4.setText(String.valueOf(Item_FourCounter));
 				
 			}
@@ -361,7 +330,7 @@ public class Menu_page extends TimerTask{
 		panel_5.add(Plus_5);
 		Plus_5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_FiveCounter = Plus_button(Item_FiveCounter,Restrant_data, "Fish and Chips", 0);
+				Item_FiveCounter = Plus_button(Item_FiveCounter, Hash_Stock.Restrant_data, "Fish and Chips", 0);
 				Show_StockCount_5.setText(String.valueOf(Item_FiveCounter));	
 				
 			}
@@ -398,7 +367,7 @@ public class Menu_page extends TimerTask{
 		panel_6.add(Plus_6);
 		Plus_6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_SixCounter = Plus_button(Item_SixCounter, Restrant_data, "Pasta", 0);
+				Item_SixCounter = Plus_button(Item_SixCounter, Hash_Stock.Restrant_data, "Pasta", 0);
 				Show_StockCount_6.setText(String.valueOf(Item_SixCounter));
 				
 			}
@@ -434,7 +403,7 @@ public class Menu_page extends TimerTask{
 		panel_7.add(Plus_7);
 		Plus_7.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_SevenCounter = Plus_button(Item_SevenCounter, Restrant_data, "CheeseCake", 0);
+				Item_SevenCounter = Plus_button(Item_SevenCounter, Hash_Stock.Restrant_data, "CheeseCake", 0);
 				Show_StockCount_7.setText(String.valueOf(Item_SevenCounter));
 				
 			}
@@ -471,7 +440,7 @@ public class Menu_page extends TimerTask{
 		panel_8.add(Plus_8);
 		Plus_8.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_EightCounter = Plus_button(Item_EightCounter, Restrant_data, "Choclate Cake", 0);
+				Item_EightCounter = Plus_button(Item_EightCounter, Hash_Stock.Restrant_data, "Choclate Cake", 0);
 				Show_StockCount_8.setText(String.valueOf(Item_EightCounter));
 				
 			}
@@ -507,7 +476,7 @@ public class Menu_page extends TimerTask{
 		panel_9.add(Plus_9);
 		Plus_9.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_NineCounter = Plus_button(Item_NineCounter, Restrant_data, "MilkShake", 0);
+				Item_NineCounter = Plus_button(Item_NineCounter, Hash_Stock.Restrant_data, "MilkShake", 0);
 				Show_StockCount_9.setText(String.valueOf(Item_NineCounter));
 				
 			}
@@ -543,7 +512,7 @@ public class Menu_page extends TimerTask{
 		panel_10.add(Plus_10);
 		Plus_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TenCounter = Plus_button(Item_TenCounter, Restrant_data, "Orange Juice", 0);
+				Item_TenCounter = Plus_button(Item_TenCounter, Hash_Stock.Restrant_data, "Orange Juice", 0);
 				Show_StockCount_10.setText(String.valueOf(Item_TenCounter));		
 				
 			}
@@ -580,7 +549,7 @@ public class Menu_page extends TimerTask{
 		panel_11.add(Plus_11);
 		Plus_11.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_ElevenCounter = Plus_button(Item_ElevenCounter, Restrant_data, "Apple Juice", 0);
+				Item_ElevenCounter = Plus_button(Item_ElevenCounter, Hash_Stock.Restrant_data, "Apple Juice", 0);
 				Show_StockCount_11.setText(String.valueOf(Item_ElevenCounter));
 				
 			}
@@ -616,7 +585,7 @@ public class Menu_page extends TimerTask{
 		panel_12.add(Plus_12);
 		Plus_12.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TwelveCounter = Plus_button(Item_TwelveCounter, Restrant_data, "Coffee", 0);
+				Item_TwelveCounter = Plus_button(Item_TwelveCounter, Hash_Stock.Restrant_data, "Coffee", 0);
 				Show_StockCount_12.setText(String.valueOf(Item_TwelveCounter));	
 				
 			}
@@ -645,31 +614,23 @@ public class Menu_page extends TimerTask{
 						+(Item_NineCounter*MilkShake)+(Item_TenCounter*Orange_Juice)+(Item_ElevenCounter*Apple_Juice)+(Item_TwelveCounter*Coffee));
 				
 				int Temp = 0;
-				Stock_Updater(Temp, "Toast", Restrant_data, Item_OneCounter ); //1
-				Stock_Updater(Temp, "Sausages", Restrant_data, Item_TwoCounter ); //2
-				Stock_Updater(Temp, "Pancakes", Restrant_data, Item_ThreeCounter ); //3
-				Stock_Updater(Temp, "Rice and Curry", Restrant_data, Item_FourCounter ); //4
-				Stock_Updater(Temp, "Fish and Chips", Restrant_data, Item_FiveCounter ); //5
-				Stock_Updater(Temp, "Pasta", Restrant_data, Item_SixCounter ); //6
-				Stock_Updater(Temp, "CheeseCake", Restrant_data, Item_SevenCounter ); //7
-				Stock_Updater(Temp, "Choclate Cake", Restrant_data, Item_EightCounter ); //8
-				Stock_Updater(Temp, "MilkShake", Restrant_data, Item_NineCounter ); //9
-				Stock_Updater(Temp, "MilkShake", Restrant_data, Item_TenCounter ); //10
-				Stock_Updater(Temp, "Apple Juice", Restrant_data, Item_ElevenCounter ); //11
-				Stock_Updater(Temp, "Coffee", Restrant_data, Item_TwelveCounter ); //12
+				Stock_Updater(Temp, "Toast", Hash_Stock.Restrant_data, Item_OneCounter ); //1
+				Stock_Updater(Temp, "Sausages", Hash_Stock.Restrant_data, Item_TwoCounter ); //2
+				Stock_Updater(Temp, "Pancakes", Hash_Stock.Restrant_data, Item_ThreeCounter ); //3
+				Stock_Updater(Temp, "Rice and Curry", Hash_Stock.Restrant_data, Item_FourCounter ); //4
+				Stock_Updater(Temp, "Fish and Chips", Hash_Stock.Restrant_data, Item_FiveCounter ); //5
+				Stock_Updater(Temp, "Pasta", Hash_Stock.Restrant_data, Item_SixCounter ); //6
+				Stock_Updater(Temp, "CheeseCake", Hash_Stock.Restrant_data, Item_SevenCounter ); //7
+				Stock_Updater(Temp, "Choclate Cake", Hash_Stock.Restrant_data, Item_EightCounter ); //8
+				Stock_Updater(Temp, "MilkShake", Hash_Stock.Restrant_data, Item_NineCounter ); //9
+				Stock_Updater(Temp, "MilkShake", Hash_Stock.Restrant_data, Item_TenCounter ); //10
+				Stock_Updater(Temp, "Apple Juice", Hash_Stock.Restrant_data, Item_ElevenCounter ); //11
+				Stock_Updater(Temp, "Coffee",Hash_Stock. Restrant_data, Item_TwelveCounter ); //12
 				
-				
-				
-				System.out.println(Restrant_data);
 				Check_Out.main(null);
 			}
 		});
 		frame.getContentPane().add(Check_out);
-		
-	}
-	@Override
-	public void run() {
-		// TODO Auto-generated method stub
 		
 	}
 }

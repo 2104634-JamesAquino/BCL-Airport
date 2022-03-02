@@ -1,10 +1,15 @@
 package restaurant;
 
 import java.awt.EventQueue;
-import passengerData.passengerData;
+import java.util.ArrayList;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import passengerDetails.passengerData;
+import passengerDetails.passengerRecord;
+
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
@@ -19,6 +24,8 @@ public class Login {
 	private JTextField TicketNumENTER;
 	private JTextField FirstNameENTER;
 	private JTextField SurnameENTER;
+	
+	
 
 	/**
 	 * Launch the application.
@@ -98,12 +105,25 @@ public class Login {
 				String FIRSTNAME = FirstNameENTER.getText();
 				String SURNAME = SurnameENTER.getText();
 				
+				ArrayList<String> Users = new ArrayList<String>();
+				Users.add("LK99");
+				Users.add("KM90");
+				Users.add("JK00");
+			    Users.add("DF88");
+			    
+				//ArrayList<ArrayList<passengerRecord>> passenger_Data1 = passenger_Data;
+						
+//				for() {
+//					
+//				}
+				
 				if (TickNum.contains("LK88")&& FIRSTNAME.contains("Wasif")&&SURNAME.contains("Wasim")) {
 					System.out.println("Sucess");
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
 					Menu_page.main(null);
+					System.out.println(passengerDetails.passenger_Data);
 				
 //				if (TickNum.get FIRSTNAME.get("Wasif")&&SURNAME.get("Wasim")) {
 //					System.out.println("Sucess");

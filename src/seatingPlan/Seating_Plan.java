@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+<<<<<<< HEAD
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,6 +20,8 @@ import javax.swing.JTextPane;
 import javax.swing.JToggleButton;
 import javax.swing.border.LineBorder;
 
+=======
+>>>>>>> 48df8148419ddf07ed1056f5c887be53da650da5
 public class Seating_Plan {
 
 	public JFrame frame;

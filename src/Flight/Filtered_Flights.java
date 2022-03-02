@@ -15,7 +15,7 @@ import java.util.Calendar;
 
 public class Filtered_Flights extends JFrame implements ActionListener {
 
-	String file = "C:\\Users\\2109689\\OneDrive - Brunel University London\\Implementation\\Flights (2).csv";
+	String file = "Flights.csv";
 	
 	SimpleDateFormat current_day_format = new SimpleDateFormat("dd/MM/YYYY");
 	String today = current_day_format.format(Calendar.getInstance().getTime());
@@ -85,8 +85,8 @@ public class Filtered_Flights extends JFrame implements ActionListener {
 //		
 //		
 //	}
-	
-	Filtered_Flights(String from, String to, String depart_date, String return_date, Boolean d_isAirbus, Boolean a_isAirbus, Double d_flight_distance, Double a_flight_distance, int d_delay){
+	//, Boolean d_isAirbus, Boolean a_isAirbus, Double d_flight_distance, Double a_flight_distance, int d_delay
+	Filtered_Flights(String from, String to, String depart_date, String return_date){
 	
 		this.from = from;
 		this.to = to;

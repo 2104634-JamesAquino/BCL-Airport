@@ -9,15 +9,14 @@ public class passengerRecord {
 	String telNo;
 	int numBags;
 	int ticketNumber;
-	int bookingID;
 	String departureSeat;
 	String returningSeat;
-	int compensation;
+	double compensation;
 	double foodCosts;
 	double totalPrice;
 	double bagPrice;
 	double ticketPrice;
-	
+
 	public passengerRecord(int ticketNo, String fName, String lName, String DoB, String emailAddress, String telNum, int numOfBags, String departSeat, String returnSeat) {
 		
 		this.ticketNumber = ticketNo;
@@ -27,7 +26,11 @@ public class passengerRecord {
 		this.email = emailAddress;
 		this.telNo = telNum;
 		this.numBags = numOfBags;
-		//this.foodCosts = 0.0;
+		this.foodCosts = 0.00;
+		this.bagPrice = 0.00;
+		this.ticketPrice = 0.00;
+		this.compensation = 0.00;
+		this.totalPrice = 0.00;
 		this.departureSeat = departSeat;
 		this.returningSeat = returnSeat;
 		
@@ -105,11 +108,11 @@ public class passengerRecord {
 		this.returningSeat = returnSeat;
 	}
 
-	public int getCompensation() {
+	public double getCompensation() {
 		return compensation;
 	}
 
-	public void setCompensation(int compensation) {
+	public void setCompensation(double compensation) {
 		this.compensation = compensation;
 	}
 
@@ -146,3 +149,4 @@ public class passengerRecord {
 	}
 	
 }
+

@@ -21,6 +21,10 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class Login {
+	static String fname;
+	static String lname;
+	static String ticket_num;
+	
 	static String TickNum;
 	static String FIRSTNAME;
 	static String SURNAME;
@@ -58,6 +62,16 @@ public class Login {
 	 * Initialise the contents of the frame.
 	 */
 	private void initialize() {
+		
+//		ArrayList<Object[]> passengers_login;
+//		Object[] passengers_login = new Object[3];
+//		
+//		passengers_login[0]=fname;
+//		passengers_login[1]=lname;
+//		passengers_login[2]=ticket_num;
+//		Object[] p_clone = passengers_login.clone();
+//		passengers_login.add(p_clone);
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
 		frame.setBounds(200, 200, 578, 394);

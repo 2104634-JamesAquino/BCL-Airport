@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class Hash_Stock {
 	
-	static int stock_1 =6;
+	static int stock_1 =100;
 	static int stock_2 =100;
 	static int stock_3 =100;
 	static int stock_4 =100;

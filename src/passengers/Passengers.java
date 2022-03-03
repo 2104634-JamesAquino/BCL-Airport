@@ -93,13 +93,21 @@ public class Passengers extends JFrame implements ActionListener {
 	String departing_Seat;
 	String returning_Seat;
 	
-	public Passengers()
+	ArrayList departingSeats_array; 
+	ArrayList returningSeats_array;
+	
+	int ticket_num;
+	int count;
+	
+	public Passengers(String ticket_num,String count)
 	{
+		this.ticket_num = Integer.valueOf(ticket_num);
+		this.count = Integer.valueOf(count);
 		
 /******************************  Creating instances of the Jlabel ***********************************/
 		
 		//label for the passengers form title
-		lblPassengerFormTitle = new JLabel("Passenger Form Details");
+		lblPassengerFormTitle = new JLabel("Passenger " + count + " Details");
 		lblPassengerFormTitle.setForeground(Color.BLUE);
 		lblPassengerFormTitle.setFont(new Font("Arial", Font.PLAIN, 22));
 		//bounds --> x, y, width, length
@@ -193,17 +201,29 @@ public class Passengers extends JFrame implements ActionListener {
 		numberOfBags.setBounds(410, 542, 61, 22);
 		numberOfBags.addActionListener(this);
 		
-		//combo box for the departing seats
-		departingSeats = new JComboBox<String>(dSeats);
+//		//combo box for the departing seats
+//		departingSeats = new JComboBox<String>(dSeats);
+//		departingSeats.setFont(new Font("Tahoma", Font.PLAIN, 15));
+//		departingSeats.setBounds(410, 604, 61, 22);
+//		departingSeats.addActionListener(this);
+//		
+//		//combo box for the returning seats
+//		returningSeats = new JComboBox<String>(rSeats);
+//		returningSeats.setFont(new Font("Tahoma", Font.PLAIN, 15));
+//		returningSeats.setBounds(410, 672, 61, 22);
+//		returningSeats.addActionListener(this);
+		
+		//combo box for the departing seats         					------ edit
+		departingSeats = new JComboBox();
 		departingSeats.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		departingSeats.setBounds(410, 604, 61, 22);
 		departingSeats.addActionListener(this);
-		
-		//combo box for the returning seats
-		returningSeats = new JComboBox<String>(rSeats);
+				
+		//combo box for the returning seats                            ------  edit 
+		returningSeats = new JComboBox();
 		returningSeats.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		returningSeats.setBounds(410, 672, 61, 22);
-		returningSeats.addActionListener(this);
+		returningSeats.addActionListener(this);		
 		
 		//button to submit the passengers form
 		submit = new JButton("Submit");
@@ -432,21 +452,58 @@ public class Passengers extends JFrame implements ActionListener {
 					
 				}
 				else {
-					first_Name = txtFirstName.getText();
-					last_Name = txtLastName.getText();
-					date_Of_Birth = sdf.format(dateOfBirth.getDate());
-					telephone_Number = txtTelephoneNumber.getText();
-					emailAddress = txtEmailAddress.getText();
-					number_Of_Bags = (int)numberOfBags.getSelectedItem();
-					departing_Seat = (String) departingSeats.getSelectedItem();
-					returning_Seat = (String) returningSeats.getSelectedItem();
 					
-					System.out.println(first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
-					int randomNumber = randomNum();
-					System.out.println(randomNumber);
+					if(ticket_num != count) {
 					
-					newPassengerRecord = new passengerRecord(randomNumber, first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
-					passengers.addPassengerRecord(newPassengerRecord);
+						first_Name = txtFirstName.getText();
+						last_Name = txtLastName.getText();
+						date_Of_Birth = sdf.format(dateOfBirth.getDate());
+						telephone_Number = txtTelephoneNumber.getText();
+						emailAddress = txtEmailAddress.getText();
+						number_Of_Bags = (int)numberOfBags.getSelectedItem();
+						departing_Seat = (String) departingSeats.getSelectedItem();
+						returning_Seat = (String) returningSeats.getSelectedItem();
+						
+						System.out.println(first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
+						int randomNumber = randomNum();
+						System.out.println(randomNumber);
+						
+						newPassengerRecord = new passengerRecord(randomNumber, first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
+						passengers.addPassengerRecord(newPassengerRecord);
+					
+						int departingSeat_index = departingSeats.getSelectedIndex();
+						departingSeats_array.remove(departingSeat_index);
+						
+						int returningSeat_index = returningSeats.getSelectedIndex();
+						returningSeats_array.remove(returningSeat_index);
+						
+						dispose();
+						Passengers passenger = new Passengers(String.valueOf(ticket_num), String.valueOf(count+1));
+						passenger.addSelectedSeats(departingSeats_array, returningSeats_array);
+						passenger.setLocationRelativeTo(null);
+					}
+					
+					else {
+						first_Name = txtFirstName.getText();
+						last_Name = txtLastName.getText();
+						date_Of_Birth = sdf.format(dateOfBirth.getDate());
+						telephone_Number = txtTelephoneNumber.getText();
+						emailAddress = txtEmailAddress.getText();
+						number_Of_Bags = (int)numberOfBags.getSelectedItem();
+						departing_Seat = (String) departingSeats.getSelectedItem();
+						returning_Seat = (String) returningSeats.getSelectedItem();
+						
+						System.out.println(first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
+						int randomNumber = randomNum();
+						System.out.println(randomNumber);
+						
+						newPassengerRecord = new passengerRecord(randomNumber, first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
+						passengers.addPassengerRecord(newPassengerRecord);
+						
+						dispose();
+						
+					}
+					
 //					try {
 					//newPassengerRecord = new passengerRecord(randomNumber, first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
 //					passengers.addPassengerRecord(new ArrayList<passengerRecord>());
@@ -461,16 +518,14 @@ public class Passengers extends JFrame implements ActionListener {
 					
 //					
 					
-					System.out.println();
+					//System.out.println();
 					
-					JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNumber);
+					//JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNumber);
 					
-					departingSeats.removeItem(departing_Seat);
-					returningSeats.removeItem(returning_Seat);
+					//departingSeats.removeItem(departing_Seat);
+					//returningSeats.removeItem(returning_Seat);
 					
-					dispose();
-					Passengers passenger = new Passengers();
-					passenger.setLocationRelativeTo(null);
+					
 				}
 		}
 		}
@@ -500,12 +555,29 @@ public class Passengers extends JFrame implements ActionListener {
 		
 //	}
 	
+	public void addSelectedSeats(ArrayList<JButton> d_btn, ArrayList<JButton> r_btn) {
+		
+		departingSeats_array = (ArrayList) d_btn.clone();
+		returningSeats_array = (ArrayList) r_btn.clone();
+		
+		
+		for(int i=0; i< d_btn.size();i++) {
+			departingSeats.addItem(d_btn.get(i).getText());
+		}
+		
+		for(int i=0; i< r_btn.size();i++) {
+			returningSeats.addItem(r_btn.get(i).getText());
+		}
+		
+		
+	}
+	
 /******************************  Main method for displaying the Passengers UI constructor with all the content ***********************************/
 	
-	public static void main(String[] args)
-	{
-		new Passengers();
-	}
+//	public static void main(String[] args)
+//	{
+//		new Passengers();
+//	}
 	
 }
 

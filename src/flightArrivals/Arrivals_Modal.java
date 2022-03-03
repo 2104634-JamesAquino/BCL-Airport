@@ -54,6 +54,7 @@ public class Arrivals_Modal extends JFrame{
 		panel.setBounds(0,0,400,670);
 		panel.setLayout(new GridLayout(arrivals_count+1,4));
 		
+		
 		if(arrivals_count!=0 ) {
 			insert_arrival_values(airport_name);
 			arrivals_bubble_sort();

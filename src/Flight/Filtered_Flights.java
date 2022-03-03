@@ -3,6 +3,13 @@ package Flight;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import passengerData.passengerRecord;
+import passengers.Passengers;
+import seatingPlan.D_Selected_Seats;
+import seatingPlan.Departing_Airbus;
+import seatingPlan.Departing_Boeing;
+import seatingPlan.R_Selected_Seats;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.BufferedReader;
@@ -42,8 +49,6 @@ public class Filtered_Flights extends JFrame implements ActionListener {
 	String d_flight_num;
 	String a_flight_num;
 	
-	Main m = new Main();
-	
 	JPanel dsp;
 	JPanel rsp;
 	
@@ -60,15 +65,17 @@ public class Filtered_Flights extends JFrame implements ActionListener {
 	String return_date;
 	
 	Boolean seats_been_selected = false;
-	Boolean second_instantation = false;
+	Boolean second_instantiation = false;
 	
-//	D_Selected_Seats dss;
-//	R_Selected_Seats rss;
+	D_Selected_Seats dss;
+	R_Selected_Seats rss;
 	
 	ArrayList d_btn;
 	ArrayList r_btn;
 	
-//	Passenger_Details pd;
+	//Passenger_Details pd;
+	
+	passengerRecord pr;
 	
 	double d_distance;
 	double a_distance;
@@ -84,17 +91,17 @@ public class Filtered_Flights extends JFrame implements ActionListener {
 //	FilteredFlights(String from, String to, String depart_date, String return_date, D_Selected_Seats dss, R_Selected_Seats rss, Passenger_Details pd, Boolean d_isAirbus, Boolean a_isAirbus, Double d_flight_distance, Double a_flight_distance, int d_delay){
 //		
 //		
-//	}
+//	}  //	passengerRecord pr;
 	//, Boolean d_isAirbus, Boolean a_isAirbus, Double d_flight_distance, Double a_flight_distance, int d_delay
-	Filtered_Flights(String from, String to, String depart_date, String return_date){
+	public Filtered_Flights(String from, String to, String depart_date, String return_date, D_Selected_Seats dss, R_Selected_Seats rss, passengerRecord pr, Boolean d_isAirbus, Boolean a_isAirbus, Double d_flight_distance, Double a_flight_distance, int d_delay){
 	
 		this.from = from;
 		this.to = to;
 		this.depart_date = depart_date;
 		this.return_date = return_date;
 		
-//		this.dss = dss;
-//		this.rss = rss;
+		this.dss = dss;
+		this.rss = rss;
 		
 //		this.pd = pd;
 		
@@ -376,44 +383,48 @@ public class Filtered_Flights extends JFrame implements ActionListener {
 				else {
 					String ticket_num = (String) tickets_selection.getSelectedItem();
 					
-				if(d_flight_duration>120) {
-					a_isAirbus = false;
-					Departing_Boeing m = new Departing_Boeing(a_flight_duration, ticket_num, d_flight_num, a_flight_num, from, to, depart_date, return_date, dss, rss, pd, d_distance, a_distance, d_isAirbus, a_isAirbus, d_flight_distance, a_flight_distance, d_delay);
-					
-					m.setLocationRelativeTo(this);
-					dispose();
+					if(d_flight_duration>120) {
+						a_isAirbus = false;
+						Departing_Boeing m = new Departing_Boeing(a_flight_duration, ticket_num, d_flight_num, a_flight_num, from, to, depart_date, return_date, dss, rss, pr, d_distance, a_distance, d_isAirbus, a_isAirbus, d_flight_distance, a_flight_distance, d_delay);
+						
+						m.setLocationRelativeTo(this);
+						dispose();
+					}
+					else {
+						d_isAirbus = true;
+						Departing_Airbus m = new Departing_Airbus(a_flight_duration, ticket_num, d_flight_num, a_flight_num, from, to, depart_date, return_date, dss, rss, pr, d_distance, a_distance, d_isAirbus, a_isAirbus, d_flight_distance, a_flight_distance, d_delay);
+						
+						m.setLocationRelativeTo(this);
+						dispose();
+						}		
 				}
-				else {
-					d_isAirbus = true;
-					Departing_Airbus m = new Departing_Airbus(a_flight_duration, ticket_num, d_flight_num, a_flight_num, from, to, depart_date, return_date, dss, rss, pd, d_distance, a_distance, d_isAirbus, a_isAirbus, d_flight_distance, a_flight_distance, d_delay);
-					
-					m.setLocationRelativeTo(this);
-					dispose();
-					
-				}
-				}
+		
 			}
 		
-	}
+		}
 
-	
-	
-	if(e.getSource()==purchase) {
-		
-		if(seats_been_selected==false) {
-			JOptionPane.showMessageDialog(this, "You must select your seats. Click the 'view seating plan' button to do this.");
-		}
-		else {
-			Passenger p = new Passenger(pd, d_isAirbus, d_flight_distance, a_flight_distance, d_delay);
-			p.startGUI((String)tickets_selection.getSelectedItem(),"1");
-			p.addSelectedSeats(d_btn, r_btn);
-			p.setLocationRelativeTo(null);
 			
-			dispose();
+		if(e.getSource()==purchase) {
+			
+			if(seats_been_selected==false) {
+				JOptionPane.showMessageDialog(this, "You must select your seats. Click the 'view seating plan' button to do this.");
+			}
+			else {
+				//Passenger p = new Passenger(pd, d_isAirbus, d_flight_distance, a_flight_distance, d_delay);
+				//p.startGUI((String)tickets_selection.getSelectedItem(),"1");
+				//p.addSelectedSeats(d_btn, r_btn);
+				//p.setLocationRelativeTo(null);
+				
+				
+				Passengers p = new Passengers((String)tickets_selection.getSelectedItem(),"1");
+				p.addSelectedSeats(d_btn, r_btn);
+				
+				dispose();
+			}
+			
+			}
 		}
-		
-		}
-	}
+	
 	
 	
 	public void change_text(ArrayList<JButton> d_btn, ArrayList<JButton> r_btn) {
@@ -442,9 +453,9 @@ public class Filtered_Flights extends JFrame implements ActionListener {
 		a_table.selectAll();
 	}
 	
-	}
 	
 	
-		}
-	}
+	
+}
+	
 

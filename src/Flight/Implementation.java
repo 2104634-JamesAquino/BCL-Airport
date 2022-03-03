@@ -4,6 +4,11 @@ import javax.swing.*;
 
 import com.toedter.calendar.JDateChooser;
 
+import finance.FinancePage;
+import passengerData.passengerRecord;
+import seatingPlan.D_Selected_Seats;
+import seatingPlan.R_Selected_Seats;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.text.SimpleDateFormat;
@@ -31,6 +36,9 @@ public class Implementation implements ActionListener{
 	
 	JButton search;
 	
+	JButton restaurant;
+	JButton finances;
+	
 	JButton arrivals;
 	JButton departures;
 	
@@ -40,6 +48,18 @@ public class Implementation implements ActionListener{
 	JPanel left = new JPanel();
 	JPanel right = new JPanel();
 	
+	D_Selected_Seats dss = new D_Selected_Seats();
+	R_Selected_Seats rss = new R_Selected_Seats();
+	
+	passengerRecord pr;
+	
+	Boolean d_isAirbus =false;
+	Boolean a_isAirbus =false;
+	
+	Double d_flight_distance =0.0;
+	Double a_flight_distance =0.0;
+	
+	int d_delay = 0;
 	
 			
 	Implementation(){
@@ -47,11 +67,11 @@ public class Implementation implements ActionListener{
 		
 		JLabel logo = new JLabel();
 		
-		logo.setIcon(new ImageIcon("C:\\Users\\2109689\\OneDrive - Brunel University London\\Implementation\\bcl_logo.jpeg"));
+		logo.setIcon(new ImageIcon("BCL_Logo.png"));
 		logo.setBounds(80,50,300,148);
 		
-		JButton restaurant = new JButton("Restaurant");
-		JButton finances = new JButton("Finances");
+		restaurant = new JButton("Restaurant");
+		finances = new JButton("Finances");
 		
 		restaurant.setBackground(new Color(0x0B2382));
 		finances.setBackground(new Color(0xB2383));
@@ -113,6 +133,7 @@ public class Implementation implements ActionListener{
 		arrivals.setFocusable(false);
 		
 		search.addActionListener(this);
+		finances.addActionListener(this);
 		
 		frame.add(logo);
 		frame.add(restaurant);
@@ -164,6 +185,13 @@ public class Implementation implements ActionListener{
 	if(e.getSource()==arrivals) {
 	//	new Arrivals();
 	}
+	
+	if(e.getSource()==finances) {
+		FinancePage frame = new FinancePage();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+	}
+	
 	if(e.getSource()==search) {
 		if(depart_date.getDate()==null || return_date.getDate()==null) {
 			JOptionPane.showMessageDialog(frame, "Departure and return date must not be empty");
@@ -202,7 +230,8 @@ public class Implementation implements ActionListener{
 					JOptionPane.showMessageDialog(frame, "Departure and return city must not be the same.");
 				}
 				else {
-					Filtered_Flights f = new Filtered_Flights(from,to,d1,d2);
+					Filtered_Flights f = new Filtered_Flights(from,to,d1,d2,dss,rss,pr, d_isAirbus, a_isAirbus, 
+							d_flight_distance, a_flight_distance, d_delay);
 					f.setLocationRelativeTo(frame);
 					
 				}

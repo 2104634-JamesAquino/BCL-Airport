@@ -39,18 +39,18 @@ public class FinancePage extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {//Displays the finance table - if code was combined would have this highlighted
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					FinancePage frame = new FinancePage();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+//	public static void main(String[] args) {//Displays the finance table - if code was combined would have this highlighted
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					FinancePage frame = new FinancePage();
+//					frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
+//	}
 	public FinancePage() {//creates the table, label and icon that can be seen on JFrame
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 800, 553);

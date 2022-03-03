@@ -55,25 +55,25 @@ public class Seating_Plan {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	//public static void main(String[] args) {
 		/*
 		 * this is used for calling a non static method and in static void main method
 		 */
-		Seating_Plan Alg1 = new Seating_Plan();
-		Alg1.longAndShortHaulFlights();
+		//Seating_Plan Alg1 = new Seating_Plan();
+		//Alg1.longAndShortHaulFlights();
 
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Seating_Plan window = new Seating_Plan();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
+//					Seating_Plan window = new Seating_Plan();
+//					window.frame.setVisible(true);
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
 
-		});
-	}
+//		});
+//	}
 
 	public void longAndShortHaulFlights() {
 		/*

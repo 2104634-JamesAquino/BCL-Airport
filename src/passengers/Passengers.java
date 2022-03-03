@@ -79,7 +79,7 @@ public class Passengers extends JFrame implements ActionListener {
 	
 /******************************  variables for the ticket number and the passenger Count ***********************************/
 	
-//	int ticketNum;
+//	int ticket_num;
 //	int passengerCount;
 	
 /******************************  variables used for storing the inputs from the user ***********************************/
@@ -278,23 +278,6 @@ public class Passengers extends JFrame implements ActionListener {
 		//setting the frame to be visible
 		setVisible(true);	
 	}
-
-	
-/****************************** This method is used to add the chosen seats to the combo boxes in the form ***********************************/
-	
-	public void chosenSeats(ArrayList<String> departureSeats, ArrayList<String> returnSeats)
-	{
-		
-		
-		for(int i=0;i<departureSeats.size();i++)
-		{
-			departingSeats.addItem(departureSeats.get(i));
-		}
-		for(int i=0;i<returnSeats.size();i++)
-		{
-			returningSeats.addItem(returnSeats.get(i));
-		}
-	}
 	
 /****************************** This method is used to generate a random number that contains 8 digits ***********************************/
 	
@@ -436,8 +419,6 @@ public class Passengers extends JFrame implements ActionListener {
 		if(e.getSource() == submit) 
 		{
 			
-//			if(ticketNum != passengerCount)
-//			{
 				if(isValidString(txtFirstName, txtLastName) == false)
 				{
 					
@@ -477,6 +458,8 @@ public class Passengers extends JFrame implements ActionListener {
 						int returningSeat_index = returningSeats.getSelectedIndex();
 						returningSeats_array.remove(returningSeat_index);
 						
+						JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNumber);
+						
 						dispose();
 						Passengers passenger = new Passengers(String.valueOf(ticket_num), String.valueOf(count+1));
 						passenger.addSelectedSeats(departingSeats_array, returningSeats_array);
@@ -500,60 +483,17 @@ public class Passengers extends JFrame implements ActionListener {
 						newPassengerRecord = new passengerRecord(randomNumber, first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
 						passengers.addPassengerRecord(newPassengerRecord);
 						
+						JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNumber);
+						
 						dispose();
 						
 					}
-					
-//					try {
-					//newPassengerRecord = new passengerRecord(randomNumber, first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
-//					passengers.addPassengerRecord(new ArrayList<passengerRecord>());
-//					passengers.getPassengerRecord(0).add(newPassengerRecord);
-//					passengers.addPassengerRecord(newPassengerRecord);
-					//passengers.addPassengerRecord(newPassengerRecord);
-					//passengers.addPassengerRecord(randomNumber,first_Name, last_name, date_of_birth, telephoneNumber, emailAddress, number_Of_Bags, departSeat, returnSeat);
-//					} catch (Exception e2) {
-//						// TODO: handle exception
-//						System.out.println("Cannot save the data into the addPassengerRecord method" + e2);
-//					}
-					
-//					
-					
-					//System.out.println();
-					
-					//JOptionPane.showMessageDialog(this, "Thank you for the purchase. Your ticket number is: " + randomNumber);
-					
-					//departingSeats.removeItem(departing_Seat);
-					//returningSeats.removeItem(returning_Seat);
-					
-					
+
 				}
 		}
-		}
-//			}
-//			else {
-//				
-//				first_Name = txtFirstName.getText();
-//				last_Name = txtLastName.getText();
-//				date_Of_Birth = sdf.format(dateOfBirth.getDate());
-//				telephone_Number = txtTelephoneNumber.getText();
-//				emailAddress = txtEmailAddress.getText();
-//				number_Of_Bags = (int)numberOfBags.getSelectedItem();
-//				departing_Seat = (String) departingSeats.getSelectedItem();
-//				returning_Seat = (String) returningSeats.getSelectedItem();
-//	
-//				System.out.println(first_Name + " " + last_Name + " " + date_Of_Birth + " " + telephone_Number + " " + emailAddress + " " + number_Of_Bags + " " + departing_Seat + " " + returning_Seat);
-//				int randomNumber = randomNum();
-//				System.out.println(randomNumber);
-//	
-//				newPassengerRecord.addPassengerRecord(randomNumber, first_Name, last_Name, date_Of_Birth, telephone_Number, emailAddress, number_Of_Bags, departing_Seat, returning_Seat);
-//				
-//				dispose();
-//				
-//			}
-			
-//		}
+	}
 		
-//	}
+
 	
 	public void addSelectedSeats(ArrayList<JButton> d_btn, ArrayList<JButton> r_btn) {
 		

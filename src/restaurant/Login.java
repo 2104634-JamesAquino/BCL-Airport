@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
-
+import java.util.HashMap;
 import passengerData.passengerData;
 import passengerData.passengerRecord;
 import javax.swing.JFrame;
@@ -21,6 +21,13 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class Login {
+	
+	HashMap<String,String> LoginData = new HashMap<String,String>();
+	void LoginPage (HashMap<String,String> loginInfoOriginal){
+		LoginData = loginInfoOriginal;
+	}
+
+
 	static String fname;
 	static String lname;
 	static String ticket_num;
@@ -84,7 +91,7 @@ public class Login {
 		frame.getContentPane().add(TicketNumLABEL);
 		// This is a label for the User Interface to show where the customer should input their ticket number.
 		
-		JLabel FirstNameLABEL = new JLabel("First Name:");
+		JLabel FirstNameLABEL = new JLabel("Full Name");
 		FirstNameLABEL.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		FirstNameLABEL.setBounds(10, 112, 108, 19);
 		frame.getContentPane().add(FirstNameLABEL);
@@ -103,7 +110,7 @@ public class Login {
 		// This is a text field where the user inputs their ticket number.
 		
 		FirstNameENTER = new JTextField();
-		FirstNameENTER.setBounds(10, 141, 96, 19);
+		FirstNameENTER.setBounds(10, 141, 204, 19);
 		frame.getContentPane().add(FirstNameENTER);
 		FirstNameENTER.setColumns(10);
 		//This is a text field where the user inputs their first name.
@@ -132,7 +139,23 @@ public class Login {
 				SURNAME = SurnameENTER.getText();
 				// the 3 lines of code above store the user inputs into 3 variables.
 				
-				if (TickNum.contains("LK99")&& FIRSTNAME.contains("Wasif")&&SURNAME.contains("Wasim")) {
+				if (TickNum.contains("83746578")&& FIRSTNAME.contains("Aaron")&&SURNAME.contains("Samuels")) {
+					System.out.println("Sucess");
+					TicketNumENTER.setText(null);
+					FirstNameENTER.setText(null);
+					SurnameENTER.setText(null);
+					Menu_page.main(null);	// this line of code opens the next page, which is the menu page.	
+					// this is an if statement to see if the user inputs are a match. 
+				}
+				else if(TickNum.contains("95738494")&& FIRSTNAME.contains("Cady")&&SURNAME.contains("Heron")){
+					System.out.println("Sucess");
+					TicketNumENTER.setText(null);
+					FirstNameENTER.setText(null);
+					SurnameENTER.setText(null);
+					Menu_page.main(null);	// this line of code opens the next page, which is the menu page.	
+					// this is an if statement to see if the user inputs are a match. 
+				}
+				else if(TickNum.contains("27475839")&& FIRSTNAME.contains("Regina")&&SURNAME.contains("George")){
 					System.out.println("Sucess");
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);

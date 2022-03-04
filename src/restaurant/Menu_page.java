@@ -18,7 +18,7 @@ import java.util.TimerTask;
 import java.awt.event.ActionEvent;
 
 public class Menu_page{
-	
+	//NOTE: there is a lot of code that will be repeated, so i will not write notes on repeated code.
 	static int Stock_Updater(int C, String D, HashMap<String, Integer> E, int J) {
 		C = (int) E.get(D);
 		C =C -J;
@@ -125,6 +125,7 @@ public class Menu_page{
 		Hash_Stock.Restrant_data.put("Orange Juice", Hash_Stock.stock_10);
 		Hash_Stock.Restrant_data.put("Apple Juice", Hash_Stock.stock_11);
 		Hash_Stock.Restrant_data.put("Coffee", Hash_Stock.stock_12);
+		// The code above is for there to be stock for each item on the menu.
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -199,6 +200,7 @@ public class Menu_page{
 		JButton Minus_1 = new JButton("-");
 		Minus_1.setBounds(21, 58, 50, 21);
 		panel_1.add(Minus_1);
+		// The three lines of code above are to show the minus button on the software page.
 		Minus_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_OneCounter= Minus_button(Item_OneCounter); // This calls the method to subtract the order counter by one each time the button is pressed .
@@ -244,10 +246,11 @@ public class Menu_page{
 		JButton Minus_2 = new JButton("-");
 		Minus_2.setBounds(10, 58, 50, 21);
 		panel_2.add(Minus_2);
+		// The three lines of code above are to show the minus button on the software page.
 		Minus_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Item_TwoCounter = Minus_button(Item_TwoCounter);
-				Show_StockCount_2.setText(String.valueOf(Item_TwoCounter));
+				Item_TwoCounter = Minus_button(Item_TwoCounter);// This calls the method to subtract the order counter by one each time the button is pressed .
+				Show_StockCount_2.setText(String.valueOf(Item_TwoCounter)); //This updates the counter on the user interface to show how much is being updated.
 			}
 		});
 		
@@ -274,6 +277,7 @@ public class Menu_page{
 			public void actionPerformed(ActionEvent e) {
 				Item_ThreeCounter = Plus_button(Item_ThreeCounter, Hash_Stock.Restrant_data, "Pancakes", 0);
 				Show_StockCount_3.setText(String.valueOf(Item_ThreeCounter));
+				ReOrderStock(Item_ThreeCounter, Hash_Stock.Restrant_data, "Pancakes", 0);
 				
 			}
 		});
@@ -310,6 +314,7 @@ public class Menu_page{
 			public void actionPerformed(ActionEvent e) {
 				Item_FourCounter =  Plus_button(Item_FourCounter, Hash_Stock.Restrant_data,"Rice and Curry", 0);
 				Show_StockCount_4.setText(String.valueOf(Item_FourCounter));
+				ReOrderStock(Item_FourCounter, Hash_Stock.Restrant_data, "Rice and Curry", 0);
 				
 			}
 		});
@@ -346,6 +351,7 @@ public class Menu_page{
 			public void actionPerformed(ActionEvent e) {
 				Item_FiveCounter = Plus_button(Item_FiveCounter, Hash_Stock.Restrant_data, "Fish and Chips", 0);
 				Show_StockCount_5.setText(String.valueOf(Item_FiveCounter));	
+				ReOrderStock(Item_FiveCounter, Hash_Stock.Restrant_data, "Fish and Chips", 0);
 				
 			}
 		});
@@ -383,6 +389,7 @@ public class Menu_page{
 			public void actionPerformed(ActionEvent e) {
 				Item_SixCounter = Plus_button(Item_SixCounter, Hash_Stock.Restrant_data, "Pasta", 0);
 				Show_StockCount_6.setText(String.valueOf(Item_SixCounter));
+				ReOrderStock(Item_SixCounter, Hash_Stock.Restrant_data, "Pasta", 0);
 				
 			}
 		});
@@ -419,6 +426,7 @@ public class Menu_page{
 			public void actionPerformed(ActionEvent e) {
 				Item_SevenCounter = Plus_button(Item_SevenCounter, Hash_Stock.Restrant_data, "CheeseCake", 0);
 				Show_StockCount_7.setText(String.valueOf(Item_SevenCounter));
+				ReOrderStock(Item_SevenCounter, Hash_Stock.Restrant_data, "CheeseCake", 0);
 				
 			}
 		});
@@ -456,6 +464,7 @@ public class Menu_page{
 			public void actionPerformed(ActionEvent e) {
 				Item_EightCounter = Plus_button(Item_EightCounter, Hash_Stock.Restrant_data, "Choclate Cake", 0);
 				Show_StockCount_8.setText(String.valueOf(Item_EightCounter));
+				ReOrderStock(Item_EightCounter, Hash_Stock.Restrant_data, "Choclate Cake", 0);
 				
 			}
 		});
@@ -492,6 +501,7 @@ public class Menu_page{
 			public void actionPerformed(ActionEvent e) {
 				Item_NineCounter = Plus_button(Item_NineCounter, Hash_Stock.Restrant_data, "MilkShake", 0);
 				Show_StockCount_9.setText(String.valueOf(Item_NineCounter));
+				ReOrderStock(Item_NineCounter, Hash_Stock.Restrant_data, "MilkShake", 0);
 				
 			}
 		});
@@ -527,7 +537,8 @@ public class Menu_page{
 		Plus_10.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Item_TenCounter = Plus_button(Item_TenCounter, Hash_Stock.Restrant_data, "Orange Juice", 0);
-				Show_StockCount_10.setText(String.valueOf(Item_TenCounter));		
+				Show_StockCount_10.setText(String.valueOf(Item_TenCounter));
+				ReOrderStock(Item_TenCounter, Hash_Stock.Restrant_data, "Orange Juice", 0);
 				
 			}
 		});
@@ -565,6 +576,7 @@ public class Menu_page{
 			public void actionPerformed(ActionEvent e) {
 				Item_ElevenCounter = Plus_button(Item_ElevenCounter, Hash_Stock.Restrant_data, "Apple Juice", 0);
 				Show_StockCount_11.setText(String.valueOf(Item_ElevenCounter));
+				ReOrderStock(Item_ElevenCounter, Hash_Stock.Restrant_data, "Apple Juice", 0);
 				
 			}
 		});
@@ -601,6 +613,7 @@ public class Menu_page{
 			public void actionPerformed(ActionEvent e) {
 				Item_TwelveCounter = Plus_button(Item_TwelveCounter, Hash_Stock.Restrant_data, "Coffee", 0);
 				Show_StockCount_12.setText(String.valueOf(Item_TwelveCounter));	
+				ReOrderStock(Item_TwelveCounter, Hash_Stock.Restrant_data, "Coffee", 0);
 				
 			}
 		});
@@ -622,11 +635,12 @@ public class Menu_page{
 				Total_MenuItems = Item_OneCounter+Item_TwoCounter + Item_ThreeCounter + Item_FourCounter +Item_FiveCounter
 						+ Item_SixCounter + Item_SevenCounter + Item_EightCounter + Item_NineCounter + Item_TenCounter + Item_ElevenCounter
 						+ Item_TwelveCounter;
+				// The code above, adds up how many items the customer is ordering
 				
 				Total_Price = (int) ((Item_OneCounter*Toast)+(Item_TwoCounter*Sausages)+(Item_ThreeCounter*Pancakes)+(Item_FourCounter*Rice_and_Curry)+
 						(Item_FiveCounter*Fish_and_Chips)+(Item_SixCounter*Pasta)+(Item_SevenCounter*CheeseCake)+(Item_EightCounter*Choclate_Cake)
 						+(Item_NineCounter*MilkShake)+(Item_TenCounter*Orange_Juice)+(Item_ElevenCounter*Apple_Juice)+(Item_TwelveCounter*Coffee));
-				
+				//the code above adds up the total of what the customer is spending.
 				int Temp = 0;
 				Stock_Updater(Temp, "Toast", Hash_Stock.Restrant_data, Item_OneCounter ); //1
 				Stock_Updater(Temp, "Sausages", Hash_Stock.Restrant_data, Item_TwoCounter ); //2
@@ -640,6 +654,7 @@ public class Menu_page{
 				Stock_Updater(Temp, "MilkShake", Hash_Stock.Restrant_data, Item_TenCounter ); //10
 				Stock_Updater(Temp, "Apple Juice", Hash_Stock.Restrant_data, Item_ElevenCounter ); //11
 				Stock_Updater(Temp, "Coffee",Hash_Stock. Restrant_data, Item_TwelveCounter ); //12
+				// The lines of code above updates the stock count, by misusing the stock that has been ordered.
 				
 				Check_Out.main(null);
 			}

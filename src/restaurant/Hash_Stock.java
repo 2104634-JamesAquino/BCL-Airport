@@ -16,6 +16,7 @@ public class Hash_Stock {
 	static int stock_10 =100;
 	static int stock_11 =100;
 	static int stock_12 =100;
+	// This contains the data for the stock of each item.
 	public static void main(String[] args) {
 	
 	}

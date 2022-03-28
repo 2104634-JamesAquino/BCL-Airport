@@ -83,7 +83,7 @@ public class Inventory_counter {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
 		frame.setBounds(100, 100, 875, 864);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setTitle("Inventory");
 		frame.getContentPane().setLayout(null);
 		

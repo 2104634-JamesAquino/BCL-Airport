@@ -46,7 +46,7 @@ public class Check_Out {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
 		frame.setBounds(100, 100, 600, 499);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblNumberOfItems = new JLabel("Number of Items: " + Menu_page.Total_MenuItems);

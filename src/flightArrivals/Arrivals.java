@@ -45,7 +45,7 @@ public class Arrivals implements MouseListener {
 	String[][] arrival_values;
 	JPanel arrivals_panel = new JPanel();
 	
-	Arrivals() {
+	public Arrivals() {
 		JFrame frame = new JFrame("Arrivals");
 		
 		

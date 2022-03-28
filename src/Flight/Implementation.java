@@ -5,6 +5,8 @@ import javax.swing.*;
 import com.toedter.calendar.JDateChooser;
 
 import finance.FinancePage;
+import flightArrivals.*;
+import restaurant.*;
 import passengerData.passengerRecord;
 import seatingPlan.D_Selected_Seats;
 import seatingPlan.R_Selected_Seats;
@@ -16,7 +18,6 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.Calendar;
 public class Implementation implements ActionListener{
-
 
 	JFrame frame;
 	
@@ -62,7 +63,7 @@ public class Implementation implements ActionListener{
 	int d_delay = 0;
 	
 			
-	Implementation(){
+	public Implementation(){
 		frame = new JFrame("BCL AIRPORT");
 		
 		JLabel logo = new JLabel();
@@ -134,6 +135,8 @@ public class Implementation implements ActionListener{
 		
 		search.addActionListener(this);
 		finances.addActionListener(this);
+		restaurant.addActionListener(this);
+		arrivals.addActionListener(this);
 		
 		frame.add(logo);
 		frame.add(restaurant);
@@ -179,11 +182,16 @@ public class Implementation implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 	
 	if(e.getSource()==departures) {
-	//		new Departures();
+	//	new Departures();
 			
 	}
 	if(e.getSource()==arrivals) {
-	//	new Arrivals();
+		new Arrivals();
+	}
+	
+	if(e.getSource()==restaurant) {
+		Login frameLogin = new Login();
+		frameLogin.main(null);
 	}
 	
 	if(e.getSource()==finances) {

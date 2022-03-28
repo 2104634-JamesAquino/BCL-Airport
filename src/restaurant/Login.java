@@ -75,7 +75,7 @@ public class Login {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
 		frame.setBounds(200, 200, 578, 394);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel TicketNumLABEL = new JLabel("Ticket Number: ");
@@ -133,7 +133,7 @@ public class Login {
 				// the 3 lines of code above store the user inputs into 3 variables.
 				
 				if (TickNum.contains("LK99")&& FIRSTNAME.contains("Wasif")&&SURNAME.contains("Wasim")) {
-					System.out.println("Sucess");
+					System.out.println("Success");
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);

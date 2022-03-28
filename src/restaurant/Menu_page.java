@@ -642,6 +642,7 @@ public class Menu_page{
 				Stock_Updater(Temp, "Coffee",Hash_Stock. Restrant_data, Item_TwelveCounter ); //12
 				
 				Check_Out.main(null);
+				
 			}
 		});
 		frame.getContentPane().add(Check_out);

@@ -7,8 +7,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 import java.util.HashMap;
-import passengerData.passengerData;
-import passengerData.passengerRecord;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -82,7 +80,7 @@ public class Login {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
 		frame.setBounds(200, 200, 578, 394);
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
 		JLabel TicketNumLABEL = new JLabel("Ticket Number: ");
@@ -91,7 +89,7 @@ public class Login {
 		frame.getContentPane().add(TicketNumLABEL);
 		// This is a label for the User Interface to show where the customer should input their ticket number.
 		
-		JLabel FirstNameLABEL = new JLabel("Full Name");
+		JLabel FirstNameLABEL = new JLabel("First Name");
 		FirstNameLABEL.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		FirstNameLABEL.setBounds(10, 112, 108, 19);
 		frame.getContentPane().add(FirstNameLABEL);
@@ -139,10 +137,6 @@ public class Login {
 				SURNAME = SurnameENTER.getText();
 				// the 3 lines of code above store the user inputs into 3 variables.
 				
-<<<<<<< HEAD
-				if (TickNum.contains("LK99")&& FIRSTNAME.contains("Wasif")&&SURNAME.contains("Wasim")) {
-					System.out.println("Success");
-=======
 				if (TickNum.contains("83746578")&& FIRSTNAME.contains("Aaron")&&SURNAME.contains("Samuels")) {
 					System.out.println("Sucess");
 					TicketNumENTER.setText(null);
@@ -161,7 +155,6 @@ public class Login {
 				}
 				else if(TickNum.contains("27475839")&& FIRSTNAME.contains("Regina")&&SURNAME.contains("George")){
 					System.out.println("Sucess");
->>>>>>> 734c4784ae5f9f263625d59293b8fd301756ff4b
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);

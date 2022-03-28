@@ -258,7 +258,7 @@ public class Check_Out {
 				Hash_Stock.stock_11 = Hash_Stock.stock_11 - Menu_page.Item_ElevenCounter;
 				Hash_Stock.stock_12 = Hash_Stock.stock_12 - Menu_page.Item_TwelveCounter;
 				// The twelve lines of code above, change the stock figures, once the customer confirms the check out.
-				System.exit(0);
+//				System.exit(0);
 				Menu_page.Item_OneCounter = 0;
 				Menu_page.Item_TwoCounter = 0;
 				Menu_page.Item_ThreeCounter = 0;
@@ -272,7 +272,7 @@ public class Check_Out {
 				Menu_page.Item_ElevenCounter = 0;
 				Menu_page.Item_TwelveCounter = 0;
 				// The twelve lines above reset the count of how many of the product the customer is ordering.
-				
+				frame.dispose();
 			}
 		});
 		btnNewButton.setBounds(276, 395, 276, 57);

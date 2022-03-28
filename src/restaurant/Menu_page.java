@@ -155,7 +155,7 @@ public class Menu_page{
 		frame = new JFrame();
 		frame.getContentPane().setBackground(Color.CYAN);
 		frame.setBounds(100, 100, 839, 650);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setTitle("Inventory");
 		frame.getContentPane().setLayout(null);
 		
@@ -657,6 +657,7 @@ public class Menu_page{
 				// The lines of code above updates the stock count, by misusing the stock that has been ordered.
 				
 				Check_Out.main(null);
+				frame.dispose();
 				
 			}
 		});

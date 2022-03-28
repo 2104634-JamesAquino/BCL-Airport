@@ -142,6 +142,7 @@ public class Login {
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
+					frame.setVisible(false);
 					Menu_page.main(null);	// this line of code opens the next page, which is the menu page.	
 					// this is an if statement to see if the user inputs are a match. 
 				}
@@ -150,6 +151,7 @@ public class Login {
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
+					frame.setVisible(false);
 					Menu_page.main(null);	// this line of code opens the next page, which is the menu page.	
 					// this is an if statement to see if the user inputs are a match. 
 				}
@@ -158,6 +160,7 @@ public class Login {
 					TicketNumENTER.setText(null);
 					FirstNameENTER.setText(null);
 					SurnameENTER.setText(null);
+					frame.setVisible(false);
 					Menu_page.main(null);	// this line of code opens the next page, which is the menu page.	
 					// this is an if statement to see if the user inputs are a match. 
 				}
@@ -180,11 +183,12 @@ public class Login {
 		ExitBUTTON.setFont(new Font("Tahoma", Font.BOLD, 20));
 		ExitBUTTON.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame = new JFrame("Exit");
-			    if (JOptionPane.showConfirmDialog( frame,"confirm if you Want to Exit","BCLA",
-			            JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION)
-			            System.exit(0);
+//				frame = new JFrame("Exit");
+			    if (JOptionPane.showConfirmDialog( frame,"confirm if you Want to Exit","BCLA", JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION)
+			    {
+			    	frame.setVisible(false);
 			}
+		}
 		});
 		ExitBUTTON.setBounds(215, 239, 142, 62);
 		frame.getContentPane().add(ExitBUTTON);

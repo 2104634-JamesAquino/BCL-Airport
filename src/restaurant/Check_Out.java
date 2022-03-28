@@ -53,6 +53,7 @@ public class Check_Out {
 		lblNumberOfItems.setBounds(30, 133, 236, 30);
 		lblNumberOfItems.setFont(new Font("Tahoma", Font.BOLD, 20));
 		frame.getContentPane().add(lblNumberOfItems);
+		// The code above shows the customer how many items they have ordered.
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(30, 133, 236, 30);
@@ -67,50 +68,62 @@ public class Check_Out {
 		JLabel OrderList_1 = new JLabel("Toast:");
 		OrderList_1.setBounds(10, 10, 80, 13);
 		panel_2.add(OrderList_1);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_2 = new JLabel("Sausages:");
 		OrderList_2.setBounds(10, 27, 80, 13);
 		panel_2.add(OrderList_2);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_3 = new JLabel("Pancakes:");
 		OrderList_3.setBounds(10, 44, 101, 13);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		panel_2.add(OrderList_3);
 		
 		JLabel OrderList_4 = new JLabel("Rice and Curry:");
 		OrderList_4.setBounds(10, 61, 115, 13);
 		panel_2.add(OrderList_4);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_5 = new JLabel("Fish and Chips:");
 		OrderList_5.setBounds(10, 78, 115, 13);
 		panel_2.add(OrderList_5);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_6 = new JLabel("Pasta:");
 		OrderList_6.setBounds(10, 95, 101, 13);
 		panel_2.add(OrderList_6);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_7 = new JLabel("Cheesecake:");
 		OrderList_7.setBounds(10, 112, 115, 13);
 		panel_2.add(OrderList_7);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_8 = new JLabel("Choclate Cake:");
 		OrderList_8.setBounds(10, 129, 115, 13);
 		panel_2.add(OrderList_8);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_9 = new JLabel("MilkShake:");
 		OrderList_9.setBounds(10, 146, 115, 13);
 		panel_2.add(OrderList_9);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_10 = new JLabel("Orange Juice:");
 		OrderList_10.setBounds(10, 163, 115, 13);
 		panel_2.add(OrderList_10);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_11 = new JLabel("Apple Juice:");
 		OrderList_11.setBounds(10, 180, 115, 13);
 		panel_2.add(OrderList_11);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JLabel OrderList_12 = new JLabel("Coffee:");
 		OrderList_12.setBounds(10, 197, 115, 13);
 		panel_2.add(OrderList_12);
+		// This will is a jlabel, next to this jlabel it will show how many items of this product the customer has ordered.
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(10, 27, 164, 13);
@@ -167,50 +180,62 @@ public class Check_Out {
 		JLabel ShowItem_1 = new JLabel("X "+Menu_page.Item_OneCounter);
 		ShowItem_1.setBounds(145, 10, 39, 13);
 		panel_2.add(ShowItem_1);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_2 = new JLabel("X "+Menu_page.Item_TwoCounter);
 		ShowItem_2.setBounds(145, 27, 39, 13);
 		panel_2.add(ShowItem_2);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_3 = new JLabel("X "+Menu_page.Item_ThreeCounter);
 		ShowItem_3.setBounds(145, 44, 39, 13);
 		panel_2.add(ShowItem_3);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_4 = new JLabel("X "+Menu_page.Item_FourCounter);
 		ShowItem_4.setBounds(145, 61, 39, 13);
 		panel_2.add(ShowItem_4);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_5 = new JLabel("X "+Menu_page.Item_FiveCounter);
 		ShowItem_5.setBounds(145, 78, 39, 13);
 		panel_2.add(ShowItem_5);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_6 = new JLabel("X "+Menu_page.Item_SixCounter);
 		ShowItem_6.setBounds(145, 95, 39, 13);
 		panel_2.add(ShowItem_6);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_7 = new JLabel("X "+Menu_page.Item_SevenCounter);
 		ShowItem_7.setBounds(145, 112, 39, 13);
 		panel_2.add(ShowItem_7);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_8 = new JLabel("X "+Menu_page.Item_EightCounter);
 		ShowItem_8.setBounds(145, 129, 39, 13);
 		panel_2.add(ShowItem_8);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_9 = new JLabel("X "+Menu_page.Item_NineCounter);
 		ShowItem_9.setBounds(145, 146, 39, 13);
 		panel_2.add(ShowItem_9);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_10 = new JLabel("X "+Menu_page.Item_TenCounter);
 		ShowItem_10.setBounds(145, 163, 39, 13);
 		panel_2.add(ShowItem_10);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_11 = new JLabel("X "+Menu_page.Item_ElevenCounter);
 		ShowItem_11.setBounds(145, 180, 39, 13);
 		panel_2.add(ShowItem_11);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel ShowItem_12 = new JLabel("X "+Menu_page.Item_TwelveCounter);
 		ShowItem_12.setBounds(145, 197, 39, 13);
 		panel_2.add(ShowItem_12);
+		// This is the code that will show the customer how much they are ordering for this item.
 		
 		JLabel lblItemOrderList = new JLabel("Item Order List: ");
 		lblItemOrderList.setBounds(30, 196, 167, 30);
@@ -232,6 +257,7 @@ public class Check_Out {
 				Hash_Stock.stock_10 = Hash_Stock.stock_10 - Menu_page.Item_TenCounter;
 				Hash_Stock.stock_11 = Hash_Stock.stock_11 - Menu_page.Item_ElevenCounter;
 				Hash_Stock.stock_12 = Hash_Stock.stock_12 - Menu_page.Item_TwelveCounter;
+				// The twelve lines of code above, change the stock figures, once the customer confirms the check out.
 				System.exit(0);
 				Menu_page.Item_OneCounter = 0;
 				Menu_page.Item_TwoCounter = 0;
@@ -245,6 +271,7 @@ public class Check_Out {
 				Menu_page.Item_TenCounter = 0;
 				Menu_page.Item_ElevenCounter = 0;
 				Menu_page.Item_TwelveCounter = 0;
+				// The twelve lines above reset the count of how many of the product the customer is ordering.
 				
 			}
 		});

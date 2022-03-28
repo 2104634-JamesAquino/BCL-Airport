@@ -43,7 +43,7 @@ public class Seating_Plan {
 	public static HashSet<String> seatsReturn = new HashSet<String>();
 	/* this stores the selected ticket amount */
 	public static ArrayList<String> ticketAmountA = new ArrayList<String>();
-	public static int fDuration = 10000; /* this variable will contain how long the flight should be */
+	public static int fDuration = 570; /* this variable will contain how long the flight should be */
 	public static int ticketAmount_D; /* stores the ticket amounts for departure */
 	public static int ticketAmount_R; /* stores ticket amount for return */
 	public static int departandReturnTicket = 0; /* stores ticket amount for both departure and return */
@@ -80,7 +80,7 @@ public class Seating_Plan {
 		 * this method places values with variables depending on the duration of the
 		 * flight
 		 */
-		if (fDuration >= 0200) { /* if the flight duration is more then or equal to 2 hours */
+		if (fDuration >= 120) { /* if the flight duration is more then or equal to 2 hours */
 			seatDisplay = +1; /* adds 1 to seat display */
 			seatNumber = 84; /* total number of seats in boeing747 */
 
@@ -178,7 +178,7 @@ public class Seating_Plan {
 
 				if (loopSeatingPlan == 0) {
 
-					if (ticketAmount_D < 0) {
+					if (ticketAmount_D <= 0) {
 
 						JOptionPane.showMessageDialog(frame, "You cannot go bellow 0",
 								"Press the Plus button to go above 0", JOptionPane.ERROR_MESSAGE);
@@ -195,7 +195,7 @@ public class Seating_Plan {
 
 				else {
 
-					if (ticketAmount_R < 0) {
+					if (ticketAmount_R <= 0) {
 
 						JOptionPane.showMessageDialog(frame, "You cannot go bellow 0",
 								"Press the Plus button to go above 0", JOptionPane.ERROR_MESSAGE);
@@ -258,7 +258,7 @@ public class Seating_Plan {
 				}
 
 				if (loopSeatingPlan == 0) {
-					if (ticketAmount_D > seatNumber) {
+					if (ticketAmount_D >= seatNumber) {
 						/*
 						 * if ticketAmoutn is more then seatNumber then an error message should appear
 						 */
@@ -281,7 +281,7 @@ public class Seating_Plan {
 				}
 
 				else {
-					if (ticketAmount_R > seatNumber) {
+					if (ticketAmount_R >= seatNumber) {
 						/*
 						 * if ticketAmoutn is more then seatNumber then an error message should appear
 						 */
